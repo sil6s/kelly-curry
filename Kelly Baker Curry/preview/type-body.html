@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Type · Body & Eyebrow</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin: 0; padding: 36px 40px; background: #fff; }
+  .row { display: grid; grid-template-columns: 150px 1fr; gap: 28px; padding: 20px 0; border-top: 1px solid rgba(46,43,38,0.10); align-items: start; }
+  .row:first-child { border-top: 0; }
+  .label { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+  .specs { font-family: var(--font-ui); font-size: 0.7rem; color: var(--muted); margin-top: 4px; }
+  .body { font-family: var(--font-body); font-size: 0.92rem; line-height: 1.88; color: var(--muted); max-width: 60ch; }
+  .eyebrow { font-family: var(--font-ui); font-size: 0.7rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--clay); font-weight: 500; }
+  .caption { font-family: var(--font-ui); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div>
+      <div class="label">EYEBROW</div>
+      <div class="specs">0.7rem · 0.26em · CLAY</div>
+    </div>
+    <div class="eyebrow">Our Approach</div>
+  </div>
+  <div class="row">
+    <div>
+      <div class="label">BODY</div>
+      <div class="specs">Playfair · 400 · 0.92rem · 1.88</div>
+    </div>
+    <div class="body">Therapy is a relationship before it is anything else. We meet weekly, sometimes more, and we talk. Over time the patterns become visible, and once they are visible they can change.</div>
+  </div>
+  <div class="row">
+    <div>
+      <div class="label">LABEL</div>
+      <div class="specs">0.78rem · 0.18em · MUTED</div>
+    </div>
+    <div class="caption">Per Session · 50 Minutes</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Type · Display</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin: 0; padding: 36px 40px; background: #fff; }
+  .row { display: flex; align-items: baseline; gap: 28px; padding: 18px 0; border-top: 1px solid rgba(46,43,38,0.10); }
+  .row:first-child { border-top: 0; }
+  .meta { flex: 0 0 150px; }
+  .label { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+  .specs { font-family: var(--font-ui); font-size: 0.7rem; color: var(--muted); margin-top: 4px; letter-spacing: 0.04em; }
+  .demo { font-family: var(--font-display); color: var(--charcoal); line-height: 1.1; }
+  .h1 { font-size: 3rem; font-weight: 500; }
+  .h1 em { font-style: italic; font-weight: 400; }
+  .h2 { font-size: 2.1rem; font-weight: 500; }
+  .h3 { font-size: 1.3rem; font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="meta">
+      <div class="label">HERO H1</div>
+      <div class="specs">Playfair · 500 · 3rem</div>
+    </div>
+    <div class="demo h1">A practice that <em>heals</em>.</div>
+  </div>
+  <div class="row">
+    <div class="meta">
+      <div class="label">SECTION H2</div>
+      <div class="specs">Playfair · 500 · 2.1rem</div>
+    </div>
+    <div class="demo h2">Our approach to therapy</div>
+  </div>
+  <div class="row">
+    <div class="meta">
+      <div class="label">SUBHEAD H3</div>
+      <div class="specs">Playfair · 500 · 1.3rem</div>
+    </div>
+    <div class="demo h3">Couples & families</div>
+  </div>
+</body>
+</html>

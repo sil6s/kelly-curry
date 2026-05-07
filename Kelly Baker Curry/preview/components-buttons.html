@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Component · Pill Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin: 0; padding: 40px 48px; background: #fff; }
+  .label { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; }
+  .row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .pill { font-family: var(--font-ui); background: var(--dusty-rose); color: #fff; border: 0; border-radius: 30px; padding: 10px 24px; font-size: 0.75rem; letter-spacing: 0.08em; font-weight: 500; cursor: pointer; transition: background 280ms cubic-bezier(0.4,0,0.2,1); text-transform: uppercase; }
+  .pill:hover { background: var(--dusty-rose-dark); }
+  .pill.alt { background: var(--charcoal); }
+  .pill.alt:hover { background: #1c1a17; }
+  .ghost { font-family: var(--font-ui); background: transparent; color: var(--charcoal); border: 1px solid rgba(46,43,38,0.22); border-radius: 0; padding: 10px 22px; font-size: 0.75rem; letter-spacing: 0.08em; font-weight: 500; cursor: pointer; text-transform: uppercase; }
+  .meta { font-family: var(--font-ui); font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+  .item { display: flex; flex-direction: column; gap: 8px; }
+</style>
+</head>
+<body>
+  <div class="label">Buttons</div>
+  <div class="row">
+    <div class="item"><button class="pill">Schedule a Call</button><div class="meta">CTA · Dusty Rose</div></div>
+    <div class="item"><button class="pill alt">Schedule a Call</button><div class="meta">Alt · Charcoal</div></div>
+    <div class="item"><button class="ghost">Learn More</button><div class="meta">Ghost · Square</div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Component · Service Cards</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin: 0; padding: 0; background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; background: #c4a882; }
+  .card { background: #ede8df; padding: 46px 40px; transition: background 280ms cubic-bezier(0.4,0,0.2,1); cursor: pointer; min-height: 160px; }
+  .card:hover { background: #f5f0e8; }
+  .num { font-family: var(--font-display); font-size: 2rem; color: rgba(196,168,130,0.45); font-weight: 400; }
+  .t { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; color: var(--charcoal); margin-top: 22px; }
+  .body { font-family: var(--font-body); font-size: 0.86rem; color: var(--muted); line-height: 1.85; margin-top: 12px; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="card">
+      <div class="num">01</div>
+      <div class="t">Individuals</div>
+      <div class="body">Weekly sessions for adults navigating anxiety, grief, life transitions.</div>
+    </div>
+    <div class="card">
+      <div class="num">02</div>
+      <div class="t">Couples</div>
+      <div class="body">Emotionally focused work to repair connection and communication.</div>
+    </div>
+    <div class="card">
+      <div class="num">03</div>
+      <div class="t">Families</div>
+      <div class="body">Sessions held with parents, teens, or whole-family configurations.</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Color · Accents</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin: 0; padding: 24px; background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; background: #ede0c8; }
+  .sw { padding: 22px 18px 18px; min-height: 120px; display: flex; flex-direction: column; justify-content: space-between; color: #2e2b26; }
+  .sw.dark { color: #f5f0e8; }
+  .name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 500; }
+  .meta { font-family: var(--font-ui); font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.85; }
+  .hex { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.06em; opacity: 0.85; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="sw" style="background: #c4a882;">
+      <div class="meta">ACCENT · PRIMARY</div>
+      <div><div class="name">Clay</div><div class="hex">#C4A882</div></div>
+    </div>
+    <div class="sw dark" style="background: #a8896a;">
+      <div class="meta">ACCENT · DEEP</div>
+      <div><div class="name">Clay Dark</div><div class="hex">#A8896A</div></div>
+    </div>
+    <div class="sw dark" style="background: #7d8c76;">
+      <div class="meta">ACCENT · BOTANY</div>
+      <div><div class="name">Sage</div><div class="hex">#7D8C76</div></div>
+    </div>
+    <div class="sw" style="background: #c9a49a;">
+      <div class="meta">ACCENT · CTA</div>
+      <div><div class="name">Dusty Rose</div><div class="hex">#C9A49A</div></div>
+    </div>
+  </div>
+</body>
+</html>

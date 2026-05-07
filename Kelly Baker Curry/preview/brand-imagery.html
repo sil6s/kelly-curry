@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Brand · Imagery Style</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin: 0; padding: 0; background: #fff; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: #ede0c8; }
+  .img { aspect-ratio: 4 / 3; overflow: hidden; }
+  .img img, .img svg { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .meta { padding: 18px 24px; font-family: var(--font-ui); font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); background: #fff; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div>
+      <div class="img"><img src="../assets/illus-interior-warm.svg" alt=""/></div>
+      <div class="meta">Warm Interior · #c8bfb3 → #a89888</div>
+    </div>
+    <div>
+      <div class="img"><img src="../assets/illus-couch-band.svg" alt=""/></div>
+      <div class="meta">Sage Band · #3a5438 → #243a22</div>
+    </div>
+  </div>
+</body>
+</html>

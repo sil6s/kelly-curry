@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Spacing · The 3px Gap</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin: 0; padding: 36px 40px; background: #fff; }
+  .label { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  .demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; background: #c4a882; }
+  .cell { background: #ede8df; padding: 38px 24px; }
+  .cell .num { font-family: var(--font-display); font-size: 1.6rem; color: rgba(196,168,130,0.9); font-weight: 400; }
+  .cell .t { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--charcoal); margin-top: 16px; }
+  .note { font-family: var(--font-body); font-size: 0.82rem; color: var(--muted); margin-top: 18px; line-height: 1.7; max-width: 64ch; }
+</style>
+</head>
+<body>
+  <div class="label">Signature 3px Gap Divider</div>
+  <div class="demo">
+    <div class="cell"><div class="num">01</div><div class="t">Individuals</div></div>
+    <div class="cell"><div class="num">02</div><div class="t">Couples</div></div>
+    <div class="cell"><div class="num">03</div><div class="t">Families</div></div>
+  </div>
+  <div class="note">Service grids, fees, and office cards use a CSS grid with <code style="font-family:var(--font-ui);font-size:0.78rem">gap: 3px</code>. The gap reveals the warm clay underneath as a hairline divider, never as breathing room.</div>
+</body>
+</html>

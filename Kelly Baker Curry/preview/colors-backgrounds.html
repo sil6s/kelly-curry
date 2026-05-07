@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Color · Backgrounds</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin: 0; padding: 24px; background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; background: #ede0c8; }
+  .sw { padding: 22px 18px 18px; min-height: 120px; display: flex; flex-direction: column; justify-content: space-between; }
+  .name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 500; color: var(--charcoal); }
+  .meta { font-family: var(--font-ui); font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+  .hex { font-family: var(--font-ui); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em; }
+  .border-only { box-shadow: inset 0 0 0 1px rgba(46,43,38,0.10); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="sw border-only" style="background: #ffffff;">
+      <div class="meta">BG · BASE</div>
+      <div>
+        <div class="name">White</div>
+        <div class="hex">#FFFFFF</div>
+      </div>
+    </div>
+    <div class="sw" style="background: #faf8f4;">
+      <div class="meta">BG · SOFT</div>
+      <div>
+        <div class="name">Warm White</div>
+        <div class="hex">#FAF8F4</div>
+      </div>
+    </div>
+    <div class="sw" style="background: #f5f0e8;">
+      <div class="meta">BG · WARM</div>
+      <div>
+        <div class="name">Cream</div>
+        <div class="hex">#F5F0E8</div>
+      </div>
+    </div>
+    <div class="sw" style="background: #ede8df;">
+      <div class="meta">BG · CARD</div>
+      <div>
+        <div class="name">Linen</div>
+        <div class="hex">#EDE8DF</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

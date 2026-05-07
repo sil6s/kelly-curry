@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Color · Text & Dark</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin: 0; padding: 24px; background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; background: #ede0c8; }
+  .sw { padding: 22px 18px 18px; min-height: 120px; display: flex; flex-direction: column; justify-content: space-between; }
+  .sw.dark { color: #f5f0e8; }
+  .name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 500; }
+  .meta { font-family: var(--font-ui); font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.85; }
+  .hex { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.06em; opacity: 0.85; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="sw dark" style="background: #2e2b26;">
+      <div class="meta">FG · PRIMARY</div>
+      <div><div class="name">Charcoal</div><div class="hex">#2E2B26</div></div>
+    </div>
+    <div class="sw" style="background: #fff; color: #2e2b26; box-shadow: inset 0 0 0 1px rgba(46,43,38,0.10);">
+      <div class="meta" style="color:#7a7570;">FG · MUTED</div>
+      <div><div class="name" style="color:#7a7570;">Muted</div><div class="hex" style="color:#7a7570;">#7A7570</div></div>
+    </div>
+    <div class="sw dark" style="background: #28241f;">
+      <div class="meta">BG · FOOTER</div>
+      <div><div class="name">Footer Dark</div><div class="hex">#28241F</div></div>
+    </div>
+  </div>
+</body>
+</html>
