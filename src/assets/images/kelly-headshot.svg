@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-labelledby="title desc">
+  <title id="title">Kelly Baker Thomas headshot placeholder</title>
+  <desc id="desc">A soft circular neutral portrait placeholder for Kelly Baker Thomas.</desc>
+  <defs>
+    <linearGradient id="portraitWarm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d8cec2"/>
+      <stop offset="100%" stop-color="#b8a897"/>
+    </linearGradient>
+  </defs>
+  <circle cx="110" cy="110" r="110" fill="url(#portraitWarm)"/>
+  <circle cx="110" cy="86" r="38" fill="#7d8c76" opacity="0.42"/>
+  <path d="M 48 188 C 60 142, 86 124, 110 124 C 134 124, 160 142, 172 188 Z" fill="#4a3d30" opacity="0.42"/>
+  <circle cx="160" cy="58" r="46" fill="#c4a882" opacity="0.18"/>
+</svg>

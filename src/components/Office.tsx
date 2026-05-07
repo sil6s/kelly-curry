@@ -1,5 +1,5 @@
 import { SectionEyebrow } from './Atoms';
-import styles from './Website.module.css';
+import styles from '../styles/Website.module.css';
 
 export default function Office() {
   return (

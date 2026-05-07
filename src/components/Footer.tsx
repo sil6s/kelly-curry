@@ -1,5 +1,5 @@
 import LogoMark from './LogoMark';
-import styles from './Website.module.css';
+import styles from '../styles/Website.module.css';
 
 export default function Footer() {
   return (
@@ -11,7 +11,7 @@ export default function Footer() {
             Kelly Baker Thomas
           </div>
           <div className={styles['kbc-footer-descriptor']}>
-            Licensed Therapist
+            Licensed Clinical Social Worker (Kentucky)
           </div>
         </div>
         <div className={styles['kbc-footer-col']}>

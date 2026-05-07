@@ -1,5 +1,5 @@
-import SiteShell from '@/components/SiteShell';
+import Home from '@/src/pages/Home';
 
 export default function Page() {
-  return <SiteShell />;
+  return <Home />;
 }
