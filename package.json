@@ -1,0 +1,30 @@
+{
+  "name": "kelly-baker-thomas",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --check .",
+    "format:write": "prettier --write ."
+  },
+  "dependencies": {
+    "next": "14.2.33",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.3",
+    "@types/react": "18.3.20",
+    "@types/react-dom": "18.3.6",
+    "eslint": "8.57.1",
+    "eslint-config-next": "14.2.33",
+    "prettier": "3.5.3",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
