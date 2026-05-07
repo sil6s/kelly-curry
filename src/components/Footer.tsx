@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
         <div className={styles['kbc-footer-col']}>
           <div className={styles['kbc-footer-col-head']}>Contact</div>
-          <p>hello@kellybakercurry.com</p>
+          <p>hello@kellybakerthomas.com</p>
           <p>(859) 555 0102</p>
         </div>
       </div>
