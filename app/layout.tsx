@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Kelly Baker Curry · LCSW Talk Therapy',
+  title: 'Kelly Baker Thomas · LCSW Talk Therapy',
   description:
     'Thoughtful, relational therapy for individuals, couples, and families in Fort Thomas, Kentucky.',
 };

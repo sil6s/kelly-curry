@@ -7,7 +7,9 @@ export default function Footer() {
       <div className={styles['kbc-footer-grid']}>
         <div className={styles['kbc-footer-brand']}>
           <LogoMark className={styles['kbc-footer-logo-mark']} />
-          <div className={styles['kbc-footer-wordmark']}>Kelly Baker Curry</div>
+          <div className={styles['kbc-footer-wordmark']}>
+            Kelly Baker Thomas
+          </div>
           <div className={styles['kbc-footer-descriptor']}>
             Licensed Therapist
           </div>
@@ -35,7 +37,7 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles['kbc-footer-base']}>
-        <div>© 2025 Kelly Baker Curry, LCSW</div>
+        <div>© 2025 Kelly Baker Thomas, LCSW</div>
         <div>Licensed in Kentucky and Ohio</div>
       </div>
     </footer>

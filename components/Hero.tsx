@@ -1,7 +1,11 @@
 import { PillButton, SectionEyebrow } from './Atoms';
 import styles from './Website.module.css';
 
-export default function Hero() {
+export default function Hero({
+  onRequestConsultation,
+}: {
+  onRequestConsultation: () => void;
+}) {
   return (
     <section className={styles['kbc-hero']} id="top">
       <div className={styles['kbc-hero-grid']}>
@@ -16,7 +20,9 @@ export default function Hero() {
             Kentucky and Ohio.
           </p>
           <div className={styles['kbc-hero-cta']}>
-            <PillButton href="#contact">Schedule a Call</PillButton>
+            <PillButton onClick={onRequestConsultation}>
+              Schedule a Call
+            </PillButton>
             <a href="#approach" className={styles['kbc-link-quiet']}>
               Learn about the approach
             </a>

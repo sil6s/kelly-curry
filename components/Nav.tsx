@@ -27,7 +27,7 @@ export default function Nav() {
       <a href="#top" className={styles['kbc-nav-brand']}>
         <LogoMark />
         <span className={styles['kbc-nav-brand-text']}>
-          <span className={styles['kbc-nav-wordmark']}>Kelly Baker Curry</span>
+          <span className={styles['kbc-nav-wordmark']}>Kelly Baker Thomas</span>
           <span className={styles['kbc-nav-descriptor']}>
             Licensed Therapist
           </span>

@@ -1,5 +1,5 @@
 /* =========================================================
-   Kelly Baker Curry — Website Component Styles
+   Kelly Baker Thomas — Website Component Styles
    ========================================================= */
 
 /* ---------- NAV ---------- */
@@ -219,6 +219,66 @@
   padding-left: 4px;
 }
 
+/* ---------- MEET KELLY ---------- */
+.kbc-meet {
+  background: var(--warm-white);
+  padding: 120px 56px;
+}
+.kbc-meet-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 72px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  align-items: center;
+}
+.kbc-meet-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--linen);
+}
+.kbc-meet-photo-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.kbc-meet-text .kbc-h2 {
+  max-width: 22ch;
+}
+.kbc-meet-role {
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 16px;
+  font-weight: 500;
+}
+.kbc-credential-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 28px;
+  margin: 28px 0 0;
+  padding-left: 18px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.kbc-meet-tags {
+  display: inline-block;
+  margin-top: 28px;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  border-top: 1px solid rgba(46, 43, 38, 0.16);
+  padding-top: 14px;
+}
+
 /* ---------- APPROACH ---------- */
 .kbc-approach {
   background: var(--cream);
@@ -362,7 +422,7 @@
 }
 .kbc-fee-block {
   background: var(--white);
-  padding: 52px 30px 48px;
+  padding: 48px 30px;
   text-align: center;
 }
 .kbc-fee-amount {
@@ -379,13 +439,57 @@
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 500;
-  margin-top: 22px;
+  margin-bottom: 22px;
 }
 .kbc-fee-sub {
   font-family: var(--font-body);
   font-size: 0.78rem;
   color: var(--muted);
   margin-top: 8px;
+}
+.kbc-fee-included {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 24px auto 0;
+  max-width: 28ch;
+}
+.kbc-fee-included span {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clay-dark);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.kbc-payment-insurance {
+  max-width: var(--container-max);
+  margin: 64px auto 0;
+  background: var(--white);
+  padding: 48px 44px;
+}
+.kbc-payment-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin: 0 0 30px;
+}
+.kbc-payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+}
+.kbc-payment-note {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 28px 0 0;
 }
 
 .kbc-insurance {
@@ -487,6 +591,78 @@
   margin-top: 14px;
 }
 
+/* ---------- LOCATION & ARRIVAL ---------- */
+.kbc-location {
+  background: var(--warm-white);
+  padding: 120px 56px;
+}
+.kbc-location-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 72px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  align-items: center;
+}
+.kbc-location-subtitle {
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 16px;
+  font-weight: 500;
+}
+.kbc-location-block {
+  margin-top: 34px;
+}
+.kbc-location-label {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clay);
+  font-weight: 500;
+}
+.kbc-location-address {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  line-height: 1.85;
+  color: var(--charcoal);
+  margin: 12px 0 0;
+}
+.kbc-location-lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+  margin-top: 34px;
+}
+.kbc-location-list {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.kbc-location-actions {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+.kbc-location-map {
+  background: var(--linen);
+  padding: 3px;
+}
+.kbc-location-map-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 0.93;
+}
+
 /* ---------- CONTACT ---------- */
 .kbc-contact {
   background: var(--cream);
@@ -521,7 +697,8 @@
   font-weight: 500;
 }
 .kbc-field input,
-.kbc-field textarea {
+.kbc-field textarea,
+.kbc-field select {
   font-family: var(--font-body);
   font-size: 0.92rem;
   color: var(--charcoal);
@@ -534,7 +711,8 @@
   transition: border-color var(--dur) var(--ease);
 }
 .kbc-field input:focus,
-.kbc-field textarea:focus {
+.kbc-field textarea:focus,
+.kbc-field select:focus {
   border-color: var(--clay-dark);
 }
 .kbc-contact-form .kbc-pill {
@@ -544,6 +722,80 @@
 .kbc-contact-confirm {
   background: var(--white);
   padding: 60px 48px;
+}
+
+/* ---------- CONSULTATION MODAL ---------- */
+.kbc-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(46, 43, 38, 0.32);
+  animation: kbc-fade-in 180ms var(--ease);
+}
+.kbc-modal {
+  position: relative;
+  width: min(100%, 560px);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  background: var(--warm-white);
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(46, 43, 38, 0.22);
+  padding: 44px 42px;
+  animation: kbc-modal-in 220ms var(--ease);
+}
+.kbc-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.kbc-modal-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.5vw, 2.35rem);
+  font-weight: 500;
+  color: var(--charcoal);
+  margin: 16px 0 28px;
+}
+.kbc-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.kbc-modal-form .kbc-pill {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+.kbc-modal-success {
+  padding: 22px 0 8px;
+}
+@keyframes kbc-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes kbc-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* ---------- FOOTER ---------- */
@@ -634,11 +886,15 @@
     display: none;
   }
   .kbc-hero-grid,
+  .kbc-meet-grid,
   .kbc-approach-grid,
   .kbc-contact-grid,
   .kbc-services-grid,
   .kbc-fees-grid,
+  .kbc-payment-grid,
   .kbc-office-grid,
+  .kbc-location-grid,
+  .kbc-location-lists,
   .kbc-info-strip,
   .kbc-footer-grid {
     grid-template-columns: 1fr;
@@ -658,12 +914,24 @@
   .kbc-approach-text {
     padding: 48px 24px;
   }
+  .kbc-meet,
   .kbc-services,
   .kbc-fees,
   .kbc-office,
+  .kbc-location,
   .kbc-contact {
     padding-left: 24px;
     padding-right: 24px;
+  }
+  .kbc-meet-photo {
+    width: 180px;
+    height: 180px;
+  }
+  .kbc-credential-list {
+    grid-template-columns: 1fr;
+  }
+  .kbc-payment-insurance {
+    padding: 36px 28px;
   }
   .kbc-footer {
     padding: 60px 24px 24px;
