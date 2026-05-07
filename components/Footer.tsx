@@ -1,3 +1,4 @@
+import LogoMark from './LogoMark';
 import styles from './Website.module.css';
 
 export default function Footer() {
@@ -5,22 +6,10 @@ export default function Footer() {
     <footer className={styles['kbc-footer']}>
       <div className={styles['kbc-footer-grid']}>
         <div className={styles['kbc-footer-brand']}>
-          <svg viewBox="0 0 36 32" width="32" height="32" aria-hidden="true">
-            <path
-              d="M 18 4 C 8 6, 2 18, 4 30 C 14 30, 26 22, 28 10 C 28 8, 24 4, 18 4 Z"
-              fill="#7d8c76"
-            />
-            <path
-              d="M 6 28 C 10 22, 16 16, 24 12"
-              stroke="#28241f"
-              strokeWidth="0.8"
-              fill="none"
-              opacity="0.6"
-            />
-          </svg>
+          <LogoMark className={styles['kbc-footer-logo-mark']} />
           <div className={styles['kbc-footer-wordmark']}>Kelly Baker Curry</div>
           <div className={styles['kbc-footer-descriptor']}>
-            LCSW · Talk Therapy
+            Licensed Therapist
           </div>
         </div>
         <div className={styles['kbc-footer-col']}>
@@ -33,7 +22,7 @@ export default function Footer() {
         <div className={styles['kbc-footer-col']}>
           <div className={styles['kbc-footer-col-head']}>Visit</div>
           <p>
-            142 N Fort Thomas Ave
+            337 Tower Hill Rd
             <br />
             Fort Thomas, KY 41075
           </p>

@@ -92,7 +92,7 @@ export default function Office() {
         <div className={styles['kbc-info-cell']}>
           <div className={styles['kbc-info-label']}>Address</div>
           <div className={styles['kbc-info-value']}>
-            142 N Fort Thomas Ave
+            337 Tower Hill Rd
             <br />
             Fort Thomas, KY 41075
           </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import LogoMark from './LogoMark';
 import styles from './Website.module.css';
 
 const links = [
@@ -24,20 +25,13 @@ export default function Nav() {
       className={`${styles['kbc-nav']} ${scrolled ? styles['kbc-nav-scrolled'] : ''}`}
     >
       <a href="#top" className={styles['kbc-nav-brand']}>
-        <svg viewBox="0 0 36 32" width="28" height="28" aria-hidden="true">
-          <path
-            d="M 18 4 C 8 6, 2 18, 4 30 C 14 30, 26 22, 28 10 C 28 8, 24 4, 18 4 Z"
-            fill="#7d8c76"
-          />
-          <path
-            d="M 6 28 C 10 22, 16 16, 24 12"
-            stroke="#faf8f4"
-            strokeWidth="0.8"
-            fill="none"
-            opacity="0.8"
-          />
-        </svg>
-        <span className={styles['kbc-nav-wordmark']}>Kelly Baker Curry</span>
+        <LogoMark />
+        <span className={styles['kbc-nav-brand-text']}>
+          <span className={styles['kbc-nav-wordmark']}>Kelly Baker Curry</span>
+          <span className={styles['kbc-nav-descriptor']}>
+            Licensed Therapist
+          </span>
+        </span>
       </a>
       <div className={styles['kbc-nav-links']}>
         {links.map((l) => (
