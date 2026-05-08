@@ -2467,20 +2467,6 @@
 .kbc-services-hero-clean .kbc-body {
   max-width: 72ch;
 }
-.kbc-services-hero-pattern {
-  position: absolute;
-  right: max(24px, calc((100vw - var(--container-max)) / 2));
-  bottom: 28px;
-  width: min(420px, 42vw);
-  color: var(--clay);
-  opacity: 0.16;
-  pointer-events: none;
-}
-.kbc-services-hero-pattern svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
 .kbc-service-section {
   padding-top: 104px;
   padding-bottom: 104px;
@@ -2494,16 +2480,6 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-}
-.kbc-service-section-image {
-  width: 100%;
-  max-width: 380px;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 4px;
-  background: var(--linen);
-  display: block;
 }
 
 .kbc-contact {
@@ -2639,11 +2615,6 @@
     padding-top: 96px;
     padding-bottom: 96px;
   }
-  .kbc-services-hero-pattern {
-    width: 72vw;
-    right: -18vw;
-    bottom: 18px;
-  }
   .kbc-service-section {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -2651,9 +2622,6 @@
   .kbc-service-section-grid {
     grid-template-columns: 1fr;
     gap: 32px;
-  }
-  .kbc-service-section-image {
-    max-width: none;
   }
   .kbc-contact-stacked .kbc-contact-text {
     text-align: left;
@@ -2681,5 +2649,211 @@
   .kbc-contact-options-section {
     padding-top: 72px;
     padding-bottom: 72px;
+  }
+}
+
+/* ---------- CONSOLIDATED CONSULTATION + RESOURCES REFINEMENTS ---------- */
+.kbc-modal:has(.kbc-contact-form-wrap) {
+  width: min(100%, 760px);
+}
+.kbc-modal .kbc-contact-form-wrap {
+  box-shadow: none;
+}
+.kbc-modal .kbc-contact-form {
+  padding: 32px;
+}
+
+.kbc-resources-preview-inner {
+  max-width: var(--container-max);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 56px;
+  align-items: center;
+  text-align: left;
+}
+.kbc-resources-preview-copy {
+  max-width: 680px;
+}
+.kbc-resources-preview-cta {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.kbc-contact-stacked {
+  max-width: var(--container-max);
+}
+.kbc-contact-stacked .kbc-contact-text {
+  text-align: left;
+  max-width: 700px;
+}
+.kbc-contact-stacked .kbc-h2,
+.kbc-contact-stacked .kbc-body {
+  margin-left: 0;
+  margin-right: 0;
+}
+.kbc-contact-stacked .kbc-contact-form-wrap {
+  max-width: 760px;
+}
+.kbc-contact-alt {
+  justify-content: flex-start;
+  text-align: left;
+}
+.kbc-contact-page-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 24px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.kbc-service-section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 56px;
+  align-items: start;
+}
+.kbc-service-pricing-card {
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 30px 28px;
+  min-height: 180px;
+}
+.kbc-service-pricing-amount {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 4vw, 3.4rem);
+  line-height: 1;
+  color: var(--charcoal);
+  font-weight: 400;
+}
+.kbc-service-pricing-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.kbc-service-pay-label {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 7px 12px;
+  background: var(--linen);
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clay-dark);
+  font-weight: 500;
+}
+.kbc-service-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+.kbc-service-content-card,
+.kbc-resource-info-card {
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 32px 28px;
+}
+.kbc-service-content-title {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin: 0 0 16px;
+}
+.kbc-service-card-list {
+  margin: 0;
+  padding-left: 18px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.85;
+  color: var(--muted);
+}
+.kbc-service-card-list li + li {
+  margin-top: 6px;
+}
+.kbc-service-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 24px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.kbc-resource-card-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--clay-dark);
+  background: rgba(196, 168, 130, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 18px;
+}
+.kbc-resource-card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.kbc-resource-file-type {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 18px 0 16px;
+}
+.kbc-resources-two-column,
+.kbc-resource-payment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;
+  margin-top: 36px;
+}
+.kbc-resource-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+.kbc-resource-pricing-grid .kbc-service-pricing-card {
+  min-height: 220px;
+}
+
+@media (max-width: 880px) {
+  .kbc-resources-preview-inner,
+  .kbc-service-section-head,
+  .kbc-service-card-grid,
+  .kbc-resources-two-column,
+  .kbc-resource-payment-grid,
+  .kbc-resource-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .kbc-service-pricing-card,
+  .kbc-contact-stacked .kbc-contact-form-wrap {
+    max-width: none;
+  }
+}
+@media (max-width: 640px) {
+  .kbc-modal .kbc-contact-form {
+    padding: 28px 20px;
+  }
+  .kbc-contact-page-cta-row,
+  .kbc-service-actions,
+  .kbc-resources-preview-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kbc-contact-page-cta-row .kbc-pill,
+  .kbc-service-actions .kbc-pill,
+  .kbc-resources-preview-cta .kbc-pill {
+    text-align: center;
   }
 }

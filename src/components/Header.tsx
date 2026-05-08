@@ -8,7 +8,7 @@ const links: Array<{ label: string; href: string }> = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'Approach', href: '/approach' },
-  { label: 'Fees & Insurance', href: '/fees-insurance' },
+  { label: 'Patient Resources', href: '/patient-resources' },
   { label: 'Contact', href: '/contact' },
 ];
 

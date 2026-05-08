@@ -1,7 +1,7 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import ConsultationForm from '../components/ConsultationForm';
+import { useState } from 'react';
+import ConsultationModal from '../components/ConsultationModal';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import {
@@ -28,19 +28,11 @@ const PARKING = [
 ];
 
 export default function ContactPage() {
-  const formRef = useRef<HTMLDivElement>(null);
-  const [formVisible, setFormVisible] = useState(false);
-
-  function scrollToForm() {
-    setFormVisible(true);
-    setTimeout(() => {
-      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 50);
-  }
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
 
   return (
     <>
-      <Header />
+      <Header onRequestConsultation={() => setIsConsultationOpen(true)} />
       <main className={styles['kbc-contact-page']}>
         {/* Hero */}
         <section className={styles['kbc-contact-page-hero']}>
@@ -142,7 +134,7 @@ export default function ContactPage() {
               <button
                 type="button"
                 className={styles['kbc-contact-option-card']}
-                onClick={scrollToForm}
+                onClick={() => setIsConsultationOpen(true)}
               >
                 <div className={styles['kbc-contact-option-icon']}>
                   <svg viewBox="0 0 40 40" aria-hidden="true">
@@ -224,32 +216,40 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Consultation form */}
+        {/* Primary consultation CTA */}
         <section
-          ref={formRef}
-          className={`${styles['kbc-contact-form-section']} ${formVisible ? styles['kbc-contact-form-section-visible'] : ''}`}
+          className={styles['kbc-contact-form-section']}
           id="consultation-form"
         >
           <div className={styles['kbc-contact-form-inner']}>
             <div className={styles['kbc-eyebrow']}>Request a Consultation</div>
             <h2 className={styles['kbc-h2']} style={{ marginBottom: '16px' }}>
-              Tell Kelly a little <em>about yourself.</em>
+              Begin with the same consultation flow.
             </h2>
             <p className={styles['kbc-body']}>
-              Use the form for consultation requests. Kelly will personally
-              follow up about fit, availability, and next steps.
+              Use the consultation button to open the same multi-step form used
+              throughout the site. If you would rather not fill out the form,
+              email Kelly directly.
             </p>
-            <ConsultationForm successMessage="Thank you for reaching out. Kelly will personally follow up to discuss fit, availability, and next steps." />
-            <div className={styles['kbc-contact-alt']}>
-              <span>Prefer not to fill out a form?</span>
+            <div className={styles['kbc-contact-page-cta-row']}>
+              <button
+                type="button"
+                className={styles['kbc-pill']}
+                onClick={() => setIsConsultationOpen(true)}
+              >
+                Schedule a Consultation
+              </button>
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 className={styles['kbc-link-quiet']}
               >
-                Email Kelly
+                Reach out here
               </a>
-              <a href="/fees-insurance" className={styles['kbc-link-quiet']}>
-                Questions about fees or insurance? View details here.
+              <a
+                href="/patient-resources#fees-payment"
+                className={styles['kbc-link-quiet']}
+              >
+                View fees &amp; insurance
               </a>
             </div>
           </div>
@@ -322,6 +322,10 @@ export default function ContactPage() {
         </section>
       </main>
       <Footer />
+      <ConsultationModal
+        isOpen={isConsultationOpen}
+        onClose={() => setIsConsultationOpen(false)}
+      />
     </>
   );
 }

@@ -1,13 +1,70 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
-import therapyStock from '../assets/images/therapy-stock.jpg';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import ConsultationModal from '../components/ConsultationModal';
 import { SectionEyebrow } from '../components/Atoms';
 import styles from '../styles/Website.module.css';
+
+const FORMS = [
+  {
+    title: 'New Client Intake Form',
+    description:
+      'Share basic history, contact information, and what brings you to therapy.',
+    type: 'PDF',
+    href: '/forms/new-client-intake-form.pdf',
+  },
+  {
+    title: 'Consent for Treatment',
+    description:
+      'Review practice expectations, informed consent, and client rights.',
+    type: 'PDF',
+    href: '/forms/consent-for-treatment.pdf',
+  },
+  {
+    title: 'Privacy Practices (HIPAA)',
+    description: 'Learn how your health information is protected and used.',
+    type: 'PDF',
+    href: '/forms/privacy-practices-hipaa.pdf',
+  },
+  {
+    title: 'Telehealth Consent',
+    description:
+      'Complete this if you plan to meet virtually from Kentucky or Ohio.',
+    type: 'PDF',
+    href: '/forms/telehealth-consent.pdf',
+  },
+];
+
+const PRICING = [
+  {
+    title: 'Individual Therapy',
+    price: '$165',
+    duration: '50 minutes',
+    note: 'per session',
+  },
+  {
+    title: 'Couples Therapy',
+    price: '$195',
+    duration: '50 minutes',
+    note: 'per session',
+    payOnly: 'Cash pay only',
+  },
+  {
+    title: 'Family Therapy',
+    price: '$210',
+    duration: '60 minutes',
+    note: 'per session',
+    payOnly: 'Cash pay only',
+  },
+];
+
+const EXPECTATIONS = [
+  'Complete requested forms before your first appointment when possible.',
+  'If you are unsure what applies to you, bring questions to the consultation or first session.',
+  'Kelly will review fit, scheduling, fees, and next steps before ongoing work begins.',
+];
 
 export default function PatientResourcesPage() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
@@ -16,159 +73,177 @@ export default function PatientResourcesPage() {
     <>
       <Header onRequestConsultation={() => setIsConsultationOpen(true)} />
       <main className={styles['kbc-page']}>
-        {/* Hero */}
         <section className={styles['kbc-page-hero']}>
           <div className={styles['kbc-page-inner']}>
             <SectionEyebrow>Patient Resources</SectionEyebrow>
-            <h1 className={styles['kbc-h1']} style={{ maxWidth: '20ch' }}>
-              Everything you need to <em>get started</em>.
+            <h1 className={styles['kbc-h1']} style={{ maxWidth: '18ch' }}>
+              Patient Resources
             </h1>
             <p className={styles['kbc-body']}>
-              Forms, intake information, billing details, and helpful guidance
-              for beginning therapy with Kelly Baker Curry.
+              Find intake forms, fees, payment information, and simple guidance
+              for preparing for your first session. Forms can be completed
+              before your appointment so the first meeting can feel more settled
+              and focused.
             </p>
           </div>
         </section>
 
-        {/* Photo band */}
-        <div className={styles['kbc-page-photo-band']}>
-          <Image
-            src={therapyStock}
-            alt="A calm, welcoming therapy setting"
-            className={styles['kbc-page-photo-band-img']}
-            placeholder="blur"
-            sizes="100vw"
-          />
-        </div>
-
-        {/* Intake Forms */}
-        <div className={styles['kbc-page-section-wrap']}>
+        <section className={styles['kbc-page-section-wrap']}>
           <div className={styles['kbc-page-section']}>
-            <SectionEyebrow>Intake Documents</SectionEyebrow>
-            <h2 className={styles['kbc-page-h2']}>Intake forms and documents</h2>
+            <SectionEyebrow>Forms</SectionEyebrow>
+            <h2 className={styles['kbc-page-h2']}>
+              Intake forms and documents.
+            </h2>
             <p className={styles['kbc-body']}>
-              Before your first session, you may be asked to complete some
-              paperwork. Forms will be provided directly by the practice. Please
-              contact Kelly to receive your intake documents.
+              These documents help Kelly understand your needs and explain the
+              practice policies before care begins. If a form is not yet
+              available to download, reach out and Kelly will send the right
+              paperwork directly.
             </p>
             <div className={styles['kbc-resources-form-grid']}>
-              <div className={styles['kbc-resources-form-card']}>
-                <div className={styles['kbc-resources-form-card-title']}>
-                  New Client Intake Form
+              {FORMS.map((form) => (
+                <div
+                  key={form.title}
+                  className={styles['kbc-resources-form-card']}
+                >
+                  <div
+                    className={styles['kbc-resource-card-icon']}
+                    aria-hidden="true"
+                  >
+                    <svg viewBox="0 0 40 40" fill="none">
+                      <path
+                        d="M12 6H24L30 12V34H12V6Z"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      />
+                      <path
+                        d="M24 6V13H30"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      />
+                      <path
+                        d="M16 20H26M16 25H26M16 30H22"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>
+                  <div className={styles['kbc-resources-form-card-title']}>
+                    {form.title}
+                  </div>
+                  <p className={styles['kbc-resources-form-card-body']}>
+                    {form.description}
+                  </p>
+                  <div className={styles['kbc-resource-file-type']}>
+                    {form.type}
+                  </div>
+                  <a href={form.href} download className={styles['kbc-pill']}>
+                    Download
+                  </a>
                 </div>
-                <p className={styles['kbc-resources-form-card-body']}>
-                  Complete before your first appointment.
-                </p>
-                <a href="/contact" className={styles['kbc-link-quiet']}>
-                  Contact to Request
-                </a>
-              </div>
-              <div className={styles['kbc-resources-form-card']}>
-                <div className={styles['kbc-resources-form-card-title']}>
-                  Consent for Treatment
-                </div>
-                <p className={styles['kbc-resources-form-card-body']}>
-                  Reviews the terms and policies of therapy.
-                </p>
-                <a href="/contact" className={styles['kbc-link-quiet']}>
-                  Contact to Request
-                </a>
-              </div>
-              <div className={styles['kbc-resources-form-card']}>
-                <div className={styles['kbc-resources-form-card-title']}>
-                  HIPAA Notice / Privacy Practices
-                </div>
-                <p className={styles['kbc-resources-form-card-body']}>
-                  Explains how your information is handled.
-                </p>
-                <a href="/contact" className={styles['kbc-link-quiet']}>
-                  Contact to Request
-                </a>
-              </div>
-              <div className={styles['kbc-resources-form-card']}>
-                <div className={styles['kbc-resources-form-card-title']}>
-                  Release of Information
-                </div>
-                <p className={styles['kbc-resources-form-card-body']}>
-                  Required if Kelly is communicating with other providers.
-                </p>
-                <a href="/contact" className={styles['kbc-link-quiet']}>
-                  Contact to Request
-                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles['kbc-page-section-wrap-linen']}>
+          <div className={styles['kbc-page-section']}>
+            <SectionEyebrow>What to Expect</SectionEyebrow>
+            <h2 className={styles['kbc-page-h2']}>
+              Before your first session.
+            </h2>
+            <div className={styles['kbc-resources-two-column']}>
+              <p className={styles['kbc-body']}>
+                Intake paperwork gives Kelly the basic information needed to
+                begin thoughtfully. You do not need to have everything figured
+                out before you arrive — the first conversation will help clarify
+                what support should look like.
+              </p>
+              <div className={styles['kbc-resource-info-card']}>
+                <ul className={styles['kbc-service-card-list']}>
+                  {EXPECTATIONS.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Before Your First Session */}
-        <div>
+        <section className={styles['kbc-page-section-wrap']} id="fees-payment">
           <div className={styles['kbc-page-section']}>
-            <SectionEyebrow>Preparing for Therapy</SectionEyebrow>
+            <SectionEyebrow>Fees &amp; Payment</SectionEyebrow>
             <h2 className={styles['kbc-page-h2']}>
-              Before your <em>first session</em>.
-            </h2>
-            <ul className={styles['kbc-body']} style={{ marginTop: '20px', paddingLeft: '1.4em' }}>
-              <li>Complete any requested intake paperwork before your appointment.</li>
-              <li>Bring questions about billing, scheduling, or your goals for therapy.</li>
-              <li>
-                Think about what led you to seek support now — there are no
-                wrong answers.
-              </li>
-              <li>
-                You do not need to know exactly where to begin. That is what
-                the first session is for.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Billing and Insurance */}
-        <div className={styles['kbc-page-section-wrap-linen']}>
-          <div className={styles['kbc-page-section']}>
-            <SectionEyebrow>Billing &amp; Insurance</SectionEyebrow>
-            <h2 className={styles['kbc-page-h2']}>
-              Rates and <em>insurance</em>.
+              Clear rates, simple billing.
             </h2>
             <p className={styles['kbc-body']}>
-              Individual therapy is $165 per 50-minute session. Couples therapy
-              is $195 per 50-minute session. Family therapy is $210 per
-              60-minute session. Most clients begin with weekly sessions.
+              Most clients begin with weekly sessions. Payment is typically due
+              at the time of service unless another arrangement has been made.
             </p>
-            <p className={styles['kbc-body']}>
-              Kelly is in network with Aetna, United Healthcare, UMR, Custom
-              Design Benefits, MedBen, and Anthem / BCBS. A superbill can also
-              be provided for out-of-network reimbursement. Payment is accepted
-              by credit/debit card, HSA/FSA, ACH bank transfer, cash, or check.
-            </p>
-            <p className={styles['kbc-body']}>
-              Please reach out with any questions about payment, insurance
-              verification, or superbill documentation.
-            </p>
-            <div style={{ marginTop: '28px' }}>
-              <a href="/contact" className={styles['kbc-pill']}>
-                Contact Kelly
-              </a>
+            <div className={styles['kbc-resource-pricing-grid']}>
+              {PRICING.map((item) => (
+                <div
+                  key={item.title}
+                  className={styles['kbc-service-pricing-card']}
+                >
+                  <div className={styles['kbc-fee-label']}>{item.title}</div>
+                  <div className={styles['kbc-service-pricing-amount']}>
+                    {item.price}
+                  </div>
+                  <div className={styles['kbc-service-pricing-meta']}>
+                    <span>{item.duration}</span>
+                    <span>{item.note}</span>
+                  </div>
+                  {item.payOnly ? (
+                    <div className={styles['kbc-service-pay-label']}>
+                      {item.payOnly}
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+
+            <div className={styles['kbc-resource-payment-grid']}>
+              <div className={styles['kbc-resource-info-card']}>
+                <h3 className={styles['kbc-service-content-title']}>
+                  Payment information
+                </h3>
+                <p className={styles['kbc-service-section-sub']}>
+                  Credit/debit cards, HSA/FSA cards, ACH bank transfer, cash,
+                  and check are accepted. Kelly is in network with select plans,
+                  and can provide superbills when appropriate.
+                </p>
+              </div>
+              <div className={styles['kbc-resource-info-card']}>
+                <h3 className={styles['kbc-service-content-title']}>
+                  Policies
+                </h3>
+                <p className={styles['kbc-service-section-sub']}>
+                  Please provide at least 24 hours notice for cancellations when
+                  possible. Late cancellations and missed sessions may be billed
+                  according to practice policy and your signed consent forms.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Crisis Note */}
-        <div className={styles['kbc-page-section']}>
+        <section className={styles['kbc-page-section']}>
           <div className={styles['kbc-crisis-note']}>
             This practice contact form and email are not monitored for
             emergencies. If you are in immediate danger or experiencing a
             crisis, please call 911, go to the nearest emergency room, or
             contact 988 (Suicide and Crisis Lifeline) for immediate support.
           </div>
-        </div>
+        </section>
 
-        {/* CTA */}
         <div className={styles['kbc-page-cta-section']}>
-          <SectionEyebrow>Get Started</SectionEyebrow>
-          <h2 className={styles['kbc-h2']}>Ready to begin?</h2>
+          <SectionEyebrow>Ready to get started?</SectionEyebrow>
+          <h2 className={styles['kbc-h2']}>Ready to get started?</h2>
           <p className={styles['kbc-body']}>
-            Reach out to request intake documents or ask any questions about
-            getting started. Kelly personally responds to all inquiries.
+            Use the same consultation flow to share what you are looking for, or
+            contact Kelly directly with questions about forms, fees, or fit.
           </p>
           <div className={styles['kbc-page-cta-actions']}>
             <button
@@ -187,7 +262,6 @@ export default function PatientResourcesPage() {
             </a>
           </div>
         </div>
-
       </main>
       <Footer />
       <ConsultationModal
