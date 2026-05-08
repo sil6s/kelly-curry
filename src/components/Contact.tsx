@@ -14,7 +14,7 @@ const INSURANCE_OPTIONS = [
   'Anthem / BCBS',
 ];
 
-const STEP_LABELS = ['Contact', 'Preferences', 'Payment', 'Your Story', 'Review'];
+const STEP_LABELS = ['Contact', 'Preferences', 'Payment', 'Your Message', 'Review'];
 
 type FormData = {
   name: string;
@@ -116,18 +116,19 @@ export default function Contact() {
             Reach out for a brief, <em>free</em> consultation.
           </h2>
           <p className={styles['kbc-body']}>
-            Taking the first step can feel vulnerable. You do not need to have
-            the perfect words.
+            Reaching out can feel like a big step, and you do not need to have
+            everything figured out. Whether you have a question or are ready to
+            get started, you are welcome to reach out. Share a little about
+            what you are looking for, and Kelly will follow up to talk through
+            next steps.
           </p>
           <p className={styles['kbc-body']}>
-            This is a one-person practice. Kelly will follow up about
-            availability, fit, and next steps — she may not always have
-            immediate availability.
+            This is a small, one-person practice, so availability can vary.
+            Kelly will personally follow up to talk through options and next
+            steps.
           </p>
           <div className={styles['kbc-crisis-note']}>
-            If this is an emergency, call 911 or contact a crisis resource
-            immediately. Please avoid sharing urgent clinical details in this
-            form.
+            If this is an emergency, please call 911.
           </div>
         </div>
 
@@ -319,11 +320,11 @@ export default function Contact() {
             {step === 4 && (
               <>
                 <h3 className={styles['kbc-step-heading']}>
-                  What brings you here?
+                  Your message
                 </h3>
                 <label className={styles['kbc-field']}>
                   <span className={styles['kbc-field-label']}>
-                    In a few words, what brings you here?
+                    What would you like to reach out about?
                   </span>
                   <input
                     type="text"
@@ -334,8 +335,7 @@ export default function Contact() {
                 </label>
                 <label className={styles['kbc-field']}>
                   <span className={styles['kbc-field-label']}>
-                    Anything you would like me to know before we speak
-                    (optional)
+                    Anything else you would like Kelly to know (optional)
                   </span>
                   <textarea
                     rows={4}

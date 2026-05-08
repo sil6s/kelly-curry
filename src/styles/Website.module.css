@@ -2,6 +2,12 @@
    Kelly Baker Curry — Website Component Styles
    ========================================================= */
 
+/* ---------- BASE OVERFLOW FIX ---------- */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 /* ---------- NAV ---------- */
 .kbc-nav {
   position: sticky;
@@ -1712,5 +1718,268 @@
   .kbc-page-cta-section {
     padding-left: 24px;
     padding-right: 24px;
+  }
+}
+
+/* ---------- HAMBURGER BUTTON ---------- */
+.kbc-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+}
+.kbc-hamburger span {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 22px;
+}
+.kbc-hamburger span > span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition: transform 200ms var(--ease), opacity 200ms var(--ease);
+  flex-direction: unset;
+  gap: 0;
+}
+.kbc-hamburger-open > span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.kbc-hamburger-open > span:nth-child(2) {
+  opacity: 0;
+}
+.kbc-hamburger-open > span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ---------- MOBILE MENU ---------- */
+.kbc-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 80px 32px 48px;
+  overflow-y: auto;
+}
+.kbc-mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.kbc-mobile-menu-link {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  text-decoration: none;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(46, 43, 38, 0.08);
+  transition: color var(--dur) var(--ease);
+}
+.kbc-mobile-menu-link:hover {
+  color: var(--clay-dark);
+}
+.kbc-mobile-menu-cta {
+  margin-top: 36px;
+  width: 100%;
+  text-align: center;
+  padding: 14px 24px;
+}
+
+/* ---------- OFFICE MAP ---------- */
+.kbc-office-map-wrap {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+}
+.kbc-office-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border: 0;
+}
+
+/* ---------- LOCATION MAP (real embed) ---------- */
+.kbc-location-map-real {
+  background: var(--linen);
+  padding: 3px;
+  min-height: 380px;
+}
+.kbc-location-map-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border: 0;
+}
+
+/* ---------- LOCATION DETAILS TOGGLE ---------- */
+.kbc-location-details-toggle {
+  margin-top: 28px;
+}
+.kbc-details-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  border-bottom: 1px solid rgba(46, 43, 38, 0.22);
+  padding-bottom: 4px;
+  transition: color var(--dur) var(--ease);
+}
+.kbc-details-toggle-btn:hover {
+  color: var(--clay-dark);
+}
+
+/* ---------- CONTACT PAGE ADDITIONS ---------- */
+.kbc-contact-page-avail-note {
+  margin-top: 14px;
+}
+.kbc-contact-directions-details {
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 20px 24px;
+  background: var(--white);
+}
+.kbc-contact-directions-summary {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  cursor: pointer;
+  list-style: none;
+  font-weight: 500;
+}
+.kbc-contact-directions-summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ---------- SERVICES PAGE ADDITIONS ---------- */
+.kbc-service-section-price {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 10px;
+  font-weight: 500;
+}
+.kbc-service-section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(46, 43, 38, 0.08);
+}
+.kbc-service-section-sub {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.82;
+  color: var(--muted);
+  margin: 0;
+}
+.kbc-service-concerns-list {
+  padding-left: 18px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.9;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------- SERVICE BULLET LIST (home preview) ---------- */
+.kbc-service-bullet-list {
+  padding-left: 16px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin: 0;
+}
+.kbc-service-bullet-list li {
+  margin-bottom: 3px;
+}
+
+/* ---------- MOBILE RESPONSIVE ADDITIONS ---------- */
+@media (max-width: 880px) {
+  .kbc-hamburger {
+    display: flex;
+  }
+  .kbc-nav-links {
+    display: none;
+  }
+  .kbc-nav {
+    padding: 16px 20px;
+  }
+  .kbc-hero-grid {
+    padding: 40px 20px 0;
+  }
+  .kbc-hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kbc-hero-cta .kbc-pill,
+  .kbc-hero-cta a {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .kbc-helpwith-categories {
+    grid-template-columns: 1fr 1fr;
+  }
+  .kbc-location-map-real {
+    min-height: 260px;
+  }
+  .kbc-location-map-iframe {
+    min-height: 260px;
+  }
+  .kbc-service-section-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .kbc-step-nav .kbc-pill {
+    width: 100%;
+    text-align: center;
+  }
+  .kbc-process-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kbc-process-cta .kbc-pill {
+    text-align: center;
+  }
+  .kbc-location-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kbc-location-actions .kbc-pill {
+    text-align: center;
+  }
+  .kbc-office-map-wrap,
+  .kbc-office-map {
+    min-height: 220px;
+  }
+  .kbc-contact-page-form {
+    padding: 40px 20px;
   }
 }

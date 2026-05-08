@@ -36,9 +36,20 @@ export default function ContactPage() {
             <div className={styles['kbc-eyebrow']}>Contact</div>
             <h1 className={styles['kbc-h1']}>Get in Touch</h1>
             <p className={styles['kbc-body']}>
-              You’re welcome to reach out with questions or to request a
-              consultation.
+              Reaching out can feel like a big step, and you do not need to
+              have everything figured out. Whether you have a question or are
+              ready to get started, you are welcome to reach out. Share a
+              little about what you are looking for, and Kelly will follow up
+              to talk through next steps.
             </p>
+            <p className={`${styles['kbc-body']} ${styles['kbc-contact-page-avail-note']}`}>
+              This is a small, one-person practice, so availability can vary.
+              Kelly will personally follow up to talk through options and next
+              steps.
+            </p>
+            <div className={styles['kbc-crisis-note']} style={{ marginTop: '28px' }}>
+              If this is an emergency, please call 911.
+            </div>
           </div>
         </section>
 
@@ -83,29 +94,34 @@ export default function ContactPage() {
         </section>
 
         <section className={styles['kbc-contact-page-section']}>
-          <div className={styles['kbc-contact-page-grid']}>
-            <div>
-              <h2 className={styles['kbc-h2']}>Finding the Office</h2>
-              <ul className={styles['kbc-location-list']}>
-                {FINDING_THE_OFFICE.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+          <details className={styles['kbc-contact-directions-details']}>
+            <summary className={styles['kbc-contact-directions-summary']}>
+              Directions &amp; Parking
+            </summary>
+            <div className={styles['kbc-contact-page-grid']} style={{ marginTop: '28px' }}>
+              <div>
+                <div className={styles['kbc-location-label']}>Finding the Office</div>
+                <ul className={styles['kbc-location-list']}>
+                  {FINDING_THE_OFFICE.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <div className={styles['kbc-location-label']}>Parking</div>
+                <ul className={styles['kbc-location-list']}>
+                  {PARKING.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div>
-              <div className={styles['kbc-location-label']}>Parking</div>
-              <ul className={styles['kbc-location-list']}>
-                {PARKING.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          </details>
         </section>
 
         <section className={styles['kbc-contact-page-section']}>
           <div className={styles['kbc-contact-page-form']}>
-            <h2 className={styles['kbc-h2']}>Request Consultation</h2>
+            <h2 className={styles['kbc-h2']}>Request a Consultation</h2>
             <ConsultationForm />
           </div>
         </section>

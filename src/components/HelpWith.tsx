@@ -43,8 +43,17 @@ const CATEGORIES = [
     items: [
       'Self-worth and confidence',
       'Purpose and direction',
-      'Depression',
+      'People-pleasing patterns',
+      'Finding your footing',
+    ],
+  },
+  {
+    label: 'Depression & Trauma',
+    items: [
+      'Persistent low mood',
       'Trauma-informed support',
+      'Emotional numbness',
+      'Healing at your own pace',
     ],
   },
 ];

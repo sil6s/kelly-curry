@@ -11,7 +11,7 @@ export default function Footer() {
             Kelly Baker Curry
           </div>
           <div className={styles['kbc-footer-descriptor']}>
-            Licensed Clinical Social Worker (Kentucky)
+            Licensed in Kentucky and Ohio
           </div>
         </div>
         <div className={styles['kbc-footer-col']}>
@@ -20,10 +20,6 @@ export default function Footer() {
           <a href="/services">Services</a>
           <a href="/approach">Approach</a>
           <a href="/#fees">Fees &amp; Insurance</a>
-        </div>
-        <div className={styles['kbc-footer-col']}>
-          <div className={styles['kbc-footer-col-head']}>Resources</div>
-          <a href="/patient-resources">Patient Resources</a>
           <a href="/contact">Contact</a>
         </div>
         <div className={styles['kbc-footer-col']}>
@@ -34,11 +30,12 @@ export default function Footer() {
             Fort Thomas, KY 41075
           </p>
           <p>Mon to Thu, 9am to 6pm</p>
+          <p>Virtual sessions Friday</p>
         </div>
         <div className={styles['kbc-footer-col']}>
           <div className={styles['kbc-footer-col-head']}>Contact</div>
-          <p>hello@kellybakercurry.com</p>
-          <p>(859) 555 0102</p>
+          <a href="mailto:hello@kellybakercurry.com">hello@kellybakercurry.com</a>
+          <a href="tel:+18595550102">(859) 555 0102</a>
         </div>
       </div>
       <div className={styles['kbc-footer-base']}>
