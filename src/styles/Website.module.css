@@ -2078,6 +2078,71 @@
   margin-left: 16px;
 }
 
+/* ---------- HERO PHOTO (real image) ---------- */
+.kbc-photo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 6 / 7;
+  object-fit: cover;
+}
+
+/* ---------- MEET KELLY PHOTO (circular) ---------- */
+.kbc-meet-photo {
+  position: relative;
+}
+
+/* ---------- ABOUT PAGE HERO ---------- */
+.kbc-about-hero-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.kbc-about-hero-photo {
+  border-radius: 4px;
+  overflow: hidden;
+}
+.kbc-about-hero-photo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+}
+@media (max-width: 880px) {
+  .kbc-about-hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .kbc-about-hero-photo {
+    max-width: 320px;
+  }
+}
+
+/* ---------- PAGE PHOTO BAND ---------- */
+.kbc-page-photo-band {
+  overflow: hidden;
+  max-height: 440px;
+}
+.kbc-page-photo-band-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 440px;
+}
+@media (max-width: 880px) {
+  .kbc-page-photo-band {
+    max-height: 280px;
+  }
+  .kbc-page-photo-band-img {
+    max-height: 280px;
+  }
+}
+
 /* ---------- CARE FOCUS LIST ---------- */
 .kbc-care-focus-list {
   margin: 0;

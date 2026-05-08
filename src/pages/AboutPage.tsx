@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import headshot from '../assets/images/kelly-baker-curry-headshot.jpg';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import ConsultationModal from '../components/ConsultationModal';
@@ -17,14 +19,28 @@ export default function AboutPage() {
 
         {/* Hero */}
         <section className={styles['kbc-page-hero']}>
-          <div className={styles['kbc-page-inner']}>
-            <SectionEyebrow>About Kelly</SectionEyebrow>
-            <h1 className={styles['kbc-h1']} style={{ maxWidth: '22ch' }}>
-              Kelly Baker Curry, <em>MSW, MEd, LCSW</em>
-            </h1>
-            <p className={styles['kbc-body']}>
-              Licensed Clinical Social Worker serving Kentucky and Ohio
-            </p>
+          <div className={styles['kbc-about-hero-inner']}>
+            <div className={styles['kbc-about-hero-text']}>
+              <SectionEyebrow>About Kelly</SectionEyebrow>
+              <h1 className={styles['kbc-h1']} style={{ maxWidth: '22ch' }}>
+                Kelly Baker Curry, <em>MSW, MEd, LCSW</em>
+              </h1>
+              <p className={styles['kbc-body']}>
+                Licensed Clinical Social Worker with over 13 years of
+                experience serving individuals, couples, and families in
+                Kentucky and Ohio.
+              </p>
+            </div>
+            <div className={styles['kbc-about-hero-photo']}>
+              <Image
+                src={headshot}
+                alt="Kelly Baker Curry, Licensed Clinical Social Worker"
+                className={styles['kbc-about-hero-photo-img']}
+                placeholder="blur"
+                sizes="(max-width: 880px) 100vw, 44vw"
+                priority
+              />
+            </div>
           </div>
         </section>
 
