@@ -8,7 +8,6 @@ import {
   CalendarIcon,
   MailIcon,
   MessageIcon,
-  PhoneIcon,
   UserIcon,
 } from './icons';
 import styles from '../styles/Website.module.css';
@@ -18,22 +17,19 @@ type ConsultationFormProps = {
 };
 
 export default function ConsultationForm({
-  successMessage = 'Thank you for reaching out. I’ll respond as soon as I’m able.',
+  successMessage = "Thank you for reaching out. I'll respond as soon as I'm able.",
 }: ConsultationFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     name: '',
     email: '',
-    phone: '',
     appointmentType: 'In-person',
     message: '',
   });
 
   function update(field: keyof typeof form) {
     return (
-      event: ChangeEvent<
-        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-      >,
+      event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
     ) => setForm({ ...form, [field]: event.target.value });
   }
 
@@ -68,13 +64,6 @@ export default function ConsultationForm({
         required
         value={form.email}
         onChange={update('email')}
-      />
-      <InputField
-        label="Phone (optional)"
-        icon={<PhoneIcon />}
-        type="tel"
-        value={form.phone}
-        onChange={update('phone')}
       />
       <InputField
         kind="select"

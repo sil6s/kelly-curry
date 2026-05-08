@@ -49,9 +49,6 @@ export default function Hero({
             sizes="(max-width: 880px) 100vw, 50vw"
             priority
           />
-          <div className={styles['kbc-photo-caption']}>
-            The Fort Thomas office. In person sessions Monday through Thursday.
-          </div>
         </div>
       </div>
     </section>

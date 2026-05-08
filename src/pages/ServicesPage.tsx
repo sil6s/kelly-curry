@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
+import therapyStock from '../assets/images/therapy-stock.jpg';
 import healingHero from '../assets/images/healing-hero.jpg';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -9,7 +10,20 @@ import ConsultationModal from '../components/ConsultationModal';
 import { SectionEyebrow } from '../components/Atoms';
 import styles from '../styles/Website.module.css';
 
-const SERVICES = [
+type Service = {
+  num: string;
+  title: string;
+  price: string;
+  duration: string;
+  overview: string;
+  whoFor: string;
+  whatToExpect: string;
+  concerns: string[];
+  image: StaticImageData;
+  imageAlt: string;
+};
+
+const SERVICES: Service[] = [
   {
     num: '01',
     title: 'Individual Therapy',
@@ -31,6 +45,8 @@ const SERVICES = [
       'Emotional regulation',
       'Depression',
     ],
+    image: therapyStock,
+    imageAlt: 'A calm therapy setting',
   },
   {
     num: '02',
@@ -51,6 +67,8 @@ const SERVICES = [
       'Navigating transitions',
       'Premarital support',
     ],
+    image: healingHero,
+    imageAlt: 'A welcoming office space',
   },
   {
     num: '03',
@@ -71,6 +89,8 @@ const SERVICES = [
       'Life transitions',
       'Sibling dynamics',
     ],
+    image: therapyStock,
+    imageAlt: 'A supportive therapy environment',
   },
 ];
 
@@ -81,7 +101,21 @@ export default function ServicesPage() {
     <>
       <Header onRequestConsultation={() => setIsConsultationOpen(true)} />
       <main className={styles['kbc-page']}>
-        <section className={styles['kbc-page-hero']}>
+
+        {/* Hero — text-led, with subtle SVG pattern */}
+        <section className={styles['kbc-page-hero']} style={{ position: 'relative', overflow: 'hidden' }}>
+          <svg
+            aria-hidden="true"
+            className={styles['kbc-services-hero-pattern']}
+            viewBox="0 0 500 500"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="460" cy="70" r="110" stroke="#c4a882" strokeWidth="1" opacity="0.14" />
+            <circle cx="460" cy="70" r="200" stroke="#c4a882" strokeWidth="1" opacity="0.09" />
+            <circle cx="460" cy="70" r="310" stroke="#c4a882" strokeWidth="0.8" opacity="0.06" />
+            <circle cx="460" cy="70" r="420" stroke="#c4a882" strokeWidth="0.6" opacity="0.04" />
+          </svg>
           <div className={styles['kbc-page-inner']}>
             <SectionEyebrow>Services</SectionEyebrow>
             <h1 className={styles['kbc-h1']} style={{ maxWidth: '20ch' }}>
@@ -94,17 +128,6 @@ export default function ServicesPage() {
             </p>
           </div>
         </section>
-
-        {/* Photo band below hero */}
-        <div className={styles['kbc-page-photo-band']}>
-          <Image
-            src={healingHero}
-            alt="A welcoming therapy office"
-            className={styles['kbc-page-photo-band-img']}
-            placeholder="blur"
-            sizes="100vw"
-          />
-        </div>
 
         {SERVICES.map((service, i) => (
           <div
@@ -134,6 +157,15 @@ export default function ServicesPage() {
                   <p className={styles['kbc-service-section-sub']}>{service.whatToExpect}</p>
                 </div>
                 <div>
+                  <div className={styles['kbc-service-section-img-wrap']}>
+                    <Image
+                      src={service.image}
+                      alt={service.imageAlt}
+                      className={styles['kbc-service-section-img']}
+                      placeholder="blur"
+                      sizes="(max-width: 880px) 100vw, 45vw"
+                    />
+                  </div>
                   <div className={styles['kbc-service-reasons-label']} style={{ marginBottom: '10px' }}>
                     Common concerns
                   </div>
@@ -157,6 +189,7 @@ export default function ServicesPage() {
             </div>
           </div>
         ))}
+
         {/* CTA */}
         <div className={styles['kbc-page-cta-section']}>
           <SectionEyebrow>Get Started</SectionEyebrow>

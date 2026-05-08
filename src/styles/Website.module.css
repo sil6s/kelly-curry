@@ -370,6 +370,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background: #2e4a2c;
 }
 .kbc-couch-bg {
   position: absolute;
@@ -2434,5 +2435,221 @@
   }
   .kbc-contact-form-section {
     padding: 60px 24px;
+  }
+}
+
+/* =========================================================
+   HOMEPAGE CONTACT — CENTERED V2 LAYOUT
+   ========================================================= */
+.kbc-contact-v2-section {
+  background: var(--cream);
+  padding: 100px 56px;
+}
+.kbc-contact-v2-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.kbc-contact-v2-header {
+  margin-bottom: 40px;
+}
+.kbc-contact-v2-header .kbc-h2 {
+  max-width: none;
+}
+.kbc-contact-v2-header .kbc-body {
+  max-width: none;
+}
+.kbc-contact-v2-card {
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.12);
+  overflow: hidden;
+}
+.kbc-contact-v2-success {
+  padding: 48px 44px;
+}
+.kbc-contact-v2-alt {
+  margin-top: 24px;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.75;
+  text-align: center;
+}
+.kbc-contact-v2-alt .kbc-link-quiet {
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+}
+@media (max-width: 880px) {
+  .kbc-contact-v2-section {
+    padding: 72px 24px;
+  }
+}
+
+/* =========================================================
+   SERVICES PAGE — HERO PATTERN + SERVICE IMAGES
+   ========================================================= */
+.kbc-services-hero-pattern {
+  position: absolute;
+  top: -60px;
+  right: -80px;
+  width: 520px;
+  height: 520px;
+  pointer-events: none;
+  user-select: none;
+}
+.kbc-service-section-img-wrap {
+  margin-bottom: 28px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.kbc-service-section-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+@media (max-width: 880px) {
+  .kbc-services-hero-pattern {
+    width: 280px;
+    height: 280px;
+    top: -20px;
+    right: -40px;
+    opacity: 0.6;
+  }
+}
+
+/* =========================================================
+   CONTACT PAGE — REFACTORED LAYOUT
+   ========================================================= */
+.kbc-contact-page-hero-inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+.kbc-contact-crisis-alert {
+  margin-top: 24px;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  line-height: 1.75;
+  color: var(--charcoal);
+  background: var(--linen);
+  border-left: 3px solid var(--clay);
+  padding: 16px 20px;
+  max-width: 52ch;
+}
+
+/* Primary form section */
+.kbc-contact-form-primary-section {
+  background: var(--white);
+  padding: 100px 56px;
+}
+.kbc-contact-form-primary-inner {
+  max-width: 660px;
+  margin: 0 auto;
+}
+.kbc-contact-form-primary-inner .kbc-h2 {
+  max-width: none;
+}
+.kbc-contact-form-primary-card {
+  background: var(--warm-white);
+  border: 1px solid rgba(46, 43, 38, 0.10);
+  padding: 36px 40px 44px;
+  margin-top: 8px;
+}
+.kbc-contact-form-primary-card .kbc-modal-form {
+  gap: 24px;
+}
+.kbc-contact-form-primary-alt {
+  margin-top: 20px;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.kbc-contact-form-primary-alt .kbc-link-quiet {
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+}
+.kbc-contact-form-primary-fees-ref {
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.kbc-contact-form-primary-fees-ref .kbc-link-quiet {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+}
+
+/* Secondary contact options */
+.kbc-contact-alt-section {
+  background: var(--cream);
+  padding: 80px 56px;
+}
+.kbc-contact-alt-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.kbc-contact-alt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  background: rgba(46, 43, 38, 0.10);
+}
+.kbc-contact-alt-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--linen);
+  padding: 32px 28px;
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--dur) var(--ease);
+}
+.kbc-contact-alt-card:hover {
+  background: var(--warm-white);
+}
+
+/* Location section */
+.kbc-contact-location-section {
+  background: var(--white);
+  padding: 100px 56px;
+}
+.kbc-contact-location-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.kbc-contact-location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+@media (max-width: 880px) {
+  .kbc-contact-form-primary-section {
+    padding: 72px 24px;
+  }
+  .kbc-contact-form-primary-card {
+    padding: 28px 24px 36px;
+  }
+  .kbc-contact-alt-section {
+    padding: 64px 24px;
+  }
+  .kbc-contact-alt-grid {
+    grid-template-columns: 1fr;
+  }
+  .kbc-contact-location-section {
+    padding: 72px 24px;
+  }
+  .kbc-contact-location-grid {
+    grid-template-columns: 1fr;
+  }
+  .kbc-contact-page-hero-inner {
+    max-width: 100%;
+  }
+}
+@media (max-width: 640px) {
+  .kbc-contact-alt-grid {
+    grid-template-columns: 1fr;
   }
 }
