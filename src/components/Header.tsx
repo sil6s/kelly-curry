@@ -5,7 +5,7 @@ import LogoMark from './LogoMark';
 import styles from '../styles/Website.module.css';
 
 const links: Array<{ label: string; href: string }> = [
-  { label: 'About', href: '/#meet-kelly' },
+  { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'Approach', href: '/approach' },
   { label: 'Fees & Insurance', href: '/#fees' },

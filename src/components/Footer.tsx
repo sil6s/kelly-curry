@@ -16,7 +16,7 @@ export default function Footer() {
         </div>
         <div className={styles['kbc-footer-col']}>
           <div className={styles['kbc-footer-col-head']}>Practice</div>
-          <a href="/#meet-kelly">About</a>
+          <a href="/about">About</a>
           <a href="/services">Services</a>
           <a href="/approach">Approach</a>
           <a href="/#fees">Fees &amp; Insurance</a>
