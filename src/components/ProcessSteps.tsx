@@ -4,7 +4,7 @@ import styles from '../styles/Website.module.css';
 const STEPS = [
   {
     num: '01',
-    title: 'Send a message',
+    title: 'Reach out',
     body: 'Share a little about what you are looking for and the best way to contact you.',
   },
   {

@@ -100,7 +100,14 @@ export default function MeetKelly() {
             <div className={styles['kbc-meet-cred-card']}>
               <div className={styles['kbc-meet-cred-card-label']}>Care Focus</div>
               <div className={styles['kbc-meet-cred-card-body']}>
-                Individuals, couples, and family therapy
+                <ul className={styles['kbc-care-focus-list']}>
+                  <li>Individual therapy</li>
+                  <li>Couples therapy</li>
+                  <li>Family therapy</li>
+                  <li>Anxiety &amp; stress</li>
+                  <li>Life transitions</li>
+                  <li>Relationship patterns</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -109,7 +116,7 @@ export default function MeetKelly() {
             In-person • Telehealth • Fort Thomas, KY
           </div>
           <div className={styles['kbc-meet-cta']}>
-            <a href="/services" className={styles['kbc-link-quiet']}>
+            <a href="/about" className={styles['kbc-link-quiet']}>
               Learn more →
             </a>
           </div>

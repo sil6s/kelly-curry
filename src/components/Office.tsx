@@ -79,7 +79,7 @@ export default function Office() {
         <div className={styles['kbc-info-cell']}>
           <div className={styles['kbc-info-label']}>Contact</div>
           <div className={styles['kbc-info-value']}>
-            hello@kellybakercurry.com
+            contact@kbc-therapy.com
             <br />
             (859) 555 0102
           </div>

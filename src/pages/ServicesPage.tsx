@@ -93,8 +93,11 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {SERVICES.map((service) => (
-          <div key={service.num} className={styles['kbc-service-section']}>
+        {SERVICES.map((service, i) => (
+          <div
+            key={service.num}
+            className={`${styles['kbc-service-section']} ${i % 2 === 1 ? styles['kbc-service-section-alt'] : ''}`}
+          >
             <div className={styles['kbc-service-section-inner']}>
               <SectionEyebrow>{service.num}</SectionEyebrow>
               <h2 className={styles['kbc-page-h2']}>{service.title}</h2>
