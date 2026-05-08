@@ -1,4 +1,4 @@
-import ConsultationForm from './ConsultationForm';
+import ConsultationFlow from './ConsultationFlow';
 import Modal from './Modal';
 import styles from '../styles/Website.module.css';
 
@@ -17,7 +17,7 @@ export default function ConsultationModal({
       <h2 className={styles['kbc-modal-title']} id="consultation-title">
         Request Consultation
       </h2>
-      <ConsultationForm />
+      <ConsultationFlow />
     </Modal>
   );
 }

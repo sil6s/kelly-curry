@@ -34,12 +34,12 @@ export default function SiteShell() {
           onRequestConsultation={() => setIsConsultationOpen(true)}
         />
         <PatientResourcesPreview />
+        <Contact />
         <Fees />
         <Office />
         <LocationArrival
           onRequestConsultation={() => setIsConsultationOpen(true)}
         />
-        <Contact />
       </main>
       <Footer />
       <ConsultationModal

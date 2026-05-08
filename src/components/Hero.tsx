@@ -14,7 +14,8 @@ export default function Hero({
         <div className={styles['kbc-hero-text']}>
           <SectionEyebrow>Talk Therapy in Fort Thomas, Kentucky</SectionEyebrow>
           <h1 className={styles['kbc-h1']}>
-            A calm, supportive space to <em>heal</em>, grow, and feel more like yourself.
+            A calm, supportive space to <em>heal</em>, grow, and feel more like
+            yourself.
           </h1>
           <p className={styles['kbc-hero-body']}>
             Therapy for individuals, couples, and families in Fort Thomas,
@@ -36,9 +37,6 @@ export default function Hero({
               View Services
             </a>
           </div>
-          <p className={styles['kbc-hero-trust']}>
-            Licensed Clinical Social Worker
-          </p>
         </div>
         <div className={styles['kbc-hero-photo']}>
           <Image
@@ -49,9 +47,6 @@ export default function Hero({
             sizes="(max-width: 880px) 100vw, 50vw"
             priority
           />
-          <div className={styles['kbc-photo-caption']}>
-            The Fort Thomas office. In person sessions Monday through Thursday.
-          </div>
         </div>
       </div>
     </section>
