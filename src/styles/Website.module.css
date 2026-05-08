@@ -2,12 +2,6 @@
    Kelly Baker Curry — Website Component Styles
    ========================================================= */
 
-/* ---------- BASE OVERFLOW FIX ---------- */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
 /* ---------- NAV ---------- */
 .kbc-nav {
   position: sticky;
