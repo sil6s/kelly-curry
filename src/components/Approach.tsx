@@ -4,19 +4,19 @@ import styles from '../styles/Website.module.css';
 const APPROACH_CARDS = [
   {
     title: 'Relationship-centered care',
-    body: 'Sessions are grounded in the therapeutic relationship — safety and trust come first.',
+    body: 'Sessions are grounded in the therapeutic relationship. Safety and trust come before anything else.',
   },
   {
     title: 'Honest, compassionate conversations',
-    body: 'Direct, warm dialogue that meets you where you are without judgment.',
+    body: 'Direct, warm dialogue that meets you where you are — without judgment, without a script.',
   },
   {
-    title: 'Support for real-life change',
-    body: 'Practical tools alongside deeper insight, building healthier ways of relating.',
+    title: 'Practical support for change',
+    body: 'Real tools alongside deeper insight, building healthier ways of relating and responding.',
   },
   {
     title: 'A pace that respects your story',
-    body: 'No predetermined timeline. The work moves at a pace that feels safe and meaningful.',
+    body: 'No predetermined timeline. The work moves at a pace that feels safe and meaningful to you.',
   },
 ];
 

@@ -39,7 +39,8 @@ export default function ApproachPage() {
             <p className={styles['kbc-body']}>
               Kelly&apos;s approach is warm, direct, and relationship-centered.
               The work is grounded in honesty, trust, and a genuine belief that
-              change is possible.
+              understanding your own patterns is the foundation of meaningful
+              change.
             </p>
           </div>
         </section>

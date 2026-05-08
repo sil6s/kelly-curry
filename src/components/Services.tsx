@@ -6,19 +6,37 @@ const SERVICES = [
     num: '01',
     title: 'Individuals',
     body: 'Weekly sessions for adults navigating anxiety, grief, life transitions, and the slow work of self-understanding.',
-    reasons: 'Anxiety & stress, Grief and loss, Life transitions, Burnout, Self-worth and identity, Emotional patterns',
+    bullets: [
+      'Anxiety & stress',
+      'Grief and loss',
+      'Life transitions',
+      'Burnout and overwhelm',
+      'Self-worth and identity',
+    ],
   },
   {
     num: '02',
     title: 'Couples',
-    body: 'Emotionally focused work to repair connection and communication. Held together, never with sides.',
-    reasons: 'Communication patterns, Conflict cycles, Disconnection, Trust, Intimacy concerns, Navigating change',
+    body: 'Emotionally focused work to repair connection and communication — held together, never with sides.',
+    bullets: [
+      'Communication patterns',
+      'Conflict cycles',
+      'Disconnection and distance',
+      'Trust and intimacy',
+      'Navigating change together',
+    ],
   },
   {
     num: '03',
     title: 'Families',
     body: 'Sessions with parents, teens, or whole family configurations. Pace and structure adapt to who is in the room.',
-    reasons: 'Family conflict, Boundaries, Parenting dynamics, Communication, Life transitions, Relationship repair',
+    bullets: [
+      'Family conflict',
+      'Parenting dynamics',
+      'Boundaries and roles',
+      'Communication breakdown',
+      'Life transitions',
+    ],
   },
 ];
 
@@ -41,7 +59,11 @@ export default function Services() {
               <div className={styles['kbc-service-reasons-label']}>
                 Common reasons people come in
               </div>
-              <p className={styles['kbc-service-reasons-list']}>{s.reasons}</p>
+              <ul className={styles['kbc-service-bullet-list']}>
+                {s.bullets.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
             </div>
             <a href="/services" className={styles['kbc-service-cta']}>
               Learn more →

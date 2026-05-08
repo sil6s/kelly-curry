@@ -33,13 +33,9 @@ export default function Hero({
             >
               View Services
             </a>
-            <a href="/approach" className={styles['kbc-link-quiet']}>
-              Learn about the approach
-            </a>
           </div>
           <p className={styles['kbc-hero-trust']}>
-            Licensed clinical social worker serving Fort Thomas and surrounding
-            Northern Kentucky communities.
+            Licensed Clinical Social Worker serving Kentucky and Ohio
           </p>
         </div>
         <div className={styles['kbc-hero-photo']}>

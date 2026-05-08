@@ -48,9 +48,9 @@ export default function Fees() {
           Clear rates. <em>Honest</em> billing.
         </h2>
         <p className={`${styles['kbc-body']} ${styles['kbc-fees-intro']}`}>
-          Sessions are billed at the rates below. I am in network with several
-          major insurers, and I am happy to provide a superbill for out of
-          network reimbursement.
+          Most clients begin with weekly sessions. Sessions are billed at the
+          rates below. Kelly is in network with several major insurers, and is
+          happy to provide a superbill for out-of-network reimbursement.
         </p>
       </div>
       <div className={styles['kbc-fees-grid']}>
