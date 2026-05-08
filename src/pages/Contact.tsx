@@ -1,8 +1,9 @@
+'use client';
+
+import { useRef, useState } from 'react';
 import ConsultationForm from '../components/ConsultationForm';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import Button from '../components/Button';
-import Card from '../components/Card';
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
@@ -27,59 +28,153 @@ const PARKING = [
 ];
 
 export default function ContactPage() {
+  const formRef = useRef<HTMLDivElement>(null);
+  const [formVisible, setFormVisible] = useState(false);
+
+  function scrollToForm() {
+    setFormVisible(true);
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  }
+
   return (
     <>
       <Header />
       <main className={styles['kbc-contact-page']}>
+
+        {/* Hero */}
         <section className={styles['kbc-contact-page-hero']}>
           <div className={styles['kbc-contact-page-inner']}>
             <div className={styles['kbc-eyebrow']}>Contact</div>
-            <h1 className={styles['kbc-h1']}>Get in Touch</h1>
+            <h1 className={styles['kbc-h1']} style={{ maxWidth: '20ch' }}>
+              Reach out — <em>we&rsquo;ll take it from here.</em>
+            </h1>
             <p className={styles['kbc-body']}>
-              Reaching out can feel like a big step, and you do not need to
-              have everything figured out. Whether you have a question or are
-              ready to get started, you are welcome to reach out. Share a
-              little about what you are looking for, and Kelly will follow up
-              to talk through next steps.
-            </p>
-            <p className={`${styles['kbc-body']} ${styles['kbc-contact-page-avail-note']}`}>
-              This is a small, one-person practice, so availability can vary.
-              Kelly will personally follow up to talk through options and next
-              steps.
+              Choose the option that feels most comfortable. Kelly personally
+              responds to all inquiries and will follow up about fit,
+              availability, and next steps.
             </p>
             <div className={styles['kbc-crisis-note']} style={{ marginTop: '28px' }}>
-              If this is an emergency, please call 911.
+              If this is an emergency, please call 911 or 988 (Crisis Lifeline).
             </div>
           </div>
         </section>
 
-        <section className={styles['kbc-contact-page-section']}>
-          <div className={styles['kbc-contact-page-grid']}>
-            <Card className={styles['kbc-contact-method-card']}>
-              <div className={styles['kbc-location-label']}>Email</div>
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-            </Card>
-            <Card className={styles['kbc-contact-method-card']}>
-              <div className={styles['kbc-location-label']}>Phone</div>
-              <a href="tel:+18595550102">{CONTACT_PHONE}</a>
-            </Card>
+        {/* Contact option cards */}
+        <section className={styles['kbc-contact-options-section']}>
+          <div className={styles['kbc-contact-options-grid']}>
+
+            <a href={`mailto:${CONTACT_EMAIL}`} className={styles['kbc-contact-option-card']}>
+              <div className={styles['kbc-contact-option-icon']}>
+                <svg viewBox="0 0 40 40" aria-hidden="true">
+                  <rect x="4" y="10" width="32" height="22" rx="3" fill="none" stroke="currentColor" strokeWidth="2.2" />
+                  <path d="M5 12 L20 22 L35 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+                </svg>
+              </div>
+              <div className={styles['kbc-contact-option-label']}>Send an Email</div>
+              <div className={styles['kbc-contact-option-value']}>{CONTACT_EMAIL}</div>
+              <div className={styles['kbc-contact-option-desc']}>
+                Best for non-urgent questions or if you&rsquo;d like time to think about what to say.
+              </div>
+              <span className={styles['kbc-contact-option-cta']}>Open email →</span>
+            </a>
+
+            <a href={`tel:${CONTACT_PHONE.replace(/\D/g, '').replace(/^/, '+1')}`} className={styles['kbc-contact-option-card']}>
+              <div className={styles['kbc-contact-option-icon']}>
+                <svg viewBox="0 0 40 40" aria-hidden="true">
+                  <path d="M13 6 L17 6 L19.5 13 L16.5 16.5 C18.2 20, 20.5 22.5, 24 24 L27.5 21 L34 23.5 L34 28 C34 29.8, 32.5 31, 30.5 31 C18.5 31, 9 21.5, 9 9.5 C9 7.5, 11 6, 13 6 Z" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <div className={styles['kbc-contact-option-label']}>Call or Text</div>
+              <div className={styles['kbc-contact-option-value']}>{CONTACT_PHONE}</div>
+              <div className={styles['kbc-contact-option-desc']}>
+                Prefer to talk it through? Call or send a text during business hours.
+              </div>
+              <span className={styles['kbc-contact-option-cta']}>Call now →</span>
+            </a>
+
+            <button
+              type="button"
+              className={styles['kbc-contact-option-card']}
+              onClick={scrollToForm}
+            >
+              <div className={styles['kbc-contact-option-icon']}>
+                <svg viewBox="0 0 40 40" aria-hidden="true">
+                  <rect x="6" y="6" width="28" height="28" rx="4" fill="none" stroke="currentColor" strokeWidth="2.2" />
+                  <path d="M12 14 H28 M12 20 H22 M12 26 H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </div>
+              <div className={styles['kbc-contact-option-label']}>Request a Consultation</div>
+              <div className={styles['kbc-contact-option-value']}>Fill out a short form</div>
+              <div className={styles['kbc-contact-option-desc']}>
+                Share a bit about what you&rsquo;re looking for. Kelly will follow up to discuss fit and availability.
+              </div>
+              <span className={styles['kbc-contact-option-cta']}>Get started →</span>
+            </button>
+
+            <a href={DIRECTIONS_URL} target="_blank" rel="noreferrer" className={styles['kbc-contact-option-card']}>
+              <div className={styles['kbc-contact-option-icon']}>
+                <svg viewBox="0 0 40 40" aria-hidden="true">
+                  <path d="M20 5 C13 5, 8 11, 8 17 C8 26, 20 35, 20 35 C20 35, 32 26, 32 17 C32 11, 27 5, 20 5 Z" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" />
+                  <circle cx="20" cy="17" r="4.5" fill="none" stroke="currentColor" strokeWidth="2" />
+                </svg>
+              </div>
+              <div className={styles['kbc-contact-option-label']}>Get Directions</div>
+              <div className={styles['kbc-contact-option-value']}>
+                {OFFICE_ADDRESS_LINE_1}<br />{OFFICE_ADDRESS_LINE_2}
+              </div>
+              <div className={styles['kbc-contact-option-desc']}>
+                In-person sessions available Monday through Thursday in Fort Thomas.
+              </div>
+              <span className={styles['kbc-contact-option-cta']}>Open in Maps →</span>
+            </a>
+
           </div>
         </section>
 
+        {/* Consultation form */}
+        <section
+          ref={formRef}
+          className={`${styles['kbc-contact-form-section']} ${formVisible ? styles['kbc-contact-form-section-visible'] : ''}`}
+          id="consultation-form"
+        >
+          <div className={styles['kbc-contact-form-inner']}>
+            <div className={styles['kbc-eyebrow']}>Request a Consultation</div>
+            <h2 className={styles['kbc-h2']} style={{ marginBottom: '32px' }}>
+              Tell Kelly a little <em>about yourself.</em>
+            </h2>
+            <ConsultationForm successMessage="Thank you for reaching out. Kelly will personally follow up to discuss fit, availability, and next steps." />
+          </div>
+        </section>
+
+        {/* Office & Map */}
         <section className={styles['kbc-contact-page-section']}>
           <div className={styles['kbc-contact-page-grid']}>
             <div>
-              <h2 className={styles['kbc-h2']}>Office Location</h2>
-              <p className={styles['kbc-location-address']}>
-                {OFFICE_ADDRESS_LINE_1}
-                <br />
-                {OFFICE_ADDRESS_LINE_2}
-              </p>
-              <div className={styles['kbc-contact-page-actions']}>
-                <Button href={DIRECTIONS_URL} target="_blank" rel="noreferrer">
-                  Get Directions
-                </Button>
-              </div>
+              <div className={styles['kbc-eyebrow']}>Office Location</div>
+              <h2 className={styles['kbc-page-h2']}>
+                {OFFICE_ADDRESS_LINE_1}<br />{OFFICE_ADDRESS_LINE_2}
+              </h2>
+              <details className={styles['kbc-contact-directions-details']} style={{ marginTop: '28px' }}>
+                <summary className={styles['kbc-contact-directions-summary']}>
+                  Directions &amp; Parking
+                </summary>
+                <div style={{ marginTop: '20px' }}>
+                  <div className={styles['kbc-location-label']}>Finding the Office</div>
+                  <ul className={styles['kbc-location-list']}>
+                    {FINDING_THE_OFFICE.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <div className={styles['kbc-location-label']} style={{ marginTop: '20px' }}>Parking</div>
+                  <ul className={styles['kbc-location-list']}>
+                    {PARKING.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </details>
             </div>
             <div className={styles['kbc-map-embed-wrap']}>
               <iframe
@@ -93,38 +188,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className={styles['kbc-contact-page-section']}>
-          <details className={styles['kbc-contact-directions-details']}>
-            <summary className={styles['kbc-contact-directions-summary']}>
-              Directions &amp; Parking
-            </summary>
-            <div className={styles['kbc-contact-page-grid']} style={{ marginTop: '28px' }}>
-              <div>
-                <div className={styles['kbc-location-label']}>Finding the Office</div>
-                <ul className={styles['kbc-location-list']}>
-                  {FINDING_THE_OFFICE.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <div className={styles['kbc-location-label']}>Parking</div>
-                <ul className={styles['kbc-location-list']}>
-                  {PARKING.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </details>
-        </section>
-
-        <section className={styles['kbc-contact-page-section']}>
-          <div className={styles['kbc-contact-page-form']}>
-            <h2 className={styles['kbc-h2']}>Request a Consultation</h2>
-            <ConsultationForm />
-          </div>
-        </section>
       </main>
       <Footer />
     </>
