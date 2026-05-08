@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import healingHero from '../assets/images/healing-hero.jpg';
+import officeIllustration from '../assets/images/office.svg';
+import therapyStock from '../assets/images/therapy-stock.jpg';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import ConsultationModal from '../components/ConsultationModal';
@@ -13,6 +15,7 @@ const SERVICES = [
   {
     num: '01',
     title: 'Individual Therapy',
+    image: healingHero,
     price: '$165',
     duration: '50 minutes',
     overview:
@@ -35,6 +38,7 @@ const SERVICES = [
   {
     num: '02',
     title: 'Couples Therapy',
+    image: therapyStock,
     price: '$195',
     duration: '50 minutes',
     overview:
@@ -55,6 +59,7 @@ const SERVICES = [
   {
     num: '03',
     title: 'Family Therapy',
+    image: officeIllustration,
     price: '$210',
     duration: '60 minutes',
     overview:
@@ -81,30 +86,54 @@ export default function ServicesPage() {
     <>
       <Header onRequestConsultation={() => setIsConsultationOpen(true)} />
       <main className={styles['kbc-page']}>
-        <section className={styles['kbc-page-hero']}>
+        <section
+          className={`${styles['kbc-page-hero']} ${styles['kbc-services-hero-clean']}`}
+        >
+          <div
+            className={styles['kbc-services-hero-pattern']}
+            aria-hidden="true"
+          >
+            <svg
+              viewBox="0 0 420 320"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M28 260C90 204 80 108 156 76C232 44 270 96 342 36"
+                stroke="currentColor"
+                strokeWidth="1.4"
+              />
+              <path
+                d="M68 292C132 236 128 144 196 110C264 76 312 120 386 62"
+                stroke="currentColor"
+                strokeWidth="1.4"
+              />
+              <path
+                d="M120 306C176 252 184 174 242 140C300 106 344 142 402 98"
+                stroke="currentColor"
+                strokeWidth="1.4"
+              />
+              <circle
+                cx="324"
+                cy="212"
+                r="68"
+                stroke="currentColor"
+                strokeWidth="1.2"
+              />
+            </svg>
+          </div>
           <div className={styles['kbc-page-inner']}>
             <SectionEyebrow>Services</SectionEyebrow>
             <h1 className={styles['kbc-h1']} style={{ maxWidth: '20ch' }}>
               Therapy for individuals, couples, and families.
             </h1>
             <p className={styles['kbc-body']}>
-              Kelly Baker Curry, MSW, MEd, LCSW offers individual, couples,
-              and family therapy in Fort Thomas, Kentucky, and via telehealth
+              Kelly Baker Curry, MSW, MEd, LCSW offers individual, couples, and
+              family therapy in Fort Thomas, Kentucky, and via telehealth
               throughout Kentucky and Ohio.
             </p>
           </div>
         </section>
-
-        {/* Photo band below hero */}
-        <div className={styles['kbc-page-photo-band']}>
-          <Image
-            src={healingHero}
-            alt="A welcoming therapy office"
-            className={styles['kbc-page-photo-band-img']}
-            placeholder="blur"
-            sizes="100vw"
-          />
-        </div>
 
         {SERVICES.map((service, i) => (
           <div
@@ -123,18 +152,41 @@ export default function ServicesPage() {
 
               <div className={styles['kbc-service-section-grid']}>
                 <div>
-                  <div className={styles['kbc-service-reasons-label']} style={{ marginBottom: '10px' }}>
+                  <div
+                    className={styles['kbc-service-reasons-label']}
+                    style={{ marginBottom: '10px' }}
+                  >
                     Who it&rsquo;s for
                   </div>
-                  <p className={styles['kbc-service-section-sub']}>{service.whoFor}</p>
+                  <p className={styles['kbc-service-section-sub']}>
+                    {service.whoFor}
+                  </p>
 
-                  <div className={styles['kbc-service-reasons-label']} style={{ marginTop: '24px', marginBottom: '10px' }}>
+                  <div
+                    className={styles['kbc-service-reasons-label']}
+                    style={{ marginTop: '24px', marginBottom: '10px' }}
+                  >
                     What to expect
                   </div>
-                  <p className={styles['kbc-service-section-sub']}>{service.whatToExpect}</p>
+                  <p className={styles['kbc-service-section-sub']}>
+                    {service.whatToExpect}
+                  </p>
                 </div>
-                <div>
-                  <div className={styles['kbc-service-reasons-label']} style={{ marginBottom: '10px' }}>
+                <div className={styles['kbc-service-section-aside']}>
+                  <Image
+                    src={service.image}
+                    alt=""
+                    className={styles['kbc-service-section-image']}
+                    placeholder={
+                      service.image === officeIllustration ? undefined : 'blur'
+                    }
+                    sizes="(max-width: 880px) 100vw, 360px"
+                    aria-hidden="true"
+                  />
+                  <div
+                    className={styles['kbc-service-reasons-label']}
+                    style={{ marginBottom: '10px' }}
+                  >
                     Common concerns
                   </div>
                   <ul className={styles['kbc-service-concerns-list']}>
@@ -182,7 +234,6 @@ export default function ServicesPage() {
             </a>
           </div>
         </div>
-
       </main>
       <Footer />
       <ConsultationModal

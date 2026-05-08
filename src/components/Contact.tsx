@@ -14,12 +14,17 @@ const INSURANCE_OPTIONS = [
   'Anthem / BCBS',
 ];
 
-const STEP_LABELS = ['Contact', 'Preferences', 'Payment', 'Your Message', 'Review'];
+const STEP_LABELS = [
+  'Contact',
+  'Preferences',
+  'Payment',
+  'Your Message',
+  'Review',
+];
 
 type FormData = {
   name: string;
   email: string;
-  phone: string;
   format: '' | 'in-person' | 'virtual' | 'either';
   payment: '' | 'self-pay' | 'insurance';
   insurancePlan: string;
@@ -39,7 +44,6 @@ export default function Contact() {
   const [form, setForm] = useState<FormData>({
     name: '',
     email: '',
-    phone: '',
     format: '',
     payment: '',
     insurancePlan: '',
@@ -75,7 +79,9 @@ export default function Contact() {
           <div />
           <div className={styles['kbc-contact-confirm']}>
             <div className={styles['kbc-eyebrow']}>Thank You</div>
-            <h2 className={`${styles['kbc-h2']} ${styles['kbc-contact-confirm-h2']}`}>
+            <h2
+              className={`${styles['kbc-h2']} ${styles['kbc-contact-confirm-h2']}`}
+            >
               Your message is on its way.
             </h2>
             <p className={styles['kbc-body']}>
@@ -92,7 +98,6 @@ export default function Contact() {
   const reviewRows = [
     { label: 'Name', value: form.name },
     { label: 'Email', value: form.email },
-    ...(form.phone ? [{ label: 'Phone', value: form.phone }] : []),
     { label: 'Format', value: FORMAT_LABELS[form.format] ?? form.format },
     {
       label: 'Payment',
@@ -109,7 +114,7 @@ export default function Contact() {
 
   return (
     <section className={styles['kbc-contact']} id="contact">
-      <div className={styles['kbc-contact-grid']}>
+      <div className={styles['kbc-contact-stacked']}>
         <div className={styles['kbc-contact-text']}>
           <SectionEyebrow>Get in Touch</SectionEyebrow>
           <h2 className={styles['kbc-h2']}>
@@ -117,19 +122,10 @@ export default function Contact() {
           </h2>
           <p className={styles['kbc-body']}>
             Reaching out can feel like a big step, and you do not need to have
-            everything figured out. Whether you have a question or are ready to
-            get started, you are welcome to reach out. Share a little about
-            what you are looking for, and Kelly will follow up to talk through
+            everything figured out. Share a little about what you are looking
+            for, and Kelly will follow up to talk through fit, availability, and
             next steps.
           </p>
-          <p className={styles['kbc-body']}>
-            This is a small, one-person practice, so availability can vary.
-            Kelly will personally follow up to talk through options and next
-            steps.
-          </p>
-          <div className={styles['kbc-crisis-note']}>
-            If this is an emergency, please call 911.
-          </div>
         </div>
 
         <div className={styles['kbc-contact-form-wrap']}>
@@ -198,17 +194,6 @@ export default function Contact() {
                     onChange={(e) => set('email', e.target.value)}
                   />
                 </label>
-                <label className={styles['kbc-field']}>
-                  <span className={styles['kbc-field-label']}>
-                    Phone (optional)
-                  </span>
-                  <input
-                    type="tel"
-                    autoComplete="tel"
-                    value={form.phone}
-                    onChange={(e) => set('phone', e.target.value)}
-                  />
-                </label>
               </>
             )}
 
@@ -232,7 +217,9 @@ export default function Contact() {
                       key={value}
                       className={[
                         styles['kbc-choice'],
-                        form.format === value ? styles['kbc-choice-selected'] : '',
+                        form.format === value
+                          ? styles['kbc-choice-selected']
+                          : '',
                       ]
                         .filter(Boolean)
                         .join(' ')}
@@ -267,7 +254,9 @@ export default function Contact() {
                       key={value}
                       className={[
                         styles['kbc-choice'],
-                        form.payment === value ? styles['kbc-choice-selected'] : '',
+                        form.payment === value
+                          ? styles['kbc-choice-selected']
+                          : '',
                       ]
                         .filter(Boolean)
                         .join(' ')}
@@ -319,9 +308,7 @@ export default function Contact() {
 
             {step === 4 && (
               <>
-                <h3 className={styles['kbc-step-heading']}>
-                  Your message
-                </h3>
+                <h3 className={styles['kbc-step-heading']}>Your message</h3>
                 <label className={styles['kbc-field']}>
                   <span className={styles['kbc-field-label']}>
                     What would you like to reach out about?
@@ -354,8 +341,12 @@ export default function Contact() {
                 <div className={styles['kbc-review']}>
                   {reviewRows.map(({ label, value }) => (
                     <div key={label} className={styles['kbc-review-row']}>
-                      <span className={styles['kbc-review-label']}>{label}</span>
-                      <span className={styles['kbc-review-value']}>{value}</span>
+                      <span className={styles['kbc-review-label']}>
+                        {label}
+                      </span>
+                      <span className={styles['kbc-review-value']}>
+                        {value}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -394,6 +385,15 @@ export default function Contact() {
               )}
             </div>
           </form>
+        </div>
+        <div className={styles['kbc-contact-alt']}>
+          <span>Not ready to book a consultation?</span>
+          <a href="/contact" className={styles['kbc-link-quiet']}>
+            Reach out here
+          </a>
+          <a href="/fees-insurance" className={styles['kbc-link-quiet']}>
+            View fees &amp; insurance
+          </a>
         </div>
       </div>
     </section>

@@ -1098,7 +1098,7 @@
 }
 .kbc-meet-cred-card {
   background: var(--cream);
-  border: 1px solid rgba(46, 43, 38, 0.10);
+  border: 1px solid rgba(46, 43, 38, 0.1);
   padding: 22px 24px;
 }
 .kbc-meet-cred-card-label {
@@ -1215,7 +1215,9 @@
   text-decoration: none;
   border-bottom: 1px solid rgba(46, 43, 38, 0.22);
   padding-bottom: 3px;
-  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  transition:
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
 }
 .kbc-service-cta:hover {
   color: var(--clay-dark);
@@ -1396,7 +1398,7 @@
 .kbc-resources-form-card {
   background: var(--white);
   padding: 32px 28px;
-  border: 1px solid rgba(46, 43, 38, 0.10);
+  border: 1px solid rgba(46, 43, 38, 0.1);
 }
 .kbc-resources-form-card-title {
   font-family: var(--font-display);
@@ -1741,7 +1743,9 @@
   height: 1.5px;
   background: var(--charcoal);
   border-radius: 2px;
-  transition: transform 200ms var(--ease), opacity 200ms var(--ease);
+  transition:
+    transform 200ms var(--ease),
+    opacity 200ms var(--ease);
   flex-direction: unset;
   gap: 0;
 }
@@ -2394,8 +2398,14 @@
   animation: kbc-fade-in 0.4s ease forwards;
 }
 @keyframes kbc-fade-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .kbc-contact-form-inner {
   max-width: 640px;
@@ -2434,5 +2444,242 @@
   }
   .kbc-contact-form-section {
     padding: 60px 24px;
+  }
+}
+
+/* ---------- REQUESTED LAYOUT REFINEMENTS ---------- */
+.kbc-couch-band {
+  background: var(--charcoal);
+  min-height: 420px;
+}
+
+.kbc-services-hero-clean {
+  position: relative;
+  overflow: hidden;
+  padding-top: 128px;
+  padding-bottom: 120px;
+}
+.kbc-services-hero-clean .kbc-page-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-max);
+}
+.kbc-services-hero-clean .kbc-body {
+  max-width: 72ch;
+}
+.kbc-services-hero-pattern {
+  position: absolute;
+  right: max(24px, calc((100vw - var(--container-max)) / 2));
+  bottom: 28px;
+  width: min(420px, 42vw);
+  color: var(--clay);
+  opacity: 0.16;
+  pointer-events: none;
+}
+.kbc-services-hero-pattern svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.kbc-service-section {
+  padding-top: 104px;
+  padding-bottom: 104px;
+}
+.kbc-service-section-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.78fr);
+  gap: 72px;
+  align-items: start;
+}
+.kbc-service-section-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.kbc-service-section-image {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--linen);
+  display: block;
+}
+
+.kbc-contact {
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+.kbc-contact-stacked {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.kbc-contact-stacked .kbc-contact-text {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.kbc-contact-stacked .kbc-h2,
+.kbc-contact-stacked .kbc-body {
+  margin-left: auto;
+  margin-right: auto;
+}
+.kbc-contact-form-wrap {
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  box-shadow: 0 18px 48px rgba(46, 43, 38, 0.06);
+  overflow: hidden;
+}
+.kbc-contact-stacked .kbc-contact-form {
+  padding: 40px;
+  gap: 24px;
+}
+.kbc-contact-alt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 20px;
+  margin-top: 28px;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--muted);
+  text-align: center;
+}
+.kbc-fees {
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+.kbc-fees-grid {
+  align-items: stretch;
+}
+.kbc-fee-block {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.kbc-office {
+  padding-top: 112px;
+}
+.kbc-location {
+  padding-top: 112px;
+}
+
+.kbc-contact-page-hero {
+  padding-top: 118px;
+  padding-bottom: 92px;
+}
+.kbc-contact-page-inner {
+  max-width: min(780px, var(--container-max));
+}
+.kbc-contact-page-inner .kbc-body {
+  max-width: 72ch;
+}
+.kbc-contact-page-inner .kbc-crisis-note {
+  max-width: 680px;
+}
+.kbc-contact-options-section {
+  padding-top: 72px;
+  padding-bottom: 56px;
+}
+.kbc-contact-options-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.kbc-contact-options-inner > .kbc-eyebrow {
+  margin-bottom: 24px;
+}
+.kbc-contact-options-grid {
+  max-width: none;
+}
+.kbc-contact-option-card {
+  padding: 30px 26px;
+  background: rgba(250, 248, 244, 0.78);
+}
+.kbc-contact-option-icon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 16px;
+}
+.kbc-contact-form-section {
+  padding-top: 96px;
+  padding-bottom: 112px;
+}
+.kbc-contact-form-inner {
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  box-shadow: 0 18px 48px rgba(46, 43, 38, 0.06);
+  padding: 40px;
+}
+.kbc-contact-form-inner .kbc-body {
+  margin-bottom: 32px;
+}
+.kbc-modal-form {
+  gap: 24px;
+}
+.kbc-modal-form .kbc-pill {
+  width: 100%;
+  text-align: center;
+}
+.kbc-contact-page-section {
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+.kbc-contact-page-grid {
+  gap: 72px;
+  align-items: center;
+}
+.kbc-map-embed,
+.kbc-map-embed-wrap {
+  min-height: 420px;
+}
+
+@media (max-width: 880px) {
+  .kbc-services-hero-clean {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+  .kbc-services-hero-pattern {
+    width: 72vw;
+    right: -18vw;
+    bottom: 18px;
+  }
+  .kbc-service-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .kbc-service-section-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .kbc-service-section-image {
+    max-width: none;
+  }
+  .kbc-contact-stacked .kbc-contact-text {
+    text-align: left;
+  }
+  .kbc-contact-stacked .kbc-h2,
+  .kbc-contact-stacked .kbc-body {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .kbc-contact-page-grid {
+    gap: 40px;
+  }
+}
+@media (max-width: 640px) {
+  .kbc-contact-stacked .kbc-contact-form,
+  .kbc-contact-form-inner {
+    padding: 32px 24px;
+  }
+  .kbc-contact-alt {
+    flex-direction: column;
+  }
+  .kbc-contact-page-hero,
+  .kbc-contact-form-section,
+  .kbc-contact-page-section,
+  .kbc-contact-options-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
   }
 }

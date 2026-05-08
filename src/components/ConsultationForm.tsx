@@ -4,13 +4,7 @@ import type { ChangeEvent, FormEvent } from 'react';
 import { useState } from 'react';
 import Button from './Button';
 import InputField from './InputField';
-import {
-  CalendarIcon,
-  MailIcon,
-  MessageIcon,
-  PhoneIcon,
-  UserIcon,
-} from './icons';
+import { CalendarIcon, MailIcon, MessageIcon, UserIcon } from './icons';
 import styles from '../styles/Website.module.css';
 
 type ConsultationFormProps = {
@@ -24,7 +18,6 @@ export default function ConsultationForm({
   const [form, setForm] = useState({
     name: '',
     email: '',
-    phone: '',
     appointmentType: 'In-person',
     message: '',
   });
@@ -68,13 +61,6 @@ export default function ConsultationForm({
         required
         value={form.email}
         onChange={update('email')}
-      />
-      <InputField
-        label="Phone (optional)"
-        icon={<PhoneIcon />}
-        type="tel"
-        value={form.phone}
-        onChange={update('phone')}
       />
       <InputField
         kind="select"
