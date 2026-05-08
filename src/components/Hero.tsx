@@ -35,7 +35,7 @@ export default function Hero({
             </a>
           </div>
           <p className={styles['kbc-hero-trust']}>
-            Licensed Clinical Social Worker serving Kentucky and Ohio
+            Licensed Clinical Social Worker
           </p>
         </div>
         <div className={styles['kbc-hero-photo']}>
