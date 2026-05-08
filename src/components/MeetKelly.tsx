@@ -20,23 +20,26 @@ export default function MeetKelly() {
         <div className={styles['kbc-meet-text']}>
           <SectionEyebrow>About Kelly</SectionEyebrow>
           <h2 className={styles['kbc-h2']}>
-            Kelly Baker Curry, <em>MSW, MEd, LCSW</em>
+            Kelly Baker Curry,{' '}
+            <em className={styles['kbc-meet-credentials']}>MSW, MEd, LCSW</em>
           </h2>
           <div className={styles['kbc-meet-role']}>
             Licensed Clinical Social Worker serving Kentucky and Ohio
           </div>
           <p className={styles['kbc-body']}>
-            Kelly brings a calm, honest, and relational approach to therapy.
-            Her work is grounded in trust, thoughtful conversation, and a
-            genuine belief that understanding your own patterns is the foundation
-            of meaningful change. With over 13 years of experience working with
+            Kelly brings a calm, honest, and relational approach to therapy. Her
+            work is grounded in trust, thoughtful conversation, and a genuine
+            belief that understanding your own patterns is the foundation of
+            meaningful change. With over 13 years of experience working with
             individuals, couples, and families, she meets people where they are
             — without judgment.
           </p>
 
           <div className={styles['kbc-meet-cards-row']}>
             <div className={styles['kbc-meet-cred-card']}>
-              <div className={styles['kbc-meet-cred-card-label']}>Education</div>
+              <div className={styles['kbc-meet-cred-card-label']}>
+                Education
+              </div>
               <div className={styles['kbc-meet-cred-card-body']}>
                 <div className={styles['kbc-cred-degree']}>
                   Master of Social Work (MSW)
@@ -60,7 +63,9 @@ export default function MeetKelly() {
             </div>
 
             <div className={styles['kbc-meet-cred-card']}>
-              <div className={styles['kbc-meet-cred-card-label']}>Licensure</div>
+              <div className={styles['kbc-meet-cred-card-label']}>
+                Licensure
+              </div>
               <div className={styles['kbc-meet-cred-card-body']}>
                 <div className={styles['kbc-cred-degree']}>
                   Kentucky — LCSW
@@ -72,7 +77,10 @@ export default function MeetKelly() {
                   <span className={styles['kbc-active-dot']} />
                   Active
                 </div>
-                <div className={styles['kbc-cred-degree']} style={{ marginTop: '10px' }}>
+                <div
+                  className={styles['kbc-cred-degree']}
+                  style={{ marginTop: '10px' }}
+                >
                   Ohio — LISW
                   <span className={styles['kbc-cred-school']}>
                     License #I.2304547
@@ -86,7 +94,9 @@ export default function MeetKelly() {
             </div>
 
             <div className={styles['kbc-meet-cred-card']}>
-              <div className={styles['kbc-meet-cred-card-label']}>Care Focus</div>
+              <div className={styles['kbc-meet-cred-card-label']}>
+                Care Focus
+              </div>
               <div className={styles['kbc-meet-cred-card-body']}>
                 <ul className={styles['kbc-care-focus-list']}>
                   <li>Individual therapy</li>

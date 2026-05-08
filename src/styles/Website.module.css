@@ -2857,3 +2857,158 @@
     text-align: center;
   }
 }
+/* ---------- ABOUT + APPROACH PAGE REFINEMENTS ---------- */
+.kbc-about-hero-clean,
+.kbc-approach-hero-clean {
+  position: relative;
+  overflow: hidden;
+  padding-top: 120px;
+  padding-bottom: 112px;
+}
+.kbc-subtle-pattern {
+  position: absolute;
+  right: max(24px, calc((100vw - var(--container-max)) / 2));
+  bottom: 28px;
+  width: min(420px, 42vw);
+  color: var(--clay);
+  opacity: 0.16;
+  pointer-events: none;
+}
+.kbc-subtle-pattern svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.kbc-about-hero-clean .kbc-about-hero-inner {
+  position: relative;
+  z-index: 1;
+  grid-template-columns: minmax(0, 760px) 120px;
+  gap: 56px;
+  align-items: center;
+}
+.kbc-about-hero-avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--linen);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+}
+.kbc-about-hero-avatar-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+.kbc-page-split-section {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr);
+  gap: 72px;
+  align-items: start;
+}
+.kbc-page-copy-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.kbc-page-copy-stack .kbc-body {
+  margin: 0;
+  max-width: 68ch;
+  line-height: 1.95;
+}
+.kbc-page-copy-stack .kbc-service-card-list {
+  margin-top: 2px;
+}
+.kbc-about-cred-grid {
+  align-items: stretch;
+}
+.kbc-about-cred-card {
+  min-height: 100%;
+}
+.kbc-about-license-detail span {
+  display: block;
+  margin-top: 3px;
+}
+.kbc-about-license-detail span:last-child {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.kbc-about-approach-grid,
+.kbc-approach-three-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 40px;
+}
+.kbc-about-approach-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.kbc-approach-three-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.kbc-approach-cards {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.kbc-approach-card {
+  min-height: 100%;
+}
+.kbc-approach-method-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.kbc-approach-research-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  margin-top: 6px;
+}
+.kbc-meet-text .kbc-h2 {
+  max-width: 24ch;
+}
+.kbc-meet-credentials {
+  font-size: 0.68em;
+  white-space: nowrap;
+}
+.kbc-contact-stacked .kbc-contact-form-wrap {
+  max-width: none;
+  width: 100%;
+}
+
+@media (max-width: 980px) {
+  .kbc-approach-cards,
+  .kbc-about-approach-grid,
+  .kbc-approach-three-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 880px) {
+  .kbc-about-hero-clean .kbc-about-hero-inner,
+  .kbc-page-split-section,
+  .kbc-approach-method-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .kbc-about-hero-avatar {
+    width: 96px;
+    height: 96px;
+  }
+  .kbc-subtle-pattern {
+    width: 72vw;
+    right: -18vw;
+  }
+}
+@media (max-width: 640px) {
+  .kbc-approach-cards,
+  .kbc-about-approach-grid,
+  .kbc-approach-three-grid {
+    grid-template-columns: 1fr;
+  }
+  .kbc-about-hero-clean,
+  .kbc-approach-hero-clean {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+}
