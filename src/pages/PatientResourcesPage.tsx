@@ -108,18 +108,19 @@ export default function PatientResourcesPage() {
               Rates and <em>insurance</em>.
             </h2>
             <p className={styles['kbc-body']}>
-              Individual sessions are $150. Couples and family sessions are
-              $175. A limited number of reduced-fee slots may be available
-              depending on current availability.
+              Individual therapy is $165 per 50-minute session. Couples therapy
+              is $195 per 50-minute session. Family therapy is $210 per
+              60-minute session. Most clients begin with weekly sessions.
             </p>
             <p className={styles['kbc-body']}>
-              Kelly is an out-of-network provider. Payment is due at the time
-              of service. A superbill can be provided for reimbursement through
-              your insurance plan if you have out-of-network benefits.
+              Kelly is in network with Aetna, United Healthcare, UMR, Custom
+              Design Benefits, MedBen, and Anthem / BCBS. A superbill can also
+              be provided for out-of-network reimbursement. Payment is accepted
+              by credit/debit card, HSA/FSA, ACH bank transfer, cash, or check.
             </p>
             <p className={styles['kbc-body']}>
-              Please contact the practice directly with questions about payment,
-              insurance, or superbill documentation.
+              Please reach out with any questions about payment, insurance
+              verification, or superbill documentation.
             </p>
             <div style={{ marginTop: '28px' }}>
               <a href="/contact" className={styles['kbc-pill']}>

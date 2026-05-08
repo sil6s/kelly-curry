@@ -47,7 +47,7 @@ export default function Header({
           <span className={styles['kbc-nav-brand-text']}>
             <span className={styles['kbc-nav-wordmark']}>Kelly Baker Curry</span>
             <span className={styles['kbc-nav-descriptor']}>
-              Licensed Clinical Social Worker — Kentucky &amp; Ohio
+              Licensed Clinical Social Worker
             </span>
           </span>
         </a>

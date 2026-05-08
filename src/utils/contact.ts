@@ -1,4 +1,4 @@
-export const CONTACT_EMAIL = 'hello@kellybakercurry.com';
+export const CONTACT_EMAIL = 'contact@kbc-therapy.com';
 export const CONTACT_PHONE = '(859) 555 0102';
 export const OFFICE_ADDRESS_LINE_1 = '337 Tower Hill Road';
 export const OFFICE_ADDRESS_LINE_1_SHORT = '337 Tower Hill Rd';
