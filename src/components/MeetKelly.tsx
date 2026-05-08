@@ -1,14 +1,6 @@
 import { SectionEyebrow } from './Atoms';
 import styles from '../styles/Website.module.css';
 
-const CREDENTIALS = [
-  'LCSW #254297 (KY)',
-  'Licensed Independent Social Worker (OH) #I.2304547',
-  'MSW, Northern Kentucky University',
-  'MEd background in education',
-  '13+ years of experience',
-];
-
 export default function MeetKelly() {
   return (
     <section className={styles['kbc-meet']} id="meet-kelly">
@@ -38,29 +30,58 @@ export default function MeetKelly() {
           </svg>
         </div>
         <div className={styles['kbc-meet-text']}>
-          <SectionEyebrow>Meet Kelly</SectionEyebrow>
+          <SectionEyebrow>About Kelly</SectionEyebrow>
           <h2 className={styles['kbc-h2']}>
-            Kelly Baker Thomas, LCSW, MSW, MEd
+            Kelly Baker Curry, <em>LCSW</em>
           </h2>
           <div className={styles['kbc-meet-role']}>
-            Licensed Clinical Social Worker (Kentucky)
-          </div>
-          <div className={styles['kbc-meet-secondary-role']}>
-            Licensed Independent Social Worker (Ohio)
+            Licensed Clinical Social Worker — Kentucky &amp; Ohio
           </div>
           <p className={styles['kbc-body']}>
-            I’m a licensed clinical social worker committed to helping
-            individuals, couples, and families build healthier relationships
-            with themselves and others. My work focuses on identifying patterns,
-            behaviors, and beliefs that no longer serve you, and creating
-            meaningful, lasting change through a collaborative approach.
+            Kelly brings a calm, honest, and relational approach to therapy. Her
+            work is grounded in trust, thoughtful conversation, and helping
+            clients better understand the patterns, relationships, and life
+            experiences that shape how they move through the world. With over 13
+            years of experience working with individuals, couples, and families,
+            Kelly believes therapy should feel honest, safe, practical, and
+            deeply human.
           </p>
-          <ul className={styles['kbc-credential-list']}>
-            {CREDENTIALS.map((credential) => (
-              <li key={credential}>{credential}</li>
-            ))}
-          </ul>
-          <div className={styles['kbc-meet-tags']}>In-person • Telehealth</div>
+
+          <div className={styles['kbc-meet-cards-row']}>
+            <div className={styles['kbc-meet-cred-card']}>
+              <div className={styles['kbc-meet-cred-card-label']}>Education</div>
+              <div className={styles['kbc-meet-cred-card-body']}>
+                MSW, Northern Kentucky University
+                <br />
+                MEd, Northern Kentucky University
+              </div>
+            </div>
+            <div className={styles['kbc-meet-cred-card']}>
+              <div className={styles['kbc-meet-cred-card-label']}>License</div>
+              <div className={styles['kbc-meet-cred-card-body']}>
+                Licensed Clinical Social Worker
+                <div className={styles['kbc-active-status']}>
+                  <span className={styles['kbc-active-dot']} />
+                  Active
+                </div>
+              </div>
+            </div>
+            <div className={styles['kbc-meet-cred-card']}>
+              <div className={styles['kbc-meet-cred-card-label']}>Care Focus</div>
+              <div className={styles['kbc-meet-cred-card-body']}>
+                Individuals, couples, and family therapy
+              </div>
+            </div>
+          </div>
+
+          <div className={styles['kbc-meet-tags']}>
+            In-person • Telehealth • Fort Thomas, KY
+          </div>
+          <div className={styles['kbc-meet-cta']}>
+            <a href="/services" className={styles['kbc-link-quiet']}>
+              View services →
+            </a>
+          </div>
         </div>
       </div>
     </section>

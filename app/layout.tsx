@@ -19,9 +19,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Kelly Baker Thomas · LCSW Talk Therapy',
+  title: 'Therapist in Fort Thomas, KY | Kelly Baker Curry, LCSW',
   description:
-    'Thoughtful, relational therapy for individuals, couples, and families in Fort Thomas, Kentucky.',
+    'Therapy for individuals, couples, and families in Fort Thomas, Kentucky. Kelly Baker Curry, LCSW offers warm, relationship-centered support.',
 };
 
 export default function RootLayout({

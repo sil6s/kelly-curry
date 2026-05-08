@@ -4,11 +4,13 @@ import { useEffect, useState } from 'react';
 import LogoMark from './LogoMark';
 import styles from '../styles/Website.module.css';
 
-const links: Array<{ id: string; label: string; href?: string }> = [
-  { id: 'approach', label: 'Approach' },
-  { id: 'services', label: 'Services' },
-  { id: 'fees', label: 'Fees' },
-  { id: 'office', label: 'Office' },
+const links: Array<{ label: string; href: string }> = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/#meet-kelly' },
+  { label: 'Services', href: '/services' },
+  { label: 'Approach', href: '/approach' },
+  { label: 'Patient Resources', href: '/patient-resources' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Header({
@@ -31,7 +33,7 @@ export default function Header({
       <a href="/" className={styles['kbc-nav-brand']}>
         <LogoMark />
         <span className={styles['kbc-nav-brand-text']}>
-          <span className={styles['kbc-nav-wordmark']}>Kelly Baker Thomas</span>
+          <span className={styles['kbc-nav-wordmark']}>Kelly Baker Curry</span>
           <span className={styles['kbc-nav-descriptor']}>
             Licensed Clinical Social Worker (Kentucky)
           </span>
@@ -40,23 +42,20 @@ export default function Header({
       <div className={styles['kbc-nav-links']}>
         {links.map((l) => (
           <a
-            key={l.id}
-            href={l.href ?? `/#${l.id}`}
+            key={l.href}
+            href={l.href}
             className={styles['kbc-nav-link']}
           >
             {l.label}
           </a>
         ))}
-        <a href="/contact" className={styles['kbc-pill']}>
-          Contact
-        </a>
         {onRequestConsultation ? (
           <button
             className={`${styles['kbc-pill']} ${styles['kbc-pill-charcoal']}`}
             type="button"
             onClick={onRequestConsultation}
           >
-            Request Consultation
+            Schedule a Consultation
           </button>
         ) : null}
       </div>
