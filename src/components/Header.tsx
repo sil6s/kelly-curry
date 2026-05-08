@@ -8,7 +8,7 @@ const links: Array<{ label: string; href: string }> = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'Approach', href: '/approach' },
-  { label: 'Fees & Insurance', href: '/#fees' },
+  { label: 'Patient Resources', href: '/patient-resources' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -45,7 +45,9 @@ export default function Header({
         <a href="/" className={styles['kbc-nav-brand']}>
           <LogoMark />
           <span className={styles['kbc-nav-brand-text']}>
-            <span className={styles['kbc-nav-wordmark']}>Kelly Baker Curry</span>
+            <span className={styles['kbc-nav-wordmark']}>
+              Kelly Baker Curry
+            </span>
             <span className={styles['kbc-nav-descriptor']}>
               Licensed Clinical Social Worker
             </span>
@@ -53,11 +55,7 @@ export default function Header({
         </a>
         <div className={styles['kbc-nav-links']}>
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={styles['kbc-nav-link']}
-            >
+            <a key={l.href} href={l.href} className={styles['kbc-nav-link']}>
               {l.label}
             </a>
           ))}

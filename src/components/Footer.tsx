@@ -7,9 +7,7 @@ export default function Footer() {
       <div className={styles['kbc-footer-grid']}>
         <div className={styles['kbc-footer-brand']}>
           <LogoMark className={styles['kbc-footer-logo-mark']} />
-          <div className={styles['kbc-footer-wordmark']}>
-            Kelly Baker Curry
-          </div>
+          <div className={styles['kbc-footer-wordmark']}>Kelly Baker Curry</div>
           <div className={styles['kbc-footer-descriptor']}>
             Licensed in Kentucky and Ohio
           </div>
@@ -19,7 +17,7 @@ export default function Footer() {
           <a href="/about">About</a>
           <a href="/services">Services</a>
           <a href="/approach">Approach</a>
-          <a href="/#fees">Fees &amp; Insurance</a>
+          <a href="/patient-resources">Patient Resources</a>
           <a href="/contact">Contact</a>
         </div>
         <div className={styles['kbc-footer-col']}>
