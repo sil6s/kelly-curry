@@ -1,21 +1,52 @@
 import { SectionEyebrow } from './Atoms';
 import styles from '../styles/Website.module.css';
 
-const CHIPS = [
-  'Anxiety & stress',
-  'Life transitions',
-  'Relationship conflict',
-  'Communication patterns',
-  'Grief and loss',
-  'Family dynamics',
-  'Burnout',
-  'Emotional regulation',
-  'Self-worth & identity',
-  'Boundaries',
-  'Trauma-informed support',
-  'Parenting stress',
-  'Depression',
-  'Identity & purpose',
+const CATEGORIES = [
+  {
+    label: 'Anxiety & Stress',
+    items: [
+      'Worry and overthinking',
+      'Panic and fear',
+      'Stress management',
+      'Social anxiety',
+    ],
+  },
+  {
+    label: 'Relationships',
+    items: [
+      'Communication patterns',
+      'Conflict and tension',
+      'Family dynamics',
+      'Boundaries',
+    ],
+  },
+  {
+    label: 'Life Transitions',
+    items: [
+      'Career and identity shifts',
+      'Grief and loss',
+      'Divorce or separation',
+      'New parenthood',
+    ],
+  },
+  {
+    label: 'Burnout & Overwhelm',
+    items: [
+      'Emotional exhaustion',
+      'Difficulty feeling present',
+      'Work-life balance',
+      'Feeling stuck',
+    ],
+  },
+  {
+    label: 'Self-Esteem & Identity',
+    items: [
+      'Self-worth and confidence',
+      'Purpose and direction',
+      'Depression',
+      'Trauma-informed support',
+    ],
+  },
 ];
 
 export default function HelpWith() {
@@ -27,21 +58,24 @@ export default function HelpWith() {
           <h2 className={styles['kbc-h2']}>
             What therapy can <em>help with</em>.
           </h2>
-        </div>
-        <div className={styles['kbc-helpwith-grid']}>
           <p className={styles['kbc-helpwith-intro']}>
-            Therapy can be helpful for a wide range of life experiences. Below
-            are some common areas Kelly works with — though this is not an
-            exhaustive list. If you are wondering whether something is a fit,
-            the best step is to reach out.
+            Therapy can support a wide range of experiences. Below are some
+            common areas Kelly works with — though this is not an exhaustive
+            list. If you are wondering whether something is a fit, the best
+            step is to reach out.
           </p>
-          <div className={styles['kbc-helpwith-chips']}>
-            {CHIPS.map((chip) => (
-              <span key={chip} className={styles['kbc-chip']}>
-                {chip}
-              </span>
-            ))}
-          </div>
+        </div>
+        <div className={styles['kbc-helpwith-categories']}>
+          {CATEGORIES.map((cat) => (
+            <div key={cat.label} className={styles['kbc-helpwith-cat']}>
+              <div className={styles['kbc-helpwith-cat-label']}>{cat.label}</div>
+              <ul className={styles['kbc-helpwith-cat-list']}>
+                {cat.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>

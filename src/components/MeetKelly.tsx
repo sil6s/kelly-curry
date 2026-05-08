@@ -51,21 +51,41 @@ export default function MeetKelly() {
             <div className={styles['kbc-meet-cred-card']}>
               <div className={styles['kbc-meet-cred-card-label']}>Education</div>
               <div className={styles['kbc-meet-cred-card-body']}>
-                MSW, Northern Kentucky University
-                <br />
-                MEd, Northern Kentucky University
+                <div className={styles['kbc-cred-degree']}>
+                  Master of Social Work (MSW)
+                  <span className={styles['kbc-cred-school']}>
+                    Northern Kentucky University
+                  </span>
+                </div>
+                <div className={styles['kbc-cred-degree']}>
+                  Master of Arts (MA)
+                  <span className={styles['kbc-cred-school']}>
+                    Northern Kentucky University
+                  </span>
+                </div>
+                <div className={styles['kbc-cred-degree']}>
+                  Bachelor of Arts (BA)
+                  <span className={styles['kbc-cred-school']}>
+                    Northern Kentucky University
+                  </span>
+                </div>
               </div>
             </div>
+
             <div className={styles['kbc-meet-cred-card']}>
-              <div className={styles['kbc-meet-cred-card-label']}>License</div>
+              <div className={styles['kbc-meet-cred-card-label']}>Licensure</div>
               <div className={styles['kbc-meet-cred-card-body']}>
-                Licensed Clinical Social Worker
+                Licensed Clinical Social Worker (LCSW)
+                <div className={styles['kbc-cred-jurisdiction']}>
+                  Kentucky and Ohio
+                </div>
                 <div className={styles['kbc-active-status']}>
                   <span className={styles['kbc-active-dot']} />
                   Active
                 </div>
               </div>
             </div>
+
             <div className={styles['kbc-meet-cred-card']}>
               <div className={styles['kbc-meet-cred-card-label']}>Care Focus</div>
               <div className={styles['kbc-meet-cred-card-body']}>
