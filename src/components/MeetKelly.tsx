@@ -109,7 +109,7 @@ export default function MeetKelly() {
             In-person • Telehealth • Fort Thomas, KY
           </div>
           <div className={styles['kbc-meet-cta']}>
-            <a href="/services" className={styles['kbc-link-quiet']}>
+            <a href="/about" className={styles['kbc-link-quiet']}>
               Learn more →
             </a>
           </div>

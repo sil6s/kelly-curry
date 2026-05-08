@@ -26,7 +26,7 @@ export default function LogoMark({ className = '' }: { className?: string }) {
         letterSpacing="-2"
         fill="#2e2b26"
       >
-        KBT
+        KBC
       </text>
     </svg>
   );
