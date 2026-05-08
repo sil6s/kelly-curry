@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import therapyStock from '../assets/images/therapy-stock.jpg';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import ConsultationModal from '../components/ConsultationModal';
@@ -64,6 +66,17 @@ export default function ApproachPage() {
             </p>
           </div>
         </section>
+
+        {/* Photo band */}
+        <div className={styles['kbc-page-photo-band']}>
+          <Image
+            src={therapyStock}
+            alt="A calm therapy setting"
+            className={styles['kbc-page-photo-band-img']}
+            placeholder="blur"
+            sizes="100vw"
+          />
+        </div>
 
         {/* What sessions feel like */}
         <div className={styles['kbc-page-section-wrap']}>

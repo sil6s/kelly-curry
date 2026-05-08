@@ -1,30 +1,50 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import therapyStock from '../assets/images/therapy-stock.jpg';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import ConsultationModal from '../components/ConsultationModal';
 import { SectionEyebrow } from '../components/Atoms';
 import styles from '../styles/Website.module.css';
 
 export default function PatientResourcesPage() {
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+
   return (
     <>
-      <Header />
+      <Header onRequestConsultation={() => setIsConsultationOpen(true)} />
       <main className={styles['kbc-page']}>
         {/* Hero */}
         <section className={styles['kbc-page-hero']}>
           <div className={styles['kbc-page-inner']}>
             <SectionEyebrow>Patient Resources</SectionEyebrow>
-            <h1 className={styles['kbc-h1']} style={{ maxWidth: '18ch' }}>
-              Patient resources.
+            <h1 className={styles['kbc-h1']} style={{ maxWidth: '20ch' }}>
+              Everything you need to <em>get started</em>.
             </h1>
             <p className={styles['kbc-body']}>
-              Forms, intake information, and helpful details for beginning
-              therapy with Kelly Baker Curry.
+              Forms, intake information, billing details, and helpful guidance
+              for beginning therapy with Kelly Baker Curry.
             </p>
           </div>
         </section>
 
+        {/* Photo band */}
+        <div className={styles['kbc-page-photo-band']}>
+          <Image
+            src={therapyStock}
+            alt="A calm, welcoming therapy setting"
+            className={styles['kbc-page-photo-band-img']}
+            placeholder="blur"
+            sizes="100vw"
+          />
+        </div>
+
         {/* Intake Forms */}
         <div className={styles['kbc-page-section-wrap']}>
           <div className={styles['kbc-page-section']}>
+            <SectionEyebrow>Intake Documents</SectionEyebrow>
             <h2 className={styles['kbc-page-h2']}>Intake forms and documents</h2>
             <p className={styles['kbc-body']}>
               Before your first session, you may be asked to complete some
@@ -83,6 +103,7 @@ export default function PatientResourcesPage() {
         {/* Before Your First Session */}
         <div>
           <div className={styles['kbc-page-section']}>
+            <SectionEyebrow>Preparing for Therapy</SectionEyebrow>
             <h2 className={styles['kbc-page-h2']}>
               Before your <em>first session</em>.
             </h2>
@@ -104,6 +125,7 @@ export default function PatientResourcesPage() {
         {/* Billing and Insurance */}
         <div className={styles['kbc-page-section-wrap-linen']}>
           <div className={styles['kbc-page-section']}>
+            <SectionEyebrow>Billing &amp; Insurance</SectionEyebrow>
             <h2 className={styles['kbc-page-h2']}>
               Rates and <em>insurance</em>.
             </h2>
@@ -139,8 +161,39 @@ export default function PatientResourcesPage() {
             contact 988 (Suicide and Crisis Lifeline) for immediate support.
           </div>
         </div>
+
+        {/* CTA */}
+        <div className={styles['kbc-page-cta-section']}>
+          <SectionEyebrow>Get Started</SectionEyebrow>
+          <h2 className={styles['kbc-h2']}>Ready to begin?</h2>
+          <p className={styles['kbc-body']}>
+            Reach out to request intake documents or ask any questions about
+            getting started. Kelly personally responds to all inquiries.
+          </p>
+          <div className={styles['kbc-page-cta-actions']}>
+            <button
+              type="button"
+              className={styles['kbc-pill']}
+              onClick={() => setIsConsultationOpen(true)}
+            >
+              Schedule a Consultation
+            </button>
+            <a
+              href="/contact"
+              className={styles['kbc-link-quiet']}
+              style={{ color: 'rgba(245,240,232,0.78)' }}
+            >
+              Contact Kelly
+            </a>
+          </div>
+        </div>
+
       </main>
       <Footer />
+      <ConsultationModal
+        isOpen={isConsultationOpen}
+        onClose={() => setIsConsultationOpen(false)}
+      />
     </>
   );
 }

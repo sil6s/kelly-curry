@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import healingHero from '../assets/images/healing-hero.jpg';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import ConsultationModal from '../components/ConsultationModal';
@@ -93,6 +95,17 @@ export default function ServicesPage() {
           </div>
         </section>
 
+        {/* Photo band below hero */}
+        <div className={styles['kbc-page-photo-band']}>
+          <Image
+            src={healingHero}
+            alt="A welcoming therapy office"
+            className={styles['kbc-page-photo-band-img']}
+            placeholder="blur"
+            sizes="100vw"
+          />
+        </div>
+
         {SERVICES.map((service, i) => (
           <div
             key={service.num}
@@ -144,6 +157,32 @@ export default function ServicesPage() {
             </div>
           </div>
         ))}
+        {/* CTA */}
+        <div className={styles['kbc-page-cta-section']}>
+          <SectionEyebrow>Get Started</SectionEyebrow>
+          <h2 className={styles['kbc-h2']}>Ready to take the first step?</h2>
+          <p className={styles['kbc-body']}>
+            You do not need to have everything figured out. Reach out and Kelly
+            will follow up about fit, availability, and next steps.
+          </p>
+          <div className={styles['kbc-page-cta-actions']}>
+            <button
+              type="button"
+              className={styles['kbc-pill']}
+              onClick={() => setIsConsultationOpen(true)}
+            >
+              Schedule a Consultation
+            </button>
+            <a
+              href="/contact"
+              className={styles['kbc-link-quiet']}
+              style={{ color: 'rgba(245,240,232,0.78)' }}
+            >
+              Contact Kelly
+            </a>
+          </div>
+        </div>
+
       </main>
       <Footer />
       <ConsultationModal
