@@ -7,11 +7,14 @@ import Contact from './Contact';
 import CouchBand from './CouchBand';
 import Fees from './Fees';
 import Footer from './Footer';
+import Header from './Header';
 import Hero from './Hero';
+import HelpWith from './HelpWith';
 import LocationArrival from './LocationArrival';
 import MeetKelly from './MeetKelly';
-import Header from './Header';
 import Office from './Office';
+import PatientResourcesPreview from './PatientResourcesPreview';
+import ProcessSteps from './ProcessSteps';
 import Services from './Services';
 
 export default function SiteShell() {
@@ -25,7 +28,12 @@ export default function SiteShell() {
         <MeetKelly />
         <Approach />
         <Services />
+        <HelpWith />
         <CouchBand />
+        <ProcessSteps
+          onRequestConsultation={() => setIsConsultationOpen(true)}
+        />
+        <PatientResourcesPreview />
         <Fees />
         <Office />
         <LocationArrival

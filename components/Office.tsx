@@ -108,7 +108,7 @@ export default function Office() {
         <div className={styles['kbc-info-cell']}>
           <div className={styles['kbc-info-label']}>Contact</div>
           <div className={styles['kbc-info-value']}>
-            hello@kellybakerthomas.com
+            hello@kellybakercurry.com
             <br />
             (859) 555 0102
           </div>

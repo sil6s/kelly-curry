@@ -1,5 +1,4 @@
 import { SectionEyebrow } from './Atoms';
-import Button from './Button';
 import styles from '../styles/Website.module.css';
 
 export default function Hero({
@@ -11,24 +10,37 @@ export default function Hero({
     <section className={styles['kbc-hero']} id="top">
       <div className={styles['kbc-hero-grid']}>
         <div className={styles['kbc-hero-text']}>
-          <SectionEyebrow>Talk Therapy in Fort Thomas</SectionEyebrow>
+          <SectionEyebrow>Talk Therapy in Fort Thomas, Kentucky</SectionEyebrow>
           <h1 className={styles['kbc-h1']}>
-            A practice that <em>heals</em> from the inside out.
+            A calm, supportive space to <em>heal</em>, grow, and feel more like yourself.
           </h1>
           <p className={styles['kbc-hero-body']}>
-            Thoughtful, relational therapy for individuals, couples, and
-            families. In person in Fort Thomas, Kentucky, and virtually across
-            Kentucky and Ohio.
+            Therapy for individuals, couples, and families in Fort Thomas,
+            Kentucky, with a grounded approach rooted in honesty, trust, and
+            meaningful connection.
           </p>
           <div className={styles['kbc-hero-cta']}>
-            <Button href="/contact">Contact</Button>
-            <Button variant="secondary" onClick={onRequestConsultation}>
-              Request Consultation
-            </Button>
-            <a href="#approach" className={styles['kbc-link-quiet']}>
+            <button
+              className={styles['kbc-pill']}
+              type="button"
+              onClick={onRequestConsultation}
+            >
+              Schedule a Consultation
+            </button>
+            <a
+              href="/services"
+              className={`${styles['kbc-pill']} ${styles['kbc-pill-charcoal']}`}
+            >
+              View Services
+            </a>
+            <a href="/approach" className={styles['kbc-link-quiet']}>
               Learn about the approach
             </a>
           </div>
+          <p className={styles['kbc-hero-trust']}>
+            Licensed clinical social worker serving Fort Thomas and surrounding
+            Northern Kentucky communities.
+          </p>
         </div>
         <div className={styles['kbc-hero-photo']}>
           <svg

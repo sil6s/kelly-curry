@@ -1,6 +1,25 @@
 import { Diamond, SectionEyebrow } from './Atoms';
 import styles from '../styles/Website.module.css';
 
+const APPROACH_CARDS = [
+  {
+    title: 'Relationship-centered care',
+    body: 'Sessions are grounded in the therapeutic relationship — safety and trust come first.',
+  },
+  {
+    title: 'Honest, compassionate conversations',
+    body: 'Direct, warm dialogue that meets you where you are without judgment.',
+  },
+  {
+    title: 'Support for real-life change',
+    body: 'Practical tools alongside deeper insight, building healthier ways of relating.',
+  },
+  {
+    title: 'A pace that respects your story',
+    body: 'No predetermined timeline. The work moves at a pace that feels safe and meaningful.',
+  },
+];
+
 export default function Approach() {
   return (
     <section className={styles['kbc-approach']} id="approach">
@@ -60,6 +79,19 @@ export default function Approach() {
             you, and to help you know yourself.
           </p>
           <Diamond className={styles['kbc-approach-diamond']} size={96} />
+
+          <div className={styles['kbc-approach-cards']}>
+            {APPROACH_CARDS.map((card) => (
+              <div key={card.title} className={styles['kbc-approach-card']}>
+                <div className={styles['kbc-approach-card-title']}>
+                  {card.title}
+                </div>
+                <div className={styles['kbc-approach-card-body']}>
+                  {card.body}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

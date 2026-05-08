@@ -7,11 +7,20 @@ import styles from '../styles/Website.module.css';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    serviceInterest: '',
+    message: '',
+  });
 
   function update(field: keyof typeof form) {
-    return (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-      setForm({ ...form, [field]: e.target.value });
+    return (
+      e: ChangeEvent<
+        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >,
+    ) => setForm({ ...form, [field]: e.target.value });
   }
 
   function submit(e: FormEvent<HTMLFormElement>) {
@@ -28,9 +37,10 @@ export default function Contact() {
             Reach out for a brief, <em>free</em> consultation.
           </h2>
           <p className={styles['kbc-body']}>
-            Send a note with what brings you here, and I will reply within two
-            business days. Consultations are 15 minutes by phone, with no
-            obligation.
+            Taking the first step can feel vulnerable. You do not need to have
+            the perfect words. Send a short message about what you are looking
+            for, and Kelly will follow up about availability, fit, and next
+            steps.
           </p>
         </div>
         <div className={styles['kbc-contact-form-wrap']}>
@@ -56,6 +66,31 @@ export default function Contact() {
               </label>
               <label className={styles['kbc-field']}>
                 <span className={styles['kbc-field-label']}>
+                  Phone (optional)
+                </span>
+                <input
+                  type="tel"
+                  value={form.phone}
+                  onChange={update('phone')}
+                />
+              </label>
+              <label className={styles['kbc-field']}>
+                <span className={styles['kbc-field-label']}>
+                  Service interest
+                </span>
+                <select
+                  value={form.serviceInterest}
+                  onChange={update('serviceInterest')}
+                >
+                  <option value="">Select one</option>
+                  <option value="individual">Individual therapy</option>
+                  <option value="couples">Couples therapy</option>
+                  <option value="family">Family therapy</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </label>
+              <label className={styles['kbc-field']}>
+                <span className={styles['kbc-field-label']}>
                   What brings you here
                 </span>
                 <textarea
@@ -66,6 +101,11 @@ export default function Contact() {
                 />
               </label>
               <PillButton>Send Message</PillButton>
+              <p className={styles['kbc-form-note']}>
+                Please avoid including urgent, crisis, or highly sensitive
+                clinical details in this form. If this is an emergency, call
+                911 or contact a crisis resource immediately.
+              </p>
             </form>
           ) : (
             <div className={styles['kbc-contact-confirm']}>

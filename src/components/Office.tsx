@@ -40,9 +40,10 @@ export default function Office() {
             <circle cx="450" cy="100" r="120" fill="#c4a882" opacity="0.18" />
           </svg>
           <div className={styles['kbc-office-card-meta']}>
-            <div className={styles['kbc-office-card-title']}>Waiting Room</div>
+            <div className={styles['kbc-office-card-title']}>The Practice</div>
             <div className={styles['kbc-office-card-body']}>
-              Quiet, soft lit, with tea and water on offer.
+              A private, calm setting at Watch Point in Fort Thomas. In-person
+              sessions Monday through Thursday.
             </div>
           </div>
         </div>
@@ -108,7 +109,7 @@ export default function Office() {
         <div className={styles['kbc-info-cell']}>
           <div className={styles['kbc-info-label']}>Contact</div>
           <div className={styles['kbc-info-value']}>
-            hello@kellybakerthomas.com
+            hello@kellybakercurry.com
             <br />
             (859) 555 0102
           </div>

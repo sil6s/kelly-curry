@@ -1,5 +1,5 @@
 /* =========================================================
-   Kelly Baker Thomas — Website Component Styles
+   Kelly Baker Curry — Website Component Styles
    ========================================================= */
 
 /* ---------- NAV ---------- */
@@ -1077,5 +1077,396 @@
   }
   .kbc-contact-page-form {
     padding: 40px 28px;
+  }
+}
+
+/* ---------- HERO TRUST LINE ---------- */
+.kbc-hero-trust {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 20px;
+}
+
+/* ---------- MEET KELLY — CREDENTIAL CARDS ---------- */
+.kbc-meet-cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 32px;
+}
+.kbc-meet-cred-card {
+  background: var(--cream);
+  border: 1px solid rgba(46, 43, 38, 0.10);
+  padding: 22px 24px;
+}
+.kbc-meet-cred-card-label {
+  font-family: var(--font-ui);
+  font-size: 0.64rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--clay);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.kbc-meet-cred-card-body {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--charcoal);
+}
+.kbc-active-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.kbc-active-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #5a8a54;
+  flex-shrink: 0;
+}
+.kbc-meet-cta {
+  margin-top: 22px;
+}
+
+/* ---------- APPROACH CARDS ---------- */
+.kbc-approach-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 40px;
+}
+.kbc-approach-card {
+  background: var(--white);
+  padding: 28px 26px;
+  border: 1px solid rgba(46, 43, 38, 0.08);
+}
+.kbc-approach-card-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+.kbc-approach-card-body {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.78;
+  color: var(--muted);
+}
+
+/* ---------- SERVICE ENHANCEMENTS ---------- */
+.kbc-service-reasons {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(196, 168, 130, 0.28);
+}
+.kbc-service-reasons-label {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clay);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.kbc-service-reasons-list {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.kbc-service-cta {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 43, 38, 0.22);
+  padding-bottom: 3px;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.kbc-service-cta:hover {
+  color: var(--clay-dark);
+  border-color: var(--clay);
+}
+
+/* ---------- WHAT THERAPY CAN HELP WITH ---------- */
+.kbc-helpwith {
+  background: var(--white);
+  padding: 120px 56px;
+}
+.kbc-helpwith-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.kbc-helpwith-header {
+  margin-bottom: 56px;
+}
+.kbc-helpwith-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+.kbc-helpwith-intro {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.88;
+  color: var(--muted);
+  margin-top: 0;
+}
+.kbc-helpwith-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ---------- PROCESS STEPS ---------- */
+.kbc-process {
+  background: var(--cream);
+  padding: 120px 56px;
+}
+.kbc-process-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.kbc-process-header {
+  margin-bottom: 64px;
+}
+.kbc-process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  background: rgba(196, 168, 130, 0.22);
+}
+.kbc-process-step {
+  background: var(--white);
+  padding: 44px 36px;
+}
+.kbc-process-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: rgba(196, 168, 130, 0.55);
+  line-height: 1;
+  margin-bottom: 22px;
+}
+.kbc-process-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 14px;
+}
+.kbc-process-body {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.85;
+}
+.kbc-process-cta {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-top: 48px;
+}
+
+/* ---------- PATIENT RESOURCES PREVIEW ---------- */
+.kbc-resources-preview {
+  background: var(--linen);
+  padding: 100px 56px;
+}
+.kbc-resources-preview-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.kbc-resources-preview-inner .kbc-h2 {
+  max-width: none;
+}
+.kbc-resources-preview-body {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.88;
+  color: var(--muted);
+  margin: 22px 0 32px;
+}
+.kbc-resources-preview-cta {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- PAGES (shared for new standalone pages) ---------- */
+.kbc-page {
+  background: var(--cream);
+}
+.kbc-page-hero {
+  background: var(--warm-white);
+  padding: 110px 56px 72px;
+}
+.kbc-page-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.kbc-page-section {
+  padding: 72px 56px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.kbc-page-section-wrap {
+  padding: 72px 56px;
+  background: var(--white);
+}
+.kbc-page-section-wrap-linen {
+  padding: 72px 56px;
+  background: var(--linen);
+}
+.kbc-page-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--charcoal);
+  margin: 14px 0 0;
+  max-width: 22ch;
+}
+.kbc-page-h2 em {
+  font-style: italic;
+  font-weight: 400;
+}
+.kbc-resources-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 36px;
+}
+.kbc-resources-form-card {
+  background: var(--white);
+  padding: 32px 28px;
+  border: 1px solid rgba(46, 43, 38, 0.10);
+}
+.kbc-resources-form-card-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+.kbc-resources-form-card-body {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.kbc-service-section {
+  padding: 72px 56px;
+  border-bottom: 1px solid rgba(46, 43, 38, 0.08);
+}
+.kbc-service-section:last-of-type {
+  border-bottom: none;
+}
+.kbc-service-section-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.kbc-approach-method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+.kbc-approach-method-card {
+  background: var(--linen);
+  padding: 32px 28px;
+}
+.kbc-approach-method-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+}
+.kbc-approach-method-body {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.kbc-page-cta-section {
+  background: var(--charcoal);
+  padding: 100px 56px;
+  text-align: center;
+}
+.kbc-page-cta-section .kbc-h2 {
+  color: var(--cream);
+  max-width: none;
+  margin: 14px auto;
+}
+.kbc-page-cta-section .kbc-body {
+  color: rgba(245, 240, 232, 0.78);
+  margin: 0 auto 32px;
+}
+.kbc-page-cta-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.kbc-crisis-note {
+  background: var(--linen);
+  border-left: 3px solid var(--clay);
+  padding: 24px 28px;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+}
+
+/* ---------- RESPONSIVE ADDITIONS ---------- */
+@media (max-width: 880px) {
+  .kbc-helpwith,
+  .kbc-process,
+  .kbc-resources-preview {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .kbc-helpwith-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .kbc-process-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .kbc-meet-cards-row {
+    grid-template-columns: 1fr;
+  }
+  .kbc-approach-cards {
+    grid-template-columns: 1fr;
+  }
+  .kbc-resources-form-grid,
+  .kbc-approach-method-grid {
+    grid-template-columns: 1fr;
+  }
+  .kbc-page-hero,
+  .kbc-page-section,
+  .kbc-page-section-wrap,
+  .kbc-page-section-wrap-linen,
+  .kbc-service-section,
+  .kbc-page-cta-section {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
