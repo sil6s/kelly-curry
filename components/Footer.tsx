@@ -8,7 +8,7 @@ export default function Footer() {
         <div className={styles['kbc-footer-brand']}>
           <LogoMark className={styles['kbc-footer-logo-mark']} />
           <div className={styles['kbc-footer-wordmark']}>
-            Kelly Baker Thomas
+            Kelly Baker Curry
           </div>
           <div className={styles['kbc-footer-descriptor']}>
             Licensed Therapist
@@ -32,12 +32,12 @@ export default function Footer() {
         </div>
         <div className={styles['kbc-footer-col']}>
           <div className={styles['kbc-footer-col-head']}>Contact</div>
-          <p>hello@kellybakerthomas.com</p>
+          <p>hello@kellybakercurry.com</p>
           <p>(859) 555 0102</p>
         </div>
       </div>
       <div className={styles['kbc-footer-base']}>
-        <div>© 2025 Kelly Baker Thomas, LCSW</div>
+        <div>© 2025 Kelly Baker Curry, LCSW</div>
         <div>Licensed in Kentucky and Ohio</div>
       </div>
     </footer>

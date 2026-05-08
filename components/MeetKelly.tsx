@@ -40,7 +40,7 @@ export default function MeetKelly() {
         <div className={styles['kbc-meet-text']}>
           <SectionEyebrow>Meet Kelly</SectionEyebrow>
           <h2 className={styles['kbc-h2']}>
-            Kelly Baker Thomas, LCSW, MSW, MEd
+            Kelly Baker Curry, LCSW, MSW, MEd
           </h2>
           <div className={styles['kbc-meet-role']}>
             Licensed Clinical Social Worker
