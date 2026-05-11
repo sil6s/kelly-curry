@@ -31,8 +31,8 @@ export default function MeetKelly() {
             work is grounded in trust, thoughtful conversation, and a genuine
             belief that understanding your own patterns is the foundation of
             meaningful change. With over 13 years of experience working with
-            individuals, couples, and families, she meets people where they are
-            — without judgment.
+            individuals, couples, families, and co-parents, she meets people
+            where they are — without judgment.
           </p>
 
           <div className={styles['kbc-meet-cards-row']}>
@@ -70,7 +70,7 @@ export default function MeetKelly() {
                 <div className={styles['kbc-cred-degree']}>
                   Kentucky — LCSW
                   <span className={styles['kbc-cred-school']}>
-                    License #254297
+                    License #254927
                   </span>
                 </div>
                 <div className={styles['kbc-active-status']}>
@@ -102,6 +102,7 @@ export default function MeetKelly() {
                   <li>Individual therapy</li>
                   <li>Couples therapy</li>
                   <li>Family therapy</li>
+                  <li>Coparenting therapy</li>
                   <li>Anxiety &amp; stress</li>
                   <li>Life transitions</li>
                   <li>Relationship patterns</li>

@@ -2,7 +2,7 @@ import { SectionEyebrow } from './Atoms';
 import styles from './Website.module.css';
 
 const CREDENTIALS = [
-  'LCSW #254297 (KY)',
+  'LCSW #254927 (KY)',
   'Licensed Independent Social Worker (OH) #I.2304547',
   'MSW, Northern Kentucky University',
   'MEd background in education',

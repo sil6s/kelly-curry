@@ -2,6 +2,44 @@
    Kelly Baker Curry — Website Component Styles
    ========================================================= */
 
+.kbc-nav,
+.kbc-page,
+.kbc-hero,
+.kbc-meet,
+.kbc-approach,
+.kbc-services,
+.kbc-helpwith,
+.kbc-process,
+.kbc-resources-preview,
+.kbc-contact,
+.kbc-fees,
+.kbc-office,
+.kbc-location,
+.kbc-footer,
+.kbc-modal-backdrop,
+.kbc-contact-page,
+.kbc-contact-options-section,
+.kbc-contact-form-section {
+  --white: #ffffff;
+  --warm-white: #faf8f4;
+  --cream: #f5f0e8;
+  --linen: #ede8df;
+  --charcoal: #2e2b26;
+  --muted: #7a7570;
+  --footer-dark: #28241f;
+  --clay: #8f7458;
+  --clay-dark: #735a43;
+  --sage: #7d8c76;
+  --dusty-rose: #8f6258;
+  --dusty-rose-dark: #764d45;
+  --container-max: 1180px;
+  --dur: 280ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-dm-sans), system-ui, sans-serif;
+  --font-ui: var(--font-dm-sans), system-ui, sans-serif;
+}
+
 /* ---------- NAV ---------- */
 .kbc-nav {
   position: sticky;
@@ -58,6 +96,9 @@
   align-items: center;
   gap: 32px;
 }
+.kbc-nav-item {
+  position: relative;
+}
 .kbc-nav-link {
   font-family: var(--font-ui);
   font-size: 0.78rem;
@@ -71,6 +112,57 @@
 .kbc-nav-link:hover {
   color: var(--clay-dark);
 }
+.kbc-nav-dropdown {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: 50%;
+  min-width: 230px;
+  transform: translate(-50%, 8px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px;
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  box-shadow: 0 18px 44px rgba(46, 43, 38, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+.kbc-nav-item:hover .kbc-nav-dropdown,
+.kbc-nav-item:focus-within .kbc-nav-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+.kbc-nav-dropdown a {
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  text-decoration: none;
+  padding: 12px 14px;
+}
+.kbc-nav-dropdown a:hover,
+.kbc-nav-dropdown a:focus-visible {
+  background: var(--warm-white);
+  outline: none;
+}
+.kbc-nav-link:focus-visible,
+.kbc-nav-brand:focus-visible,
+.kbc-hamburger:focus-visible,
+.kbc-mobile-menu-link:focus-visible,
+.kbc-mobile-menu-sublink:focus-visible,
+.kbc-details-toggle-btn:focus-visible,
+.kbc-contact-option-card:focus-visible,
+.kbc-support-card:focus-visible,
+.kbc-faq-item summary:focus-visible {
+  outline: 2px solid rgba(115, 90, 67, 0.42);
+  outline-offset: 4px;
+}
 
 /* ---------- PILL BUTTON ---------- */
 .kbc-pill {
@@ -79,14 +171,17 @@
   color: var(--white);
   border: 0;
   border-radius: 30px;
-  padding: 10px 24px;
+  padding: 12px 24px;
+  min-height: 44px;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   font-weight: 500;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   white-space: nowrap;
   transition: background var(--dur) var(--ease);
 }
@@ -161,8 +256,8 @@
 
 .kbc-body {
   font-family: var(--font-body);
-  font-size: 0.92rem;
-  line-height: 1.88;
+  font-size: 0.96rem;
+  line-height: 1.92;
   color: var(--muted);
   margin: 22px 0 0;
   max-width: 52ch;
@@ -307,6 +402,10 @@
   padding: 60px 84px;
   position: relative;
 }
+.kbc-approach-text .kbc-approach-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
 .kbc-approach-diamond {
   position: absolute;
   bottom: 40px;
@@ -325,7 +424,7 @@
 }
 .kbc-services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 3px;
   background: var(--clay);
   max-width: var(--container-max);
@@ -414,7 +513,7 @@
 }
 .kbc-fees-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 3px;
   background: #ddd1ba;
   max-width: var(--container-max);
@@ -805,8 +904,8 @@
 }
 .kbc-footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.25fr 0.85fr 1fr 1.05fr 0.95fr;
+  gap: 44px;
   max-width: var(--container-max);
   margin: 0 auto;
 }
@@ -1174,7 +1273,7 @@
   font-size: 1rem;
   font-weight: 500;
   color: var(--charcoal);
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 .kbc-approach-card-body {
   font-family: var(--font-body);
@@ -1440,7 +1539,7 @@
   font-size: 1.05rem;
   font-weight: 500;
   color: var(--charcoal);
-  margin-bottom: 12px;
+  margin: 0 0 12px;
 }
 .kbc-approach-method-body {
   font-family: var(--font-body);
@@ -1671,6 +1770,257 @@
 .kbc-contact-form-wrap {
   background: var(--white);
 }
+.kbc-intake-form-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  padding: 36px 40px 26px;
+  background: var(--warm-white);
+  border-bottom: 1px solid rgba(46, 43, 38, 0.08);
+}
+.kbc-intake-logo {
+  width: 52px;
+  height: 52px;
+  color: var(--charcoal);
+}
+.kbc-form-availability {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  line-height: 1.75;
+  color: var(--muted);
+  padding: 0 40px;
+  margin: 18px 0 0;
+}
+.kbc-form-step-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.kbc-field-grid,
+.kbc-service-choice-grid,
+.kbc-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.kbc-service-choice-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.kbc-service-choice-card {
+  position: relative;
+  display: flex;
+  min-height: 156px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 22px;
+  border: 1px solid rgba(46, 43, 38, 0.13);
+  background: var(--warm-white);
+  cursor: pointer;
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+.kbc-service-choice-card:hover {
+  border-color: rgba(115, 90, 67, 0.34);
+  background: var(--white);
+}
+.kbc-service-choice-card input {
+  position: absolute;
+  inset: 18px 18px auto auto;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--clay-dark);
+}
+.kbc-service-choice-card:has(input:focus-visible),
+.kbc-choice:has(input:focus-visible),
+.kbc-check-choice:has(input:focus-visible) {
+  outline: 2px solid rgba(115, 90, 67, 0.42);
+  outline-offset: 4px;
+}
+.kbc-service-choice-card-selected {
+  border-color: var(--clay-dark);
+  background: rgba(245, 238, 238, 0.72);
+  box-shadow: inset 0 0 0 1px rgba(115, 90, 67, 0.12);
+}
+.kbc-service-choice-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clay-dark);
+  background: rgba(143, 116, 88, 0.1);
+  border: 1px solid rgba(143, 116, 88, 0.16);
+  margin-bottom: 8px;
+}
+.kbc-service-choice-icon svg {
+  width: 21px;
+  height: 21px;
+  stroke-width: 1.65;
+}
+.kbc-service-choice-title {
+  max-width: calc(100% - 34px);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.25;
+  color: var(--charcoal);
+}
+.kbc-service-choice-price {
+  font-family: var(--font-display);
+  font-size: 2.15rem;
+  line-height: 1;
+  color: var(--charcoal);
+  margin-top: auto;
+}
+.kbc-service-choice-meta,
+.kbc-service-choice-note,
+.kbc-char-count {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.kbc-service-choice-note {
+  color: var(--clay-dark);
+}
+.kbc-choice-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.kbc-choice-fieldset legend {
+  margin-bottom: 12px;
+}
+.kbc-checkbox-grid .kbc-choice {
+  margin: 0;
+}
+.kbc-choice input[type='checkbox'] {
+  accent-color: var(--clay-dark);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.kbc-payment-summary,
+.kbc-scheduling-tip {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  background: rgba(237, 232, 223, 0.54);
+  border: 1px solid rgba(46, 43, 38, 0.08);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+}
+.kbc-payment-summary svg,
+.kbc-scheduling-tip svg,
+.kbc-form-note > svg {
+  width: 20px;
+  height: 20px;
+  color: var(--clay-dark);
+  stroke-width: 1.7;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+.kbc-payment-summary strong {
+  font-weight: 500;
+}
+.kbc-form-note {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+}
+.kbc-form-note .kbc-choice-fieldset {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+}
+.kbc-form-note > .kbc-check-choice {
+  grid-column: 1 / -1;
+}
+.kbc-form-note p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+.kbc-check-choice {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--charcoal);
+}
+.kbc-check-choice input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--clay-dark);
+  flex: 0 0 auto;
+}
+.kbc-char-count {
+  align-self: flex-end;
+  margin-top: -2px;
+}
+.kbc-additional-people,
+.kbc-required-acks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: var(--warm-white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+}
+.kbc-additional-person-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding: 22px;
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+}
+.kbc-additional-person-head {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(46, 43, 38, 0.08);
+}
+.kbc-additional-person-head h4 {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin: 0;
+}
+.kbc-turnstile-wrap {
+  display: flex;
+  justify-content: flex-start;
+  min-height: 70px;
+}
+.kbc-form-error {
+  padding: 16px 18px;
+  background: #f7eeee;
+  border-left: 3px solid var(--dusty-rose-dark);
+  color: var(--charcoal);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.kbc-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
 
 /* ---------- RESPONSIVE ADDITIONS ---------- */
 @media (max-width: 880px) {
@@ -1775,6 +2125,10 @@
   flex-direction: column;
   gap: 0;
 }
+.kbc-mobile-menu-group {
+  border-bottom: 1px solid rgba(46, 43, 38, 0.08);
+  padding-bottom: 10px;
+}
 .kbc-mobile-menu-link {
   font-family: var(--font-display);
   font-size: 1.55rem;
@@ -1782,10 +2136,22 @@
   color: var(--charcoal);
   text-decoration: none;
   padding: 18px 0;
-  border-bottom: 1px solid rgba(46, 43, 38, 0.08);
   transition: color var(--dur) var(--ease);
 }
 .kbc-mobile-menu-link:hover {
+  color: var(--clay-dark);
+}
+.kbc-mobile-menu-sublink {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 0 8px 18px;
+}
+.kbc-mobile-menu-sublink:hover {
   color: var(--clay-dark);
 }
 .kbc-mobile-menu-cta {
@@ -2654,9 +3020,13 @@
 
 /* ---------- CONSOLIDATED CONSULTATION + RESOURCES REFINEMENTS ---------- */
 .kbc-modal:has(.kbc-contact-form-wrap) {
-  width: min(100%, 760px);
+  width: min(100%, 920px);
+  padding: 0;
+  overflow: hidden;
 }
 .kbc-modal .kbc-contact-form-wrap {
+  border: 0;
+  border-radius: 18px;
   box-shadow: none;
 }
 .kbc-modal .kbc-contact-form {
@@ -2704,6 +3074,36 @@
   gap: 18px 24px;
   align-items: center;
   margin-top: 32px;
+}
+.kbc-general-contact-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+.kbc-general-contact-form,
+.kbc-general-contact-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.kbc-general-contact-form {
+  margin-top: 32px;
+}
+.kbc-general-contact-fields {
+  padding-top: 6px;
+}
+.kbc-new-client-route-card {
+  background: var(--warm-white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 30px 28px;
+}
+.kbc-new-client-route-card .kbc-body {
+  margin-bottom: 0;
+}
+.kbc-new-client-route-card .kbc-body + .kbc-body {
+  margin-top: 14px;
 }
 
 .kbc-service-section-head {
@@ -2819,7 +3219,7 @@
 }
 .kbc-resource-pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-top: 40px;
 }
@@ -2845,6 +3245,46 @@
   .kbc-modal .kbc-contact-form {
     padding: 28px 20px;
   }
+  .kbc-modal:has(.kbc-contact-form-wrap) {
+    padding: 0;
+  }
+  .kbc-intake-form-head {
+    grid-template-columns: 1fr;
+    padding: 28px 24px 22px;
+  }
+  .kbc-form-availability {
+    padding: 0 24px;
+  }
+  .kbc-steps-bar {
+    overflow-x: auto;
+    padding: 16px 20px;
+  }
+  .kbc-step-item {
+    min-width: 74px;
+  }
+  .kbc-field-grid,
+  .kbc-service-choice-grid,
+  .kbc-checkbox-grid,
+  .kbc-additional-person-card {
+    grid-template-columns: 1fr;
+  }
+  .kbc-service-choice-card {
+    min-height: 132px;
+  }
+  .kbc-review-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .kbc-step-nav {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+  .kbc-step-nav .kbc-pill,
+  .kbc-step-back-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
   .kbc-contact-page-cta-row,
   .kbc-service-actions,
   .kbc-resources-preview-cta {
@@ -2855,6 +3295,12 @@
   .kbc-service-actions .kbc-pill,
   .kbc-resources-preview-cta .kbc-pill {
     text-align: center;
+  }
+  .kbc-general-contact-head {
+    grid-template-columns: 1fr;
+  }
+  .kbc-new-client-route-card {
+    padding: 26px 22px;
   }
 }
 /* ---------- ABOUT + APPROACH PAGE REFINEMENTS ---------- */
@@ -2882,17 +3328,39 @@
 .kbc-about-hero-clean .kbc-about-hero-inner {
   position: relative;
   z-index: 1;
-  grid-template-columns: minmax(0, 760px) 120px;
+  grid-template-columns: minmax(0, 760px) 220px;
   gap: 56px;
   align-items: center;
 }
+.kbc-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 24px;
+  margin-top: 30px;
+}
+.kbc-about-hero-portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
 .kbc-about-hero-avatar {
-  width: 112px;
-  height: 112px;
+  width: 176px;
+  height: 176px;
   border-radius: 50%;
   overflow: hidden;
   background: var(--linen);
   border: 1px solid rgba(46, 43, 38, 0.1);
+}
+.kbc-about-hero-quote {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--charcoal);
+  text-align: center;
+  margin: 0;
+  max-width: 20ch;
 }
 .kbc-about-hero-avatar-img {
   width: 100%;
@@ -2946,7 +3414,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .kbc-approach-three-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .kbc-approach-cards {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2963,7 +3431,497 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px 22px;
+  margin-top: 22px;
+}
+.kbc-inline-links,
+.kbc-section-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  align-items: center;
   margin-top: 6px;
+}
+.kbc-section-link-row {
+  margin-top: 34px;
+}
+.kbc-soft-check-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 40px;
+}
+.kbc-soft-check-item {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(46, 43, 38, 0.08);
+  padding: 22px 24px;
+}
+.kbc-soft-check-item span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sage);
+  margin-top: 9px;
+}
+.kbc-soft-check-item p,
+.kbc-quiet-cta-card p,
+.kbc-research-card p,
+.kbc-support-card p,
+.kbc-faq-item p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.78;
+  color: var(--muted);
+  margin: 0;
+}
+.kbc-quiet-cta-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: center;
+  margin-top: 36px;
+  padding: 28px 30px;
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+}
+.kbc-quiet-cta-card p {
+  max-width: 62ch;
+  color: var(--charcoal);
+}
+.kbc-support-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+.kbc-support-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 30px 26px;
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+.kbc-support-card:hover {
+  background: var(--warm-white);
+  border-color: rgba(115, 90, 67, 0.26);
+}
+.kbc-support-card h3,
+.kbc-research-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--charcoal);
+  margin: 0 0 12px;
+}
+.kbc-support-card span {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 22px;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--clay-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.kbc-card-number {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  color: rgba(143, 116, 88, 0.55);
+  line-height: 1;
+  margin-bottom: 18px;
+}
+.kbc-research-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 26px;
+}
+.kbc-research-card {
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 24px 22px;
+}
+.kbc-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 38px;
+}
+.kbc-faq-item {
+  background: var(--warm-white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 0;
+}
+.kbc-faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 22px 24px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+.kbc-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.kbc-faq-item summary::after {
+  content: '+';
+  float: right;
+  font-family: var(--font-ui);
+  color: var(--clay-dark);
+}
+.kbc-faq-item[open] summary::after {
+  content: '-';
+}
+.kbc-faq-item p {
+  padding: 0 24px 24px;
+  max-width: 72ch;
+}
+
+/* ---------- APPROACH GUIDED JOURNEY ---------- */
+.kbc-approach-journey-hero {
+  border-bottom: 1px solid rgba(46, 43, 38, 0.08);
+}
+.kbc-approach-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 72px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+.kbc-approach-mini-nav {
+  position: sticky;
+  top: 112px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 24px;
+  backdrop-filter: blur(10px);
+}
+.kbc-mini-nav-label {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clay);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.kbc-approach-mini-nav a {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--charcoal);
+  text-decoration: none;
+  padding: 12px 0;
+  border-top: 1px solid rgba(46, 43, 38, 0.08);
+}
+.kbc-approach-mini-nav a:hover,
+.kbc-approach-mini-nav a:focus-visible {
+  color: var(--clay-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.kbc-fit-check-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 40px;
+}
+.kbc-fit-check-card {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  background: var(--warm-white);
+  border: 1px solid rgba(46, 43, 38, 0.09);
+  padding: 24px;
+  min-height: 100%;
+}
+.kbc-fit-check-card span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(125, 140, 118, 0.18);
+  color: #4f744c;
+  font-family: var(--font-ui);
+  font-weight: 500;
+}
+.kbc-fit-check-card p,
+.kbc-timeline-card p,
+.kbc-audience-copy-grid p,
+.kbc-tool-card-body p,
+.kbc-guide-card p,
+.kbc-begin-step p,
+.kbc-start-option-card,
+.kbc-audience-mobile-body p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.78;
+  color: var(--muted);
+  margin: 0;
+}
+.kbc-guided-split {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.36fr) minmax(0, 0.64fr);
+  gap: 68px;
+  align-items: start;
+}
+.kbc-session-rhythm {
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 34px;
+}
+.kbc-session-rhythm h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin: 0 0 28px;
+}
+.kbc-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(46, 43, 38, 0.1);
+}
+.kbc-timeline-card {
+  position: relative;
+  padding: 28px 18px 0 0;
+}
+.kbc-timeline-card + .kbc-timeline-card {
+  padding-left: 18px;
+  border-left: 1px solid rgba(46, 43, 38, 0.08);
+}
+.kbc-timeline-number {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  line-height: 1;
+  color: rgba(143, 116, 88, 0.58);
+  margin-bottom: 18px;
+}
+.kbc-timeline-card h4,
+.kbc-begin-step h3,
+.kbc-guide-card h3,
+.kbc-audience-panel h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--charcoal);
+  margin: 0 0 12px;
+}
+.kbc-audience-tabs {
+  margin-top: 40px;
+}
+.kbc-tab-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  background: var(--linen);
+  border: 1px solid rgba(46, 43, 38, 0.09);
+}
+.kbc-tab-list button {
+  min-height: 44px;
+  padding: 11px 22px;
+  border: 0;
+  background: transparent;
+  color: var(--charcoal);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.kbc-tab-list button:hover,
+.kbc-tab-list button:focus-visible {
+  outline: 2px solid rgba(115, 90, 67, 0.38);
+  outline-offset: 2px;
+}
+.kbc-tab-list .kbc-tab-active {
+  background: var(--white);
+  color: var(--clay-dark);
+}
+.kbc-audience-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 44px;
+  margin-top: 18px;
+  padding: 36px;
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+}
+.kbc-audience-copy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+.kbc-audience-copy-grid p span,
+.kbc-tool-detail > span {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clay);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.kbc-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 26px;
+}
+.kbc-tag-cloud span {
+  border: 1px solid rgba(46, 43, 38, 0.14);
+  background: rgba(237, 232, 223, 0.56);
+  color: var(--charcoal);
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  line-height: 1.2;
+  padding: 8px 12px;
+}
+.kbc-audience-accordions {
+  display: none;
+  margin-top: 34px;
+}
+.kbc-audience-mobile-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px 24px;
+}
+.kbc-tool-accordion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 38px;
+}
+.kbc-tool-card {
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+}
+.kbc-tool-card summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  padding: 26px 28px;
+  min-height: 72px;
+}
+.kbc-tool-card summary::-webkit-details-marker {
+  display: none;
+}
+.kbc-tool-card summary span {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+.kbc-tool-card summary small {
+  font-family: var(--font-ui);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--clay-dark);
+}
+.kbc-tool-card[open] summary small {
+  color: var(--muted);
+}
+.kbc-tool-card summary:focus-visible {
+  outline: 2px solid rgba(115, 90, 67, 0.42);
+  outline-offset: 4px;
+}
+.kbc-tool-card-body {
+  border-top: 1px solid rgba(46, 43, 38, 0.08);
+  padding: 24px 28px 28px;
+}
+.kbc-tool-detail {
+  margin-top: 22px;
+}
+.kbc-guide-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 40px;
+}
+.kbc-guide-card {
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 30px 26px;
+}
+.kbc-guide-card:nth-child(even) {
+  background: var(--warm-white);
+}
+.kbc-begin-journey {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 3px;
+  margin-top: 42px;
+  background: rgba(46, 43, 38, 0.1);
+}
+.kbc-begin-step {
+  background: var(--white);
+  padding: 34px 28px;
+}
+.kbc-begin-step span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: rgba(143, 116, 88, 0.58);
+  margin-bottom: 24px;
+}
+.kbc-start-option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 38px;
+}
+.kbc-start-option-card {
+  display: flex;
+  min-height: 150px;
+  align-items: flex-end;
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  color: var(--charcoal);
+  text-decoration: none;
+  padding: 26px;
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+.kbc-start-option-card:hover,
+.kbc-start-option-card:focus-visible {
+  background: var(--warm-white);
+  border-color: rgba(115, 90, 67, 0.3);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  outline: none;
 }
 .kbc-meet-text .kbc-h2 {
   max-width: 24ch;
@@ -2980,8 +3938,32 @@
 @media (max-width: 980px) {
   .kbc-approach-cards,
   .kbc-about-approach-grid,
-  .kbc-approach-three-grid {
+  .kbc-approach-three-grid,
+  .kbc-support-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .kbc-approach-hero-grid,
+  .kbc-guided-split,
+  .kbc-audience-panel {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .kbc-approach-mini-nav {
+    position: static;
+  }
+  .kbc-fit-check-grid,
+  .kbc-guide-card-grid,
+  .kbc-begin-journey,
+  .kbc-start-option-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .kbc-timeline-grid,
+  .kbc-audience-copy-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .kbc-timeline-card:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
   }
 }
 @media (max-width: 880px) {
@@ -2992,8 +3974,23 @@
     gap: 36px;
   }
   .kbc-about-hero-avatar {
-    width: 96px;
-    height: 96px;
+    width: 144px;
+    height: 144px;
+  }
+  .kbc-soft-check-grid,
+  .kbc-research-card-grid {
+    grid-template-columns: 1fr;
+  }
+  .kbc-audience-tabs {
+    display: none;
+  }
+  .kbc-audience-accordions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .kbc-tool-accordion-grid {
+    grid-template-columns: 1fr;
   }
   .kbc-subtle-pattern {
     width: 72vw;
@@ -3003,12 +4000,604 @@
 @media (max-width: 640px) {
   .kbc-approach-cards,
   .kbc-about-approach-grid,
-  .kbc-approach-three-grid {
+  .kbc-approach-three-grid,
+  .kbc-support-card-grid {
     grid-template-columns: 1fr;
+  }
+  .kbc-approach-text .kbc-approach-cards {
+    grid-template-columns: 1fr;
+  }
+  .kbc-hero-actions,
+  .kbc-quiet-cta-card,
+  .kbc-inline-links,
+  .kbc-section-link-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kbc-hero-actions .kbc-pill,
+  .kbc-hero-actions .kbc-link-quiet,
+  .kbc-quiet-cta-card .kbc-pill {
+    width: 100%;
+    text-align: center;
+  }
+  .kbc-approach-mini-nav {
+    padding: 20px;
+  }
+  .kbc-fit-check-grid,
+  .kbc-timeline-grid,
+  .kbc-guide-card-grid,
+  .kbc-begin-journey,
+  .kbc-start-option-grid,
+  .kbc-audience-copy-grid {
+    grid-template-columns: 1fr;
+  }
+  .kbc-session-rhythm {
+    padding: 26px 22px;
+  }
+  .kbc-timeline-card,
+  .kbc-timeline-card + .kbc-timeline-card,
+  .kbc-timeline-card:nth-child(3) {
+    border-left: 0;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(46, 43, 38, 0.08);
+  }
+  .kbc-timeline-card:first-child {
+    border-top: 0;
+  }
+  .kbc-tool-card summary {
+    padding: 22px;
+  }
+  .kbc-tool-card-body,
+  .kbc-audience-mobile-body {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  .kbc-start-option-card {
+    min-height: 104px;
   }
   .kbc-about-hero-clean,
   .kbc-approach-hero-clean {
     padding-top: 88px;
     padding-bottom: 88px;
+  }
+}
+
+/* ---------- CONTACT PAGE WIDTH + MOBILE STABILITY ---------- */
+.kbc-contact-page {
+  overflow-x: hidden;
+}
+.kbc-contact-page-hero,
+.kbc-contact-options-section,
+.kbc-contact-form-section,
+.kbc-contact-page-section {
+  padding-left: clamp(20px, 5vw, 56px);
+  padding-right: clamp(20px, 5vw, 56px);
+}
+.kbc-contact-page-inner,
+.kbc-contact-options-inner,
+.kbc-contact-form-inner,
+.kbc-contact-page-grid {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+.kbc-contact-page-inner {
+  max-width: var(--container-max);
+}
+.kbc-contact-form-inner {
+  max-width: var(--container-max);
+}
+.kbc-general-contact-head,
+.kbc-general-contact-form,
+.kbc-contact-form-inner > .kbc-crisis-note,
+.kbc-contact-form-inner > .kbc-form-availability,
+.kbc-contact-confirm {
+  max-width: 820px;
+}
+.kbc-contact-form-inner > .kbc-crisis-note,
+.kbc-contact-form-inner > .kbc-form-availability {
+  margin-left: 0;
+  margin-right: 0;
+}
+.kbc-contact-options-grid {
+  width: 100%;
+  max-width: none;
+}
+.kbc-contact-option-card,
+.kbc-contact-form-inner,
+.kbc-new-client-route-card,
+.kbc-map-embed-wrap {
+  box-sizing: border-box;
+}
+.kbc-general-contact-form .kbc-choice,
+.kbc-general-contact-form .kbc-field input,
+.kbc-general-contact-form .kbc-field textarea {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .kbc-contact-options-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .kbc-contact-page-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .kbc-contact-page-hero,
+  .kbc-contact-options-section,
+  .kbc-contact-form-section,
+  .kbc-contact-page-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .kbc-contact-page-hero {
+    padding-top: 72px;
+    padding-bottom: 64px;
+  }
+  .kbc-contact-options-section,
+  .kbc-contact-form-section,
+  .kbc-contact-page-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .kbc-contact-options-grid {
+    grid-template-columns: 1fr;
+    gap: 1px;
+  }
+  .kbc-contact-option-card {
+    padding: 26px 22px;
+  }
+  .kbc-contact-form-inner {
+    padding: 26px 20px;
+  }
+  .kbc-general-contact-head {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .kbc-general-contact-form,
+  .kbc-general-contact-fields {
+    gap: 18px;
+  }
+  .kbc-general-contact-form .kbc-choice-group,
+  .kbc-general-contact-form .kbc-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  .kbc-general-contact-form .kbc-choice {
+    padding: 14px 14px;
+  }
+  .kbc-contact-page-cta-row {
+    align-items: stretch;
+  }
+  .kbc-contact-page-cta-row .kbc-pill,
+  .kbc-contact-page-cta-row .kbc-step-back-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .kbc-map-embed,
+  .kbc-map-embed-wrap {
+    min-height: 320px;
+  }
+}
+
+/* ---------- SUBSERVICE DETAIL PAGES ---------- */
+.kbc-subservice-hero {
+  background: var(--warm-white);
+  padding: 88px clamp(20px, 5vw, 56px) 76px;
+}
+.kbc-subservice-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.78fr);
+  gap: 72px;
+  align-items: center;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.kbc-subservice-hero .kbc-h1 {
+  max-width: 16ch;
+}
+.kbc-subservice-image-wrap {
+  min-height: 460px;
+  overflow: hidden;
+  background: var(--linen);
+}
+.kbc-subservice-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  object-fit: cover;
+}
+.kbc-subservice-rate-card {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  max-width: 620px;
+  margin: 30px 0 32px;
+  padding: 20px 24px;
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+}
+.kbc-subservice-rate-card span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.35rem;
+  line-height: 1;
+  color: var(--charcoal);
+}
+.kbc-subservice-rate-card small {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-ui);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.kbc-subservice-rate-card p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.72;
+  color: var(--muted);
+}
+.kbc-subservice-intro-grid,
+.kbc-subservice-two-column,
+.kbc-subservice-rate-band {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+.kbc-subservice-two-column .kbc-soft-check-grid {
+  margin-top: 0;
+}
+.kbc-subservice-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 34px;
+}
+.kbc-subservice-pill-grid span {
+  border: 1px solid rgba(46, 43, 38, 0.13);
+  background: rgba(250, 248, 244, 0.72);
+  color: var(--charcoal);
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  line-height: 1.3;
+  padding: 10px 13px;
+}
+.kbc-subservice-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+}
+.kbc-subservice-comparison > div {
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 30px 28px;
+}
+.kbc-subservice-comparison h3,
+.kbc-subservice-selected-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin: 0 0 16px;
+}
+.kbc-subservice-comparison ul {
+  margin: 0;
+  padding-left: 18px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.82;
+  color: var(--muted);
+}
+.kbc-subservice-interactive {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.65fr) minmax(0, 0.85fr) minmax(
+      280px,
+      0.85fr
+    );
+  gap: 28px;
+  align-items: start;
+}
+.kbc-subservice-selectors {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.kbc-subservice-selectors button {
+  min-height: 46px;
+  border: 1px solid rgba(46, 43, 38, 0.12);
+  background: var(--white);
+  color: var(--charcoal);
+  cursor: pointer;
+  text-align: left;
+  padding: 13px 15px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+.kbc-subservice-selectors button:hover,
+.kbc-subservice-selectors button:focus-visible,
+.kbc-subservice-selectors .kbc-subservice-selector-active {
+  background: var(--warm-white);
+  border-color: rgba(115, 90, 67, 0.34);
+  outline: none;
+}
+.kbc-subservice-selected-card {
+  min-height: 220px;
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 30px 28px;
+}
+.kbc-subservice-selected-card p,
+.kbc-subservice-resource-list a,
+.kbc-subservice-disclaimer {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.kbc-subservice-resource-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.kbc-subservice-resource-list a {
+  display: block;
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  color: var(--charcoal);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  padding: 18px 20px;
+}
+.kbc-subservice-resource-list a:hover,
+.kbc-subservice-resource-list a:focus-visible {
+  background: var(--warm-white);
+  outline: 2px solid rgba(115, 90, 67, 0.28);
+  outline-offset: 3px;
+}
+.kbc-subservice-rate-band {
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 36px;
+  align-items: center;
+}
+.kbc-subservice-rate-band .kbc-service-pricing-card {
+  margin-left: auto;
+  min-width: 260px;
+}
+.kbc-subservice-disclaimer {
+  background: var(--white);
+  border-left: 3px solid var(--clay);
+  padding: 22px 26px;
+}
+
+@media (max-width: 980px) {
+  .kbc-subservice-hero-grid,
+  .kbc-subservice-intro-grid,
+  .kbc-subservice-two-column,
+  .kbc-subservice-rate-band,
+  .kbc-subservice-interactive {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .kbc-subservice-image-wrap,
+  .kbc-subservice-image {
+    min-height: 360px;
+  }
+  .kbc-subservice-rate-band .kbc-service-pricing-card {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .kbc-subservice-hero {
+    padding-top: 72px;
+    padding-bottom: 58px;
+  }
+  .kbc-subservice-image-wrap,
+  .kbc-subservice-image {
+    min-height: 280px;
+  }
+  .kbc-subservice-rate-card,
+  .kbc-subservice-comparison {
+    grid-template-columns: 1fr;
+  }
+  .kbc-subservice-rate-card,
+  .kbc-subservice-rate-band,
+  .kbc-subservice-selected-card {
+    padding: 24px 22px;
+  }
+  .kbc-subservice-rate-card span {
+    font-size: 2rem;
+  }
+  .kbc-subservice-pill-grid span {
+    width: 100%;
+  }
+}
+
+/* ---------- WIDTH CONSISTENCY PASS ---------- */
+.kbc-page-inner,
+.kbc-page-section,
+.kbc-page-section-wrap > .kbc-page-inner,
+.kbc-page-section-wrap-linen > .kbc-page-inner,
+.kbc-service-section-inner,
+.kbc-contact-page-inner,
+.kbc-contact-options-inner,
+.kbc-contact-form-inner,
+.kbc-contact-page-grid,
+.kbc-subservice-hero-grid {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.kbc-page-section {
+  padding-left: clamp(20px, 5vw, 56px);
+  padding-right: clamp(20px, 5vw, 56px);
+}
+
+.kbc-page-section-wrap,
+.kbc-page-section-wrap-linen,
+.kbc-service-section,
+.kbc-contact-options-section,
+.kbc-contact-form-section,
+.kbc-contact-page-section {
+  padding-left: clamp(20px, 5vw, 56px);
+  padding-right: clamp(20px, 5vw, 56px);
+}
+
+.kbc-general-contact-head,
+.kbc-general-contact-form,
+.kbc-contact-form-inner > .kbc-crisis-note,
+.kbc-contact-form-inner > .kbc-form-availability,
+.kbc-contact-confirm {
+  width: 100%;
+  max-width: none;
+}
+
+.kbc-contact-form-inner,
+.kbc-new-client-route-card,
+.kbc-subservice-rate-card,
+.kbc-subservice-rate-band,
+.kbc-subservice-disclaimer,
+.kbc-subservice-intro-grid,
+.kbc-subservice-two-column,
+.kbc-subservice-interactive,
+.kbc-faq-list,
+.kbc-fit-check-grid,
+.kbc-section-link-row {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.kbc-subservice-rate-card {
+  max-width: none;
+}
+
+@media (max-width: 640px) {
+  .kbc-page-hero,
+  .kbc-page-section,
+  .kbc-page-section-wrap,
+  .kbc-page-section-wrap-linen,
+  .kbc-service-section,
+  .kbc-contact-options-section,
+  .kbc-contact-form-section,
+  .kbc-contact-page-section,
+  .kbc-subservice-hero {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+/* ---------- SUBSERVICE ALIGNMENT + SEO SECTIONS ---------- */
+.kbc-subservice-page .kbc-page-section {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.kbc-subservice-page .kbc-page-section > .kbc-subservice-intro-grid,
+.kbc-subservice-page .kbc-page-section > .kbc-subservice-two-column,
+.kbc-subservice-page .kbc-page-section > .kbc-subservice-interactive,
+.kbc-subservice-page .kbc-page-section > .kbc-subservice-rate-band,
+.kbc-subservice-page .kbc-page-section > .kbc-subservice-disclaimer {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.kbc-subservice-page .kbc-page-section > .kbc-quiet-cta-card {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 38px auto 0;
+  box-sizing: border-box;
+}
+
+.kbc-subservice-page .kbc-page-section-wrap > .kbc-page-inner,
+.kbc-subservice-page .kbc-page-section-wrap-linen > .kbc-page-inner {
+  width: 100%;
+  max-width: var(--container-max);
+}
+
+.kbc-subservice-local-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr);
+  gap: 58px;
+  align-items: start;
+}
+
+.kbc-subservice-local-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.kbc-subservice-seo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.kbc-subservice-local-card,
+.kbc-subservice-seo-grid > div {
+  min-height: 100%;
+  background: var(--white);
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  padding: 28px 26px;
+}
+
+.kbc-subservice-local-card h3,
+.kbc-subservice-seo-grid h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--charcoal);
+  margin: 0 0 12px;
+}
+
+.kbc-subservice-local-card p,
+.kbc-subservice-seo-grid p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.78;
+  color: var(--muted);
+  margin: 0;
+}
+
+.kbc-subservice-seo-grid {
+  margin-top: 38px;
+}
+
+.kbc-subservice-page .kbc-section-link-row {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 36px;
+}
+
+@media (max-width: 980px) {
+  .kbc-subservice-local-grid,
+  .kbc-subservice-local-cards,
+  .kbc-subservice-seo-grid {
+    grid-template-columns: 1fr;
   }
 }

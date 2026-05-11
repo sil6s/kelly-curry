@@ -2,15 +2,15 @@ import { PillButton } from './Atoms';
 import styles from './Website.module.css';
 
 const DIRECTIONS = [
-  'Located at Watch Point',
+  'Located at Watch Point in Fort Thomas',
   'After entering Watch Point, pass the speed bump',
   'Take the first driveway immediately after the speed bump',
-  'It is a long driveway leading up to the house at the top',
+  'Follow the long driveway up to the house at the top',
 ];
 
 const ARRIVAL = [
-  'Park at the bottom of the driveway',
-  'Do not drive all the way up',
+  'Drive up the long driveway to the house at the top',
+  'Park at the house at the top of the driveway',
   'Text upon arrival',
 ];
 

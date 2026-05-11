@@ -16,7 +16,7 @@ export default function FeesPage() {
             </h1>
             <p className={styles['kbc-body']}>
               Review session fees, accepted insurance plans, and payment details
-              before reaching out or requesting a consultation.
+              before reaching out or starting an appointment request.
             </p>
           </div>
         </section>

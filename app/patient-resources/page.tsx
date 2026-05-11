@@ -2,9 +2,18 @@ import type { Metadata } from 'next';
 import PatientResourcesPage from '@/src/pages/PatientResourcesPage';
 
 export const metadata: Metadata = {
-  title: 'Patient Resources | Therapy Forms in Fort Thomas, KY',
+  title: 'Therapy Patient Resources | Kelly Baker Curry, LCSW',
   description:
-    'Access intake forms, new client information, billing guidance, and therapy resources for Kelly Baker Curry, LCSW in Fort Thomas, Kentucky.',
+    'Find therapy intake forms, appointment information, session details, and helpful resources for beginning care with Kelly Baker Curry, LCSW.',
+  alternates: {
+    canonical: '/patient-resources',
+  },
+  openGraph: {
+    title: 'Therapy Patient Resources | Kelly Baker Curry, LCSW',
+    description:
+      'Helpful forms, fees, and appointment information for clients beginning therapy with Kelly Baker Curry, LCSW.',
+    url: '/patient-resources',
+  },
 };
 
 export default function Page() {

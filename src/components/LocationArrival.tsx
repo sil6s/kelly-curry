@@ -4,8 +4,8 @@ import { useState } from 'react';
 import styles from '../styles/Website.module.css';
 
 const ARRIVAL = [
-  'Park at the bottom of the driveway',
-  'Do not drive all the way up',
+  'Drive up the long driveway to the house at the top',
+  'Park at the house at the top of the driveway',
   'Text upon arrival',
 ];
 
@@ -13,7 +13,7 @@ const DIRECTIONS = [
   'Located at Watch Point in Fort Thomas',
   'After entering Watch Point, pass the speed bump',
   'Take the first driveway immediately after the speed bump',
-  'It is a long driveway leading up to the house at the top',
+  'Follow the long driveway up to the house at the top',
 ];
 
 export default function LocationArrival({
@@ -21,7 +21,7 @@ export default function LocationArrival({
 }: {
   onRequestConsultation: () => void;
 }) {
-  const [directionsOpen, setDirectionsOpen] = useState(false);
+  const [directionsOpen, setDirectionsOpen] = useState(true);
 
   return (
     <section className={styles['kbc-location']} id="location-arrival">
@@ -101,10 +101,11 @@ export default function LocationArrival({
         </div>
         <div className={styles['kbc-location-map-real']}>
           <iframe
-            src="https://www.google.com/maps?q=337%20Tower%20Hill%20Road%20Fort%20Thomas%20KY%2041075&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64265.02010326694!2d-84.49523834266184!3d39.08120570124713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b14b2c4b274d%3A0x53680927832b7738!2sKelly%20Baker%20Curry%20Therapy!5e1!3m2!1sen!2sus!4v1778461442098!5m2!1sen!2sus"
             loading="lazy"
+            allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
-            title="Map to 337 Tower Hill Road, Fort Thomas, KY 41075"
+            title="Map to Kelly Baker Curry Therapy at Watch Point in Fort Thomas"
             className={styles['kbc-location-map-iframe']}
           />
         </div>

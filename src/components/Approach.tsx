@@ -69,9 +69,9 @@ export default function Approach() {
             Therapy is a <em>relationship</em> before it is anything else.
           </h2>
           <p className={styles['kbc-body']}>
-            We meet weekly, sometimes more, and we talk. Sessions draw on
-            Cognitive Behavioral Therapy, Acceptance and Commitment Therapy, and
-            Emotionally Focused Therapy as the work calls for them.
+            Sessions are grounded in the therapeutic relationship and may draw
+            from CBT, ACT, EFT, and relational work as the work calls for them.
+            The approach is practical, direct, and paced around trust.
           </p>
           <p className={styles['kbc-body']}>
             Over time the patterns become visible, and once they are visible

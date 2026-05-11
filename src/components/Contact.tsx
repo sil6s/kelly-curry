@@ -9,20 +9,20 @@ export default function Contact() {
         <div className={styles['kbc-contact-text']}>
           <SectionEyebrow>Get in Touch</SectionEyebrow>
           <h2 className={styles['kbc-h2']}>
-            Reach out for a brief, <em>free</em> consultation.
+            Start with a brief <em>appointment request.</em>
           </h2>
           <p className={styles['kbc-body']}>
             Reaching out can feel like a big step, and you do not need to have
-            everything figured out. Share a little about what you are looking
-            for, and Kelly will follow up to talk through fit, availability, and
-            next steps.
+            everything figured out. Share whether you are looking for
+            individual, couples, family, or coparenting therapy, and Kelly will
+            follow up about fit, availability, and next steps.
           </p>
         </div>
 
         <ConsultationFlow />
 
         <div className={styles['kbc-contact-alt']}>
-          <span>Not ready to book a consultation?</span>
+          <span>Not ready to use the form?</span>
           <a href="/contact" className={styles['kbc-link-quiet']}>
             Reach out here
           </a>

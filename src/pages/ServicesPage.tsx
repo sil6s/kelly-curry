@@ -5,13 +5,16 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import ConsultationModal from '../components/ConsultationModal';
 import { SectionEyebrow } from '../components/Atoms';
+import { breadcrumbSchema, faqSchema, servicesFaq, SITE_URL } from '../data/seo';
 import styles from '../styles/Website.module.css';
 
 const SERVICES = [
   {
     num: '01',
+    id: 'individual-therapy',
+    href: '/services/individual-therapy',
     title: 'Individual Therapy',
-    price: '$165',
+    price: '$150',
     duration: '50 minutes',
     billingNote: 'per session',
     overview:
@@ -44,8 +47,10 @@ const SERVICES = [
   },
   {
     num: '02',
+    id: 'couples-therapy',
+    href: '/services/couples-therapy',
     title: 'Couples Therapy',
-    price: '$195',
+    price: '$175',
     duration: '50 minutes',
     billingNote: 'per session',
     payOnly: 'Cash pay only',
@@ -77,9 +82,11 @@ const SERVICES = [
   },
   {
     num: '03',
+    id: 'family-therapy',
+    href: '/services/family-therapy',
     title: 'Family Therapy',
-    price: '$210',
-    duration: '60 minutes',
+    price: '$200',
+    duration: '50 minutes',
     billingNote: 'per session',
     payOnly: 'Cash pay only',
     overview:
@@ -106,6 +113,41 @@ const SERVICES = [
       'Systems-informed work that looks at patterns across the family, not one problem person.',
       'Practical support for communication, boundaries, repair, and shared expectations.',
       'Flexible session structure based on age, family configuration, and goals.',
+    ],
+  },
+  {
+    num: '04',
+    id: 'co-parenting-therapy',
+    href: '/services/coparenting-therapy',
+    title: 'Coparenting Therapy',
+    price: '$225',
+    duration: '50 minutes',
+    billingNote: 'per session',
+    payOnly: 'Cash pay only',
+    overview:
+      "Co-parenting therapy provides a focused space for parents who share responsibility across separate homes, strained communication, or ongoing conflict. Sessions are practical, structured, and centered on reducing confusion while keeping children's needs in view.",
+    whoFor: [
+      'Co-parents who need clearer communication and steadier boundaries.',
+      'Parents navigating separation, divorce, blended family stress, or shared decision-making.',
+      'Families who want less reactivity and more practical structure around parenting responsibilities.',
+    ],
+    concerns: [
+      'Communication boundaries',
+      'Parenting schedules',
+      'Conflict reduction',
+      'Shared expectations',
+      'Transition planning',
+      'Repair after strained conversations',
+    ],
+    whatToExpect: [
+      'Sessions focus on practical patterns, not deciding who is right or wrong.',
+      'Kelly helps clarify what needs to be communicated, what needs a boundary, and what can be handled differently.',
+      'The work stays grounded in the real conditions of parenting, scheduling, stress, and relationship history.',
+    ],
+    approach: [
+      'Structured support for communication, expectations, and decision-making.',
+      'Attention to emotional reactivity, trust, and recurring conflict cycles.',
+      'A steady pace that keeps the work clear, respectful, and connected to day-to-day parenting.',
     ],
   },
 ];
@@ -154,16 +196,29 @@ export default function ServicesPage() {
     <>
       <Header onRequestConsultation={() => setIsConsultationOpen(true)} />
       <main className={styles['kbc-page']}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              faqSchema(servicesFaq),
+              breadcrumbSchema([
+                { name: 'Home', url: SITE_URL },
+                { name: 'Services', url: `${SITE_URL}/services` },
+              ]),
+            ]).replace(/</g, '\\u003c'),
+          }}
+        />
         <section className={styles['kbc-page-hero']}>
           <div className={styles['kbc-page-inner']}>
             <SectionEyebrow>Services</SectionEyebrow>
             <h1 className={styles['kbc-h1']} style={{ maxWidth: '20ch' }}>
-              Therapy for individuals, couples, and families.
+              Therapy for individuals, couples, families, and co-parents.
             </h1>
             <p className={styles['kbc-body']}>
-              Kelly Baker Curry, MSW, MEd, LCSW offers individual, couples, and
-              family therapy in Fort Thomas, Kentucky, and via telehealth
-              throughout Kentucky and Ohio.
+              Kelly Baker Curry, MSW, MEd, LCSW offers individual therapy,
+              couples therapy, family therapy, and co-parenting therapy in Fort
+              Thomas, Kentucky, with virtual therapy options in Kentucky and
+              Ohio.
             </p>
           </div>
         </section>
@@ -171,6 +226,7 @@ export default function ServicesPage() {
         {SERVICES.map((service, i) => (
           <section
             key={service.num}
+            id={service.id}
             className={`${styles['kbc-service-section']} ${i % 2 === 1 ? styles['kbc-service-section-alt'] : ''}`}
           >
             <div className={styles['kbc-service-section-inner']}>
@@ -205,12 +261,15 @@ export default function ServicesPage() {
               </div>
 
               <div className={styles['kbc-service-actions']}>
+                <a href={service.href} className={styles['kbc-pill']}>
+                  Learn More
+                </a>
                 <button
                   type="button"
-                  className={styles['kbc-pill']}
+                  className={`${styles['kbc-pill']} ${styles['kbc-pill-charcoal']}`}
                   onClick={() => setIsConsultationOpen(true)}
                 >
-                  Schedule a Consultation
+                  Request an Appointment
                 </button>
                 <a href="/contact" className={styles['kbc-link-quiet']}>
                   Reach out here
@@ -225,6 +284,85 @@ export default function ServicesPage() {
             </div>
           </section>
         ))}
+
+        <section className={styles['kbc-page-section-wrap-linen']}>
+          <div className={styles['kbc-page-inner']}>
+            <SectionEyebrow>Choosing a Service</SectionEyebrow>
+            <h2 className={styles['kbc-page-h2']}>
+              Not sure where to begin?
+            </h2>
+            <p className={styles['kbc-body']} style={{ marginTop: '20px' }}>
+              Many people are not sure whether individual therapy, couples
+              therapy, family therapy, or coparenting therapy is the right fit
+              at first. The appointment request form helps the office understand
+              what kind of support you are looking for, how scheduling should be
+              coordinated, and whether therapy in Fort Thomas or virtual therapy
+              in Kentucky and Ohio may be appropriate.
+            </p>
+            <div className={styles['kbc-fit-check-grid']}>
+              <div className={styles['kbc-fit-check-card']}>
+                <span aria-hidden="true">✓</span>
+                <p>
+                  Start with individual therapy if you want one-on-one support
+                  for anxiety, grief, trauma, stress, self-understanding, or a
+                  life transition.
+                </p>
+              </div>
+              <div className={styles['kbc-fit-check-card']}>
+                <span aria-hidden="true">✓</span>
+                <p>
+                  Consider couples therapy when recurring conflict,
+                  communication patterns, trust, or disconnection are affecting
+                  the relationship.
+                </p>
+              </div>
+              <div className={styles['kbc-fit-check-card']}>
+                <span aria-hidden="true">✓</span>
+                <p>
+                  Family therapy may fit when several family members need a
+                  calmer way to talk through conflict, transition, parenting
+                  stress, or boundaries.
+                </p>
+              </div>
+              <div className={styles['kbc-fit-check-card']}>
+                <span aria-hidden="true">✓</span>
+                <p>
+                  Coparenting therapy can help parents focus on practical
+                  communication, expectations, and child-centered coordination.
+                </p>
+              </div>
+            </div>
+            <div className={styles['kbc-section-link-row']}>
+              <button
+                type="button"
+                className={styles['kbc-pill']}
+                onClick={() => setIsConsultationOpen(true)}
+              >
+                Request an Appointment
+              </button>
+              <a href="/approach" className={styles['kbc-link-quiet']}>
+                Learn about Kelly&rsquo;s approach
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles['kbc-page-section-wrap']}>
+          <div className={styles['kbc-page-inner']}>
+            <SectionEyebrow>Questions</SectionEyebrow>
+            <h2 className={styles['kbc-page-h2']}>
+              Services FAQ.
+            </h2>
+            <div className={styles['kbc-faq-list']}>
+              {servicesFaq.map((faq) => (
+                <details key={faq.question} className={styles['kbc-faq-item']}>
+                  <summary>{faq.question}</summary>
+                  <p>{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
         <div className={styles['kbc-page-cta-section']}>
           <SectionEyebrow>Get Started</SectionEyebrow>
           <h2 className={styles['kbc-h2']}>Ready to take the first step?</h2>

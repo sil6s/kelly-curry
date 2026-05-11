@@ -9,7 +9,7 @@ export default function Footer() {
           <LogoMark className={styles['kbc-footer-logo-mark']} />
           <div className={styles['kbc-footer-wordmark']}>Kelly Baker Curry</div>
           <div className={styles['kbc-footer-descriptor']}>
-            Licensed in Kentucky and Ohio
+            Therapist in Fort Thomas, KY
           </div>
         </div>
         <div className={styles['kbc-footer-col']}>
@@ -21,12 +21,22 @@ export default function Footer() {
           <a href="/contact">Contact</a>
         </div>
         <div className={styles['kbc-footer-col']}>
-          <div className={styles['kbc-footer-col-head']}>Visit</div>
+          <div className={styles['kbc-footer-col-head']}>Location</div>
           <p>
             337 Tower Hill Rd
             <br />
             Fort Thomas, KY 41075
           </p>
+          <p>Licensed in Kentucky and Ohio</p>
+          <p>In-person and virtual therapy options</p>
+        </div>
+        <div className={styles['kbc-footer-col']}>
+          <div className={styles['kbc-footer-col-head']}>Sessions</div>
+          <p>Individual therapy: $150</p>
+          <p>Couples therapy: $175</p>
+          <p>Family therapy: $200</p>
+          <p>Co-parenting therapy: $225</p>
+          <p>50-minute sessions</p>
           <p>Mon to Thu, 9am to 6pm</p>
           <p>Virtual sessions Friday</p>
         </div>
@@ -37,7 +47,7 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles['kbc-footer-base']}>
-        <div>© 2025 Kelly Baker Curry, LCSW</div>
+        <div>© 2026 Kelly Baker Curry, LCSW</div>
         <div>Licensed in Kentucky and Ohio</div>
       </div>
     </footer>

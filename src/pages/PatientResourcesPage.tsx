@@ -40,21 +40,28 @@ const FORMS = [
 const PRICING = [
   {
     title: 'Individual Therapy',
-    price: '$165',
+    price: '$150',
     duration: '50 minutes',
     note: 'per session',
   },
   {
     title: 'Couples Therapy',
-    price: '$195',
+    price: '$175',
     duration: '50 minutes',
     note: 'per session',
     payOnly: 'Cash pay only',
   },
   {
     title: 'Family Therapy',
-    price: '$210',
-    duration: '60 minutes',
+    price: '$200',
+    duration: '50 minutes',
+    note: 'per session',
+    payOnly: 'Cash pay only',
+  },
+  {
+    title: 'Co-parenting Therapy',
+    price: '$225',
+    duration: '50 minutes',
     note: 'per session',
     payOnly: 'Cash pay only',
   },
@@ -62,7 +69,7 @@ const PRICING = [
 
 const EXPECTATIONS = [
   'Complete requested forms before your first appointment when possible.',
-  'If you are unsure what applies to you, bring questions to the consultation or first session.',
+  'If you are unsure what applies to you, bring questions to the first follow-up or first session.',
   'Kelly will review fit, scheduling, fees, and next steps before ongoing work begins.',
 ];
 
@@ -242,8 +249,8 @@ export default function PatientResourcesPage() {
           <SectionEyebrow>Ready to get started?</SectionEyebrow>
           <h2 className={styles['kbc-h2']}>Ready to get started?</h2>
           <p className={styles['kbc-body']}>
-            Use the same consultation flow to share what you are looking for, or
-            contact Kelly directly with questions about forms, fees, or fit.
+            Use the appointment request form to share what you are looking for,
+            or contact Kelly directly with questions about forms, fees, or fit.
           </p>
           <div className={styles['kbc-page-cta-actions']}>
             <button
@@ -251,7 +258,7 @@ export default function PatientResourcesPage() {
               className={styles['kbc-pill']}
               onClick={() => setIsConsultationOpen(true)}
             >
-              Schedule a Consultation
+              Start Appointment Request
             </button>
             <a
               href="/contact"

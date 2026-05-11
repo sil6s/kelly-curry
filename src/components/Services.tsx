@@ -33,12 +33,26 @@ function FamilyIcon() {
   );
 }
 
+function CoParentingIcon() {
+  return (
+    <svg viewBox="0 0 48 48" aria-hidden="true" className={styles['kbc-service-icon']}>
+      <circle cx="15" cy="15" r="7" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="33" cy="15" r="7" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M6 41 C6 32.5, 10.5 28, 17 28" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M42 41 C42 32.5, 37.5 28, 31 28" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M18 36 H30" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M27 33 L30 36 L27 39" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 const SERVICES = [
   {
     num: '01',
     icon: <IndividualIcon />,
-    title: 'Individuals',
-    body: 'Weekly sessions for adults navigating anxiety, grief, life transitions, and the slow work of self-understanding.',
+    href: '/services/individual-therapy',
+    title: 'Individual Therapy',
+    body: '50-minute sessions for adults navigating anxiety, grief, trauma, life transitions, and deeper self-understanding.',
     bullets: [
       'Anxiety & stress',
       'Grief and loss',
@@ -50,8 +64,9 @@ const SERVICES = [
   {
     num: '02',
     icon: <CouplesIcon />,
-    title: 'Couples',
-    body: 'Emotionally focused work to repair connection and communication — held together, never with sides.',
+    href: '/services/couples-therapy',
+    title: 'Couples Therapy',
+    body: '50-minute sessions for communication, trust, conflict, disconnection, and relationship repair.',
     bullets: [
       'Communication patterns',
       'Conflict cycles',
@@ -63,14 +78,29 @@ const SERVICES = [
   {
     num: '03',
     icon: <FamilyIcon />,
-    title: 'Families',
-    body: 'Sessions with parents, teens, or whole family configurations. Pace and structure adapt to who is in the room.',
+    href: '/services/family-therapy',
+    title: 'Family Therapy',
+    body: '50-minute sessions for family conflict, transitions, parenting stress, and reconnection.',
     bullets: [
       'Family conflict',
       'Parenting dynamics',
       'Boundaries and roles',
       'Communication breakdown',
       'Life transitions',
+    ],
+  },
+  {
+    num: '04',
+    icon: <CoParentingIcon />,
+    href: '/services/coparenting-therapy',
+    title: 'Co-parenting Therapy',
+    body: '50-minute sessions for clearer communication, boundaries, and shared parenting decisions.',
+    bullets: [
+      'Communication boundaries',
+      'Shared expectations',
+      'Conflict reduction',
+      'Transition planning',
+      'Parenting decisions',
     ],
   },
 ];
@@ -81,8 +111,13 @@ export default function Services() {
       <div className={styles['kbc-services-header']}>
         <SectionEyebrow>Care Focus</SectionEyebrow>
         <h2 className={styles['kbc-h2']}>
-          Individuals, couples, <em>&amp; families.</em>
+          Individuals, couples, families, <em>&amp; co-parents.</em>
         </h2>
+        <p className={styles['kbc-body']}>
+          Kelly provides therapy in Fort Thomas, Kentucky, for individuals,
+          couples, families, and co-parents, with services available for clients
+          in Kentucky and Ohio.
+        </p>
       </div>
       <div className={styles['kbc-services-grid']}>
         {SERVICES.map((s) => (
@@ -102,7 +137,7 @@ export default function Services() {
                 ))}
               </ul>
             </div>
-            <a href="/services" className={styles['kbc-service-cta']}>
+            <a href={s.href} className={styles['kbc-service-cta']}>
               Learn more →
             </a>
           </div>

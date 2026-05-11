@@ -4,18 +4,23 @@ import styles from './Website.module.css';
 const SERVICES = [
   {
     num: '01',
-    title: 'Individuals',
-    body: 'Weekly sessions for adults navigating anxiety, grief, life transitions, and the slow work of self understanding.',
+    title: 'Individual Therapy',
+    body: '50-minute sessions for anxiety, grief, trauma, life transitions, and deeper self-understanding.',
   },
   {
     num: '02',
-    title: 'Couples',
-    body: 'Emotionally focused work to repair connection and communication. Held together, never with sides.',
+    title: 'Couples Therapy',
+    body: '50-minute sessions for communication, trust, conflict, disconnection, and relationship repair.',
   },
   {
     num: '03',
-    title: 'Families',
-    body: 'Sessions held with parents, teens, or whole family configurations. Pace and structure adapt to who is in the room.',
+    title: 'Family Therapy',
+    body: '50-minute sessions for family conflict, transitions, parenting stress, and reconnection.',
+  },
+  {
+    num: '04',
+    title: 'Co-parenting Therapy',
+    body: '50-minute sessions for clearer communication, boundaries, and shared parenting decisions.',
   },
 ];
 
@@ -25,7 +30,7 @@ export default function Services() {
       <div className={styles['kbc-services-header']}>
         <SectionEyebrow>What I Offer</SectionEyebrow>
         <h2 className={styles['kbc-h2']}>
-          Three ways of <em>working</em> together.
+          Four ways of <em>working</em> together.
         </h2>
       </div>
       <div className={styles['kbc-services-grid']}>

@@ -3,25 +3,33 @@ import styles from '../styles/Website.module.css';
 
 const FEES = [
   {
-    amount: '$165',
+    amount: '$150',
     label: 'Individual Therapy',
     sub: '50 minutes',
     included:
       'Weekly support for anxiety, grief, transitions, and self understanding.',
   },
   {
-    amount: '$195',
+    amount: '$175',
     label: 'Couples Therapy',
     sub: '50 minutes',
     payOnly: 'Cash pay only',
     included: 'Emotionally focused sessions for connection and communication.',
   },
   {
-    amount: '$210',
+    amount: '$200',
     label: 'Family Therapy',
-    sub: '60 minutes',
+    sub: '50 minutes',
     payOnly: 'Cash pay only',
     included: 'Collaborative care for parents, teens, and family systems.',
+  },
+  {
+    amount: '$225',
+    label: 'Co-parenting Therapy',
+    sub: '50 minutes',
+    payOnly: 'Cash pay only',
+    included:
+      'Structured support for communication, boundaries, and shared parenting decisions.',
   },
 ];
 

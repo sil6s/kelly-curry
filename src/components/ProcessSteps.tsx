@@ -9,8 +9,8 @@ const STEPS = [
   },
   {
     num: '02',
-    title: 'Brief consultation',
-    body: 'Kelly will connect with you to determine whether the practice is a good fit for your needs.',
+    title: 'Talk through fit',
+    body: 'Kelly will connect with you to review the service, availability, payment details, and whether the practice is a good fit.',
   },
   {
     num: '03',
@@ -57,7 +57,7 @@ export default function ProcessSteps({
             className={styles['kbc-pill']}
             onClick={onRequestConsultation}
           >
-            Schedule a Consultation
+            Start Appointment Request
           </button>
           <a href="/contact" className={styles['kbc-link-quiet']}>
             Contact Kelly

@@ -1,9 +1,12 @@
 'use client';
 
+import type { FormEvent } from 'react';
 import { useState } from 'react';
+import Turnstile from 'react-turnstile';
 import ConsultationModal from '../components/ConsultationModal';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import LogoMark from '../components/LogoMark';
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
@@ -12,28 +15,149 @@ import {
   OFFICE_ADDRESS_LINE_1,
   OFFICE_ADDRESS_LINE_2,
 } from '../utils/contact';
+import { breadcrumbSchema, contactFaq, faqSchema, SITE_URL } from '../data/seo';
 import styles from '../styles/Website.module.css';
 
+const CONTACT_REASONS = [
+  'I have a general question',
+  'I am a current client with an office question',
+  'I need help with billing or payment',
+  'I am a new client and want to start services',
+  'Other',
+];
+
+const NEW_CLIENT_REASON = 'I am a new client and want to start services';
+const GENERAL_REASON = 'I have a general question';
+const CONTACT_METHODS = ['Email', 'Phone', 'Text'];
+const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
+
 const FINDING_THE_OFFICE = [
-  'Located in Watch Point',
-  'Pass the speed bump',
-  'First driveway immediately after the speed bump',
-  'Long driveway leading up to the house',
+  'Located at Watch Point in Fort Thomas',
+  'After entering Watch Point, pass the speed bump',
+  'Take the first driveway immediately after the speed bump',
+  'Follow the long driveway up to the house at the top',
 ];
 
 const PARKING = [
-  'Park at the bottom of the driveway',
-  'Do not drive to the top',
+  'Drive up the long driveway to the house at the top',
+  'Park at the house at the top of the driveway',
   'Text upon arrival',
 ];
 
+type GeneralContactForm = {
+  reason: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  preferredContactMethod: string;
+  message: string;
+  communicationAcknowledgment: boolean;
+  companyWebsite: string;
+};
+
+const initialGeneralContactForm: GeneralContactForm = {
+  reason: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  preferredContactMethod: '',
+  message: '',
+  communicationAcknowledgment: false,
+  companyWebsite: '',
+};
+
 export default function ContactPage() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [generalForm, setGeneralForm] = useState<GeneralContactForm>(
+    initialGeneralContactForm,
+  );
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle');
+
+  const showGeneralForm =
+    generalForm.reason !== '' && generalForm.reason !== NEW_CLIENT_REASON;
+  const showNewClientRoute = generalForm.reason === NEW_CLIENT_REASON;
+
+  function setField<K extends keyof GeneralContactForm>(
+    field: K,
+    value: GeneralContactForm[K],
+  ) {
+    setGeneralForm((prev) => ({ ...prev, [field]: value }));
+    if (submitStatus !== 'idle') setSubmitStatus('idle');
+  }
+
+  function canSubmitGeneralContact() {
+    return (
+      showGeneralForm &&
+      generalForm.firstName.trim() !== '' &&
+      generalForm.lastName.trim() !== '' &&
+      generalForm.email.trim() !== '' &&
+      generalForm.preferredContactMethod !== '' &&
+      generalForm.message.trim() !== '' &&
+      generalForm.communicationAcknowledgment &&
+      turnstileToken !== '' &&
+      !submitting
+    );
+  }
+
+  async function handleGeneralContactSubmit(event: FormEvent) {
+    event.preventDefault();
+    if (!canSubmitGeneralContact()) return;
+
+    setSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const res = await fetch('/api/general-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...generalForm, turnstileToken }),
+      });
+
+      if (!res.ok) throw new Error('Request failed');
+
+      setGeneralForm(initialGeneralContactForm);
+      setTurnstileToken('');
+      setSubmitStatus('success');
+    } catch {
+      setSubmitStatus('error');
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <>
       <Header onRequestConsultation={() => setIsConsultationOpen(true)} />
       <main className={styles['kbc-contact-page']}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'ContactPage',
+                name: 'Contact Kelly Baker Curry, LCSW',
+                url: `${SITE_URL}/contact`,
+                description:
+                  'Contact Kelly Baker Curry, MSW, MEd, LCSW, a therapist in Fort Thomas, KY, for general office questions or appointment request next steps.',
+                about: {
+                  '@id': `${SITE_URL}/#business`,
+                },
+              },
+              faqSchema(contactFaq),
+              breadcrumbSchema([
+                { name: 'Home', url: SITE_URL },
+                { name: 'Contact', url: `${SITE_URL}/contact` },
+              ]),
+            ]).replace(/</g, '\\u003c'),
+          }}
+        />
         {/* Hero */}
         <section className={styles['kbc-contact-page-hero']}>
           <div className={styles['kbc-contact-page-inner']}>
@@ -46,12 +170,6 @@ export default function ContactPage() {
               responds to all inquiries and will follow up about fit,
               availability, and next steps.
             </p>
-            <div
-              className={styles['kbc-crisis-note']}
-              style={{ marginTop: '36px' }}
-            >
-              If this is an emergency, please call 911 or 988 (Crisis Lifeline).
-            </div>
           </div>
         </section>
 
@@ -157,14 +275,14 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div className={styles['kbc-contact-option-label']}>
-                  Request a Consultation
+                  Appointment Request
                 </div>
                 <div className={styles['kbc-contact-option-value']}>
                   Fill out a short form
                 </div>
                 <div className={styles['kbc-contact-option-desc']}>
-                  Share a bit about what you&rsquo;re looking for. Kelly will
-                  follow up to discuss fit and availability.
+                  Share the service, payment details, and scheduling
+                  preferences Kelly needs to follow up.
                 </div>
                 <span className={styles['kbc-contact-option-cta']}>
                   Get started →
@@ -216,41 +334,332 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Primary consultation CTA */}
+        {/* General contact form */}
         <section
           className={styles['kbc-contact-form-section']}
-          id="consultation-form"
+          id="general-contact-form"
         >
           <div className={styles['kbc-contact-form-inner']}>
-            <div className={styles['kbc-eyebrow']}>Request a Consultation</div>
-            <h2 className={styles['kbc-h2']} style={{ marginBottom: '16px' }}>
-              Begin with the same consultation flow.
-            </h2>
-            <p className={styles['kbc-body']}>
-              Use the consultation button to open the same multi-step form used
-              throughout the site. If you would rather not fill out the form,
-              email Kelly directly.
-            </p>
-            <div className={styles['kbc-contact-page-cta-row']}>
-              <button
-                type="button"
-                className={styles['kbc-pill']}
-                onClick={() => setIsConsultationOpen(true)}
+            <div className={styles['kbc-general-contact-head']}>
+              <LogoMark className={styles['kbc-intake-logo']} />
+              <div>
+                <div className={styles['kbc-eyebrow']}>General Contact</div>
+                <h2
+                  className={styles['kbc-h2']}
+                  style={{ marginBottom: '16px' }}
+                >
+                  Send a brief message to the office.
+                </h2>
+                <p className={styles['kbc-body']}>
+                  Have a general question for the office? Send a brief message
+                  and the office will follow up during business hours.
+                </p>
+              </div>
+            </div>
+
+            {submitStatus === 'success' ? (
+              <div className={styles['kbc-contact-confirm']} role="status">
+                <div className={styles['kbc-eyebrow']}>Message Received</div>
+                <h3 className={styles['kbc-step-heading']}>
+                  Thank you. Your message has been received.
+                </h3>
+                <p className={styles['kbc-body']}>
+                  The office will follow up using your preferred contact
+                  method.
+                </p>
+              </div>
+            ) : (
+              <form
+                className={styles['kbc-general-contact-form']}
+                onSubmit={handleGeneralContactSubmit}
               >
-                Schedule a Consultation
-              </button>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className={styles['kbc-link-quiet']}
-              >
-                Reach out here
-              </a>
-              <a
-                href="/patient-resources#fees-payment"
-                className={styles['kbc-link-quiet']}
-              >
-                View fees &amp; insurance
-              </a>
+                <input
+                  type="text"
+                  name="companyWebsite"
+                  value={generalForm.companyWebsite}
+                  onChange={(e) => setField('companyWebsite', e.target.value)}
+                  className={styles['kbc-honeypot']}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
+                <fieldset className={styles['kbc-choice-fieldset']}>
+                  <legend className={styles['kbc-field-label']}>
+                    What can we help you with?
+                  </legend>
+                  <div className={styles['kbc-choice-group']}>
+                    {CONTACT_REASONS.map((reason) => (
+                      <label
+                        key={reason}
+                        className={[
+                          styles['kbc-choice'],
+                          generalForm.reason === reason
+                            ? styles['kbc-choice-selected']
+                            : '',
+                        ]
+                          .filter(Boolean)
+                          .join(' ')}
+                      >
+                        <input
+                          type="radio"
+                          name="reason"
+                          value={reason}
+                          checked={generalForm.reason === reason}
+                          onChange={() => setField('reason', reason)}
+                          required
+                        />
+                        <span>{reason}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+
+                {showNewClientRoute ? (
+                  <div className={styles['kbc-new-client-route-card']}>
+                    <h3 className={styles['kbc-step-heading']}>
+                      Looking to begin therapy services?
+                    </h3>
+                    <p className={styles['kbc-body']}>
+                      The Appointment Request form is the best next step because
+                      it asks the right questions about service type, scheduling
+                      preferences, and payment options.
+                    </p>
+                    <p className={styles['kbc-body']}>
+                      To request services as a new client, please complete the
+                      Appointment Request form so the office can collect the
+                      right scheduling, service, and payment information.
+                    </p>
+                    <div className={styles['kbc-contact-page-cta-row']}>
+                      <a
+                        href="/#contact"
+                        className={styles['kbc-pill']}
+                      >
+                        Continue to Appointment Request
+                      </a>
+                      <button
+                        type="button"
+                        className={styles['kbc-step-back-btn']}
+                        onClick={() => setField('reason', GENERAL_REASON)}
+                      >
+                        I only have a general question
+                      </button>
+                    </div>
+                  </div>
+                ) : null}
+
+                {showGeneralForm ? (
+                  <div className={styles['kbc-general-contact-fields']}>
+                    <div className={styles['kbc-field-grid']}>
+                      <label className={styles['kbc-field']}>
+                        <span className={styles['kbc-field-label']}>
+                          First name
+                        </span>
+                        <input
+                          type="text"
+                          autoComplete="given-name"
+                          value={generalForm.firstName}
+                          maxLength={80}
+                          onChange={(e) =>
+                            setField('firstName', e.target.value)
+                          }
+                          required
+                        />
+                      </label>
+                      <label className={styles['kbc-field']}>
+                        <span className={styles['kbc-field-label']}>
+                          Last name
+                        </span>
+                        <input
+                          type="text"
+                          autoComplete="family-name"
+                          value={generalForm.lastName}
+                          maxLength={80}
+                          onChange={(e) =>
+                            setField('lastName', e.target.value)
+                          }
+                          required
+                        />
+                      </label>
+                    </div>
+                    <div className={styles['kbc-field-grid']}>
+                      <label className={styles['kbc-field']}>
+                        <span className={styles['kbc-field-label']}>
+                          Email
+                        </span>
+                        <input
+                          type="email"
+                          autoComplete="email"
+                          value={generalForm.email}
+                          maxLength={160}
+                          onChange={(e) => setField('email', e.target.value)}
+                          required
+                        />
+                      </label>
+                      <label className={styles['kbc-field']}>
+                        <span className={styles['kbc-field-label']}>
+                          Phone, optional
+                        </span>
+                        <input
+                          type="tel"
+                          autoComplete="tel"
+                          value={generalForm.phone}
+                          maxLength={40}
+                          onChange={(e) => setField('phone', e.target.value)}
+                        />
+                      </label>
+                    </div>
+
+                    <fieldset className={styles['kbc-choice-fieldset']}>
+                      <legend className={styles['kbc-field-label']}>
+                        Preferred contact method
+                      </legend>
+                      <div className={styles['kbc-choice-group']}>
+                        {CONTACT_METHODS.map((method) => (
+                          <label
+                            key={method}
+                            className={[
+                              styles['kbc-choice'],
+                              generalForm.preferredContactMethod === method
+                                ? styles['kbc-choice-selected']
+                                : '',
+                            ]
+                              .filter(Boolean)
+                              .join(' ')}
+                          >
+                            <input
+                              type="radio"
+                              name="preferredContactMethod"
+                              value={method}
+                              checked={
+                                generalForm.preferredContactMethod === method
+                              }
+                              onChange={() =>
+                                setField('preferredContactMethod', method)
+                              }
+                              required
+                            />
+                            <span>{method}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </fieldset>
+
+                    <label className={styles['kbc-field']}>
+                      <span className={styles['kbc-field-label']}>Message</span>
+                      <span className={styles['kbc-step-note']}>
+                        Please keep your message brief and avoid sharing
+                        sensitive clinical or emergency information.
+                      </span>
+                      <textarea
+                        rows={5}
+                        maxLength={750}
+                        value={generalForm.message}
+                        onChange={(e) => setField('message', e.target.value)}
+                        required
+                      />
+                      <span className={styles['kbc-char-count']}>
+                        {generalForm.message.length}/750
+                      </span>
+                    </label>
+
+                    <div className={styles['kbc-required-acks']}>
+                      <p className={styles['kbc-form-availability']}>
+                        If this is an emergency or crisis, call 911 or go to the
+                        nearest emergency room. This form is not monitored for
+                        urgent needs.
+                      </p>
+                      <p className={styles['kbc-form-availability']}>
+                        Please do not include detailed medical history,
+                        diagnoses, medications, insurance ID numbers, Social
+                        Security numbers, or urgent safety concerns in this
+                        form. This form is for general office communication
+                        only.
+                      </p>
+                      <label className={styles['kbc-check-choice']}>
+                        <input
+                          type="checkbox"
+                          checked={generalForm.communicationAcknowledgment}
+                          onChange={(e) =>
+                            setField(
+                              'communicationAcknowledgment',
+                              e.target.checked,
+                            )
+                          }
+                          required
+                        />
+                        <span>
+                          I have reviewed this notice and understand this form
+                          is for general office communication only.
+                        </span>
+                      </label>
+                    </div>
+
+                    {siteKey ? (
+                      <div className={styles['kbc-turnstile-wrap']}>
+                        <Turnstile
+                          sitekey={siteKey}
+                          theme="light"
+                          onVerify={(token) => setTurnstileToken(token)}
+                          onExpire={() => setTurnstileToken('')}
+                          onError={() => setTurnstileToken('')}
+                        />
+                      </div>
+                    ) : (
+                      <p className={styles['kbc-step-note']}>
+                        Contact form verification is not configured.
+                      </p>
+                    )}
+
+                    {submitStatus === 'error' ? (
+                      <div className={styles['kbc-form-error']} role="alert">
+                        We could not send your message. Please call the office
+                        directly.
+                      </div>
+                    ) : null}
+
+                    <button
+                      type="submit"
+                      className={[
+                        styles['kbc-pill'],
+                        !canSubmitGeneralContact()
+                          ? styles['kbc-pill-disabled']
+                          : '',
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
+                      disabled={!canSubmitGeneralContact()}
+                    >
+                      {submitting ? 'Sending...' : 'Send Message'}
+                    </button>
+                  </div>
+                ) : null}
+              </form>
+            )}
+          </div>
+        </section>
+
+        <section className={styles['kbc-contact-page-section']}>
+          <div className={styles['kbc-contact-page-grid']}>
+            <div>
+              <div className={styles['kbc-eyebrow']}>Questions</div>
+              <h2 className={styles['kbc-page-h2']}>
+                Contact and scheduling FAQ.
+              </h2>
+              <p className={styles['kbc-body']} style={{ marginTop: '20px' }}>
+                Kelly&rsquo;s Fort Thomas therapy office serves clients through
+                in-person and virtual options depending on service type,
+                availability, and location. These quick answers can help you
+                decide whether to send a general question or complete the
+                appointment request form.
+              </p>
+            </div>
+            <div className={styles['kbc-faq-list']}>
+              {contactFaq.map((faq) => (
+                <details key={faq.question} className={styles['kbc-faq-item']}>
+                  <summary>{faq.question}</summary>
+                  <p>{faq.answer}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>

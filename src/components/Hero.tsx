@@ -18,9 +18,9 @@ export default function Hero({
             yourself.
           </h1>
           <p className={styles['kbc-hero-body']}>
-            Therapy for individuals, couples, and families in Fort Thomas,
-            Kentucky, with a grounded approach rooted in honesty, trust, and
-            meaningful connection.
+            Kelly Baker Curry, MSW, MEd, LCSW provides therapy in Fort Thomas,
+            Kentucky, for individuals, couples, families, and co-parents, with
+            services available for clients in Kentucky and Ohio.
           </p>
           <div className={styles['kbc-hero-cta']}>
             <button

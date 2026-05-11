@@ -4,9 +4,20 @@ import { useEffect, useState } from 'react';
 import LogoMark from './LogoMark';
 import styles from '../styles/Website.module.css';
 
-const links: Array<{ label: string; href: string }> = [
+const serviceLinks = [
+  { label: 'Individual Therapy', href: '/services/individual-therapy' },
+  { label: 'Couples Therapy', href: '/services/couples-therapy' },
+  { label: 'Family Therapy', href: '/services/family-therapy' },
+  { label: 'Coparenting Therapy', href: '/services/coparenting-therapy' },
+];
+
+const links: Array<{
+  label: string;
+  href: string;
+  children?: Array<{ label: string; href: string }>;
+}> = [
   { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
+  { label: 'Services', href: '/services', children: serviceLinks },
   { label: 'Approach', href: '/approach' },
   { label: 'Patient Resources', href: '/patient-resources' },
   { label: 'Contact', href: '/contact' },
@@ -55,9 +66,20 @@ export default function Header({
         </a>
         <div className={styles['kbc-nav-links']}>
           {links.map((l) => (
-            <a key={l.href} href={l.href} className={styles['kbc-nav-link']}>
-              {l.label}
-            </a>
+            <div key={l.href} className={styles['kbc-nav-item']}>
+              <a href={l.href} className={styles['kbc-nav-link']}>
+                {l.label}
+              </a>
+              {l.children ? (
+                <div className={styles['kbc-nav-dropdown']}>
+                  {l.children.map((child) => (
+                    <a key={child.href} href={child.href}>
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              ) : null}
+            </div>
           ))}
           {onRequestConsultation ? (
             <button
@@ -93,14 +115,27 @@ export default function Header({
         >
           <nav className={styles['kbc-mobile-menu-links']}>
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className={styles['kbc-mobile-menu-link']}
-                onClick={() => setMenuOpen(false)}
-              >
-                {l.label}
-              </a>
+              <div key={l.href} className={styles['kbc-mobile-menu-group']}>
+                <a
+                  href={l.href}
+                  className={styles['kbc-mobile-menu-link']}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {l.label}
+                </a>
+                {l.children
+                  ? l.children.map((child) => (
+                      <a
+                        key={child.href}
+                        href={child.href}
+                        className={styles['kbc-mobile-menu-sublink']}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {child.label}
+                      </a>
+                    ))
+                  : null}
+              </div>
             ))}
             {onRequestConsultation ? (
               <button

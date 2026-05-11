@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { DM_Sans, Playfair_Display } from 'next/font/google';
+import { SITE_URL, siteSchema } from '@/src/data/seo';
 import './globals.css';
 
 const playfairDisplay = Playfair_Display({
@@ -19,9 +20,32 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Therapist in Fort Thomas, KY | Kelly Baker Curry, LCSW',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'Therapist in Fort Thomas KY | Kelly Baker Curry, LCSW',
+    template: '%s',
+  },
   description:
-    'Therapy for individuals, couples, and families in Fort Thomas, Kentucky. Kelly Baker Curry, LCSW offers warm, relationship-centered support.',
+    'Kelly Baker Curry, MSW, MEd, LCSW, offers individual, couples, family, and coparenting therapy in Fort Thomas, KY, serving clients in Kentucky and Ohio.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Therapist in Fort Thomas KY | Kelly Baker Curry, LCSW',
+    description:
+      'Individual, couples, family, and coparenting therapy in Fort Thomas, Kentucky, for clients in Kentucky and Ohio.',
+    url: '/',
+    siteName: 'Kelly Baker Curry, LCSW',
+    images: ['/icon.svg'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Therapist in Fort Thomas KY | Kelly Baker Curry, LCSW',
+    description:
+      'Warm, relationship-centered therapy in Fort Thomas, Kentucky, for clients in Kentucky and Ohio.',
+    images: ['/icon.svg'],
+  },
 };
 
 export default function RootLayout({
@@ -32,7 +56,15 @@ export default function RootLayout({
       lang="en"
       className={`${playfairDisplay.variable} ${dmSans.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(siteSchema).replace(/</g, '\\u003c'),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

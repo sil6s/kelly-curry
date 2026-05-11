@@ -44,17 +44,17 @@ export default function Office() {
           <div className={styles['kbc-office-map-wrap']}>
             <iframe
               className={styles['kbc-office-map']}
-              src="https://www.google.com/maps?q=337%20Tower%20Hill%20Road%20Fort%20Thomas%20KY%2041075&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64265.02010326694!2d-84.49523834266184!3d39.08120570124713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b14b2c4b274d%3A0x53680927832b7738!2sKelly%20Baker%20Curry%20Therapy!5e1!3m2!1sen!2sus!4v1778461442098!5m2!1sen!2sus"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="337 Tower Hill Road, Fort Thomas, KY 41075"
+              title="Map to Kelly Baker Curry Therapy at Watch Point in Fort Thomas"
             />
           </div>
           <div className={styles['kbc-office-card-meta']}>
             <div className={styles['kbc-office-card-title']}>337 Tower Hill Road</div>
             <div className={styles['kbc-office-card-body']}>
-              Fort Thomas, KY 41075 &mdash; Park at the bottom of the driveway
-              and text upon arrival.
+              Fort Thomas, KY 41075 &mdash; drive up the long driveway, park at
+              the house at the top, and text upon arrival.
             </div>
           </div>
         </div>
