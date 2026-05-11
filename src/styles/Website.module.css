@@ -3021,8 +3021,11 @@
 /* ---------- CONSOLIDATED CONSULTATION + RESOURCES REFINEMENTS ---------- */
 .kbc-modal:has(.kbc-contact-form-wrap) {
   width: min(100%, 920px);
+  max-height: calc(100dvh - 40px);
   padding: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 .kbc-modal .kbc-contact-form-wrap {
   border: 0;
@@ -3031,6 +3034,19 @@
 }
 .kbc-modal .kbc-contact-form {
   padding: 32px;
+}
+.kbc-modal .kbc-step-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  margin-top: 18px;
+  padding: 16px 0 22px;
+  background: linear-gradient(
+    to top,
+    var(--white) 0%,
+    var(--white) 78%,
+    rgba(255, 255, 255, 0)
+  );
 }
 
 .kbc-resources-preview-inner {
@@ -3243,9 +3259,11 @@
 }
 @media (max-width: 640px) {
   .kbc-modal .kbc-contact-form {
-    padding: 28px 20px;
+    padding: 28px 20px 18px;
   }
   .kbc-modal:has(.kbc-contact-form-wrap) {
+    width: min(100%, calc(100vw - 20px));
+    max-height: calc(100dvh - 20px);
     padding: 0;
   }
   .kbc-intake-form-head {
@@ -3278,6 +3296,9 @@
   .kbc-step-nav {
     align-items: stretch;
     flex-direction: column-reverse;
+  }
+  .kbc-modal .kbc-step-nav {
+    padding-bottom: 18px;
   }
   .kbc-step-nav .kbc-pill,
   .kbc-step-back-btn {
